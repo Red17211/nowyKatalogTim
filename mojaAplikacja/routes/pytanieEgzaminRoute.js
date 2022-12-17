@@ -14,3 +14,4 @@ router.get('/deleteConfirmation', anExamController.showConfirmPage);
 
 module.exports = router;
 ala ma kota
+a sierotka ma rysia
