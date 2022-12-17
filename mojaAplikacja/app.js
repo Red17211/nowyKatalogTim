@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const EgzaminRouter = require('./routes/EgzaminRoute');
 const pytanieEgzaminRouter = require('./routes/pytanieEgzaminRoute');
-const pytaniePytanieRouter = require('./routes/pytanieRoute');
+const PytanieRouter = require('./routes/pytanieRoute');
 const usersRouter = require('./routes/OsobaRoute');
 
 
@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 
 app.use('/Egzamin', EgzaminRouter);
 app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
-app.use('/Pytanie', pytaniePytanieRouter);
+app.use('/Pytanie', PytanieRouter);
 app.use('/Osoba', usersRouter);
 
 

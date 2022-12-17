@@ -6,7 +6,7 @@ exports.showPytanieRozpEgzamin = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/egzamin', {navLocation:'anExam'});
 }
 exports.showExamDetails = (reg, res, next) => {
-    res.render('pagesLotnictwo/Pytanie_egzamin/szczegolyUdzielonychOdpowiedzi', {navLocation:'anExam'});
+    res.render('pagesLotnictwo/Pytanie_egzamin/szczegolyUdzielnonychOdpowiedzi', {navLocation:'anExam'});
 }
 exports.showEditPage = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/edytujUdzieloneOdpowiedzi', {navLocation:'anExam'});

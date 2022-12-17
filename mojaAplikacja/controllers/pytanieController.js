@@ -6,7 +6,7 @@ exports.showEgzaminDodajPytanie = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie/dodajPytanie', {navLocation:'question'});
 }
 exports.showExamDetails = (reg, res, next) => {
-    res.render('pagesLotnictwo/Pytanie/szczegółyPytań', {navLocation:'question'});
+    res.render('pagesLotnictwo/Pytanie/szczegołyPytan', {navLocation:'question'});
 }
 exports.showEditedConfirmation = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie/editedPytanie', {navLocation:'question'});
@@ -20,4 +20,5 @@ exports.showDeletedConfirmation = (reg, res, next) => {
 exports.showEditPage = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie/edytujPytanie', {navLocation:'question'});
 }
+
 
