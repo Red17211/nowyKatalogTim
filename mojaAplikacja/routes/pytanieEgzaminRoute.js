@@ -13,3 +13,4 @@ router.get('/deleted', anExamController.showDeletedConfirmation);
 router.get('/deleteConfirmation', anExamController.showConfirmPage);
 
 module.exports = router;
+ala ma kota
