@@ -1,0 +1,83 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+            <h2>Lista egzaminów</h2>
+            <table id="tabelka" class="table-list" >
+                <tr>
+                    <th>Id</th>
+                    <th>Data egaminu</th>
+                    <th>Przedmiot</th>
+                    <th>Godzina rozpoczęcia</th>
+                    <th>Godzina zakończenia</th>
+                    <th>Liczba punktów</th>
+                    <th>Akcje</th>
+                </tr>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2021-11-24</td>
+                        <td>Planowanie i monitorowanie lotu</td>
+                        <td>8 00</td>
+                        <td>10 00</td>
+                        <td>21</td>
+                        <td>
+                            <a href="/egzamin/szczegoly/1" class="list-actions-button-details">Szczegóły</a>
+                            <a href="/egzamin/edit/1" class="list-actions-button-edit">Edytuj</a>
+                            <a href="/egzamin/deleteConfirmation" class="list-actions-button-delete">Usuń</a>
+                            </td>
+                        </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>2021-11-23</td>
+                        <td>Nawigacja ogólna</td>
+                        <td>8 00</td>
+                        <td>10 00</td>
+                        <td>1</td>
+                        <td>
+                            <a href="szczegolyEgzaminu.html" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="edycjaEgzaminu.html" class="list-actions-button-edit">Edytuj</a>
+                                
+                            <a href="PytaniePotwierdzenieUsuniecia.html" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>2021-11-24</td>
+                        <td>Osiągi samolotu</td>
+                        <td>8 00</td>
+                        <td>10 00</td>
+                        <td>20</td>
+                        <td>
+                            <a href="szczegolyEgzaminu.html" class="list-actions-button-details">Szczegóły</a>
+
+                            <a href="edycjaEgzaminu.html" class="list-actions-button-edit">Edytuj</a>
+
+                            <a href="PytaniePotwierdzenieUsuniecia.html" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>2021-11-24</td>
+                        <td>Człowiek - jego możliwości i ograniczenia</td>
+                        <td>8 00</td>
+                        <td>10 00</td>
+                        <td>21</td>
+                        <td>
+                            <a href="szczegolyEgzaminu.html" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="edycjaEgzaminu.html" class="list-actions-button-edit">Edytuj</a>
+                                
+                            <a href="PytaniePotwierdzenieUsuniecia.html" class="list-actions-button-delete">Usuń</a>     
+                        </td>
+                    </tr>
+
+                </tbody>      
+            </table>
+            <p><a href="/egzamin/dodajEgzamin" class="button-add">Dodaj nowy egzamin</a></p>
+        </main>
+ <%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,44 @@
+ <%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Dodaj nową osobę</h2>
+
+
+            <form id="formularz2" class="form"  novalidate onsubmit="return validateForm();" action="added">
+
+                <div>
+                    <label for="pesel">Pesel</label>
+                    <input type="number" id="pesel" name="pesel" placeholder="11 znaków" required>
+                    <span class="peselRequired" id="errorPesel"></span>
+                </div>
+                
+                <div>
+                    <label for="name">Imię</label>
+                    <input type="text" id="name" name="name" placeholder="2-60 znaków" required>
+                    <span class="ImieRequired" id="errorName"></span>
+                </div>
+
+                <div>
+                    <label for="surname">Nazwisko</label>
+                    <input type="text" id="surname" name="surname" placeholder="2-60 znaków" required>
+                    <span class="surnameRequired" id="errorSurname"></span>
+                </div>
+
+                <div>
+                    <label for="permissionCode">Kod upraniwnienia</label>
+                    <input type="number" id="permissionCode" name="permissionCode" placeholder="1-6 znaków" required>
+                    <span class="permissionCodeRequired" id="errorPermissionCode"></span>
+                </div>
+                
+                <div id="allForm2" class="allErrors Errors">
+                </div>
+
+
+                <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input type="submit" value="Dodaj" class="form-button-submit">
+                    <a href="/Osoba" class="form-button-cancel">Anuluj</a>
+                </div>
+            </form>
+        </main>
+ <%- include('../../fragments/footer.ejs') %>

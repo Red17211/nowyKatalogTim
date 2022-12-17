@@ -1,0 +1,61 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Edycja udzielonych odpowiedzi</h2>
+
+            <form id="formularz2" class="form" novalidate onsubmit="return validateForm();" action="../edited">
+                
+                <div>
+                    <label for="response">Odpowiedź</label>
+                    <input type="number" id="response" name="response" placeholder="1/2/3/4" value="1" required>
+                    <span id="errorResponse" class="responseRequired Errors"></span>
+                </div>
+                <div>
+                    <label for="startTime">Godzina odpowiedzi</label>
+                    <input type="time" id="startTime" name="startTime" value="10:00" required>
+                    <span id="errorStartTime"class="startTimeRequired Errors"></span>
+                </div>
+                <div>
+                    <label for="name">Imię</label>
+                    <input type="text" id="name" name="name" placeholder="3-60 znaków" value="Jan" required>
+                    <span id="errorName" class="ImieRequired Errors"></span>
+                </div>
+    
+                <div>
+    
+                    <label for="surname">Nazwisko</label>
+                    
+                    <input type="text" id="surname" name="surname" placeholder="3-60 znaków" value="Kowalski" required>
+    
+                    <span id="errorSurname" class="surnameRequired Errors"></span>
+    
+                </div>
+
+                <div>
+    
+                    <label for="pesel">Pesel</label>
+    
+                    <input type="number" id="pesel" name="pesel" placeholder="11 znaków" value="87152355559" required>
+    
+                    <span id="errorPesel" class="peselRequired Errors"></span>
+    
+                </div>
+    
+                <div id="allForm2" class="allErrors Errors">
+                 </div>
+    
+    
+                <div class="form-buttons">
+    
+                    <p id="errorSummary"></p>
+    
+                    <input type="submit" value="Zapisz" class="form-button-submit">
+    
+                    <a href="/Pytanie_egzamin" class="form-button-cancel">Anuluj</a>
+    
+                </div>
+    
+            </form>
+                             
+        </main>
+<%- include('../../fragments/footer.ejs') %>

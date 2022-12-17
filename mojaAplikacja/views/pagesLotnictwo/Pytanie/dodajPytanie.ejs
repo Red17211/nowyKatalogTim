@@ -1,0 +1,86 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Dodaj nowe pytanie</h2>
+
+            <form id="formularz" class="form" novalidate onsubmit="return validateForm();" action="addedKom" >
+
+                <div>
+
+                    <label for="contents">Treść pytania</label>
+
+                    <input type="text" id="contents" name="contents" placeholder="5-60 znaków" required>
+
+                    <span class="contentsRequired Errors" id="cont"></span>
+
+                </div>
+                
+                <div>
+
+                    <label for="response1">Odpowiedź 1</label>
+
+                    <input type="text" id="response1" name="response1" placeholder="3-60 znaków" required>
+
+                    <span class="response1Required Errors" id="errorResponse1" ></span>
+
+                </div>
+
+                <div>
+
+                    <label for="response2">Odpowiedź 2</label>
+
+                    <input type="text" id="response2" name="response2" placeholder="3-60 znaków" required>
+
+                    <span id="errorResponse2" class="response2Required Errors"></span>
+
+                </div>
+
+                <div>
+
+                    <label for="response3">Odpowiedź 3</label>
+
+                    <input type="text" id="response3" name="response3" placeholder="3-60 znaków" required>
+
+                    <span id="errorResponse3" class="response3Required Errors"></span>
+
+                </div>
+
+                <div>
+
+                    <label for="correctAnswer">Poprawna odpowiedź</label>
+
+                    <input type="number" id="correctAnswer" name="correctAnswer" placeholder="3-60 znaków" required>
+
+                    <span id="errorCorrectAnswer" class="correctAnswerRequired Errors"></span>
+
+                </div>
+
+                <div> 
+
+                    <label for="item">Przedmiot</label>
+
+                    <input type="text" id="item" name="item" placeholder="3-60 znaków" required>
+
+                    <span id="errorItem" class="itemRequired Errors"></span>
+
+                </div>
+                
+
+                <div id="allForm" class="allErrors Errors">
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <p id="errorSummary"></p>
+
+                    <input  type="submit" value="Dodaj" class="form-button-submit">
+
+                    <a href="/Pytanie" class="form-button-cancel">Anuluj</a>
+
+                </div>
+
+            </form>
+        </main>
+ <%- include('../../fragments/footer.ejs') %>

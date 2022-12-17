@@ -1,0 +1,88 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Szczegóły egzaminu</h2>
+
+            <form  id="formularz" class="form">
+                
+                <label for="przedmiot">Nazwa przedmiotu:<span class="symbol-required">*</span></label> 
+                <input type="text" name="przedmiot" id="przedmiot" value="Nawigacja" disabled>
+
+                <label for="data">Data:<span class="symbol-required">*</span></label> 
+                <input type="date" name="data" id="data" value="2022-10-15" disabled>
+    
+                <label for="rozpoczęcie">Godzina rozpoczęcia:<span class="symbol-required">*</span></label>
+                <input type="time" name="rozpoczęcie" id="rozpoczęcie" value="15:00" disabled>
+                
+                <label for="zakończenie">Godzina zakończenia:</label>
+                <input type="time" name="zakończenie" id="zakończenie" value="17:00" disabled>
+               
+                <label for="punkty">Liczba punktów do zdobycia:</label>
+                <input type="number" name="punkty" id="punkty" value="50" disabled>
+
+                <br><br>    
+
+                <h3>Lista udzielonych odpowiedzi do tego egzaminu:</h3>
+                
+                <table id="tabelka" class="table-list">
+                    
+                    <tr>
+                        <th>Id</th>
+                        <th>Odpowiedź</th>
+                        <th>Godzina odpowiedzi</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Pesel egzaminowanego</th>
+                    </tr>
+    
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>10 01</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>10 02</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>3</td>
+                            <td>23</td>
+                            <td>10 03</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>10 04</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                    </tbody>  
+                              
+                </table>
+
+                <div class="form-buttons"> 
+                    <p id="errorSummary"></p>
+                    <a href="/egzamin/edit/1" class="form-button-submit">Edycja</a>
+                    <a href="/egzamin/deleteConfirmation" class="form-button-cancel">Powrót</a>
+                    
+                </div>
+                
+            </form>
+        </main>
+ <%- include('../../fragments/footer.ejs') %>

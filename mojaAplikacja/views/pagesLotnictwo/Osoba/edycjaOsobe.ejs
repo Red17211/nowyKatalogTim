@@ -1,0 +1,66 @@
+ <%- include('../../fragments/header.ejs') %>
+
+        <main>
+
+            <h2>Edycja osoby</h2>
+
+
+            <form id="formularz" class="form" novalidate onsubmit="return validateForm();" action="editedOsoba.html" >
+
+               <div>
+                    <label for="pesel">Pesel</label>
+                    <input type="number" id="pesel" name="pesel" placeholder="11 znaków" value="87152355559" required>
+                    <span class="peselRequired Errors" id="errorPesel"></span>
+                </div>
+                
+
+                <!-- 
+                <div>
+
+                    <label for="pesel">Pesel</label>
+    
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+    
+                        <input type="number" id="pesel" name="pesel" placeholder="Pesel" value="87152355559" required>
+    
+                        <span class="peselRequired Errors">Pole jest wymagane</span>
+    
+                    </div>
+    
+                </div>
+                -->
+                    
+                <div>
+                    <label for="name">Imię</label>
+                    <input type="text" id="name" name="name" placeholder="2-60 znaków" value="Jan" required>
+                    <span class="ImieRequired Errors" id="errorName"></span>
+                </div>
+    
+                <div>
+                    <label for="surname">Nazwisko</label>
+                    <input type="text" id="surname" name="surname" placeholder="2-60 znaków" value="Kowalski" required>
+                    <span class="surnameRequired Errors" id="errorSurname"></span>
+    
+                </div>
+    
+                <div>
+                    <label for="permissionCode">Kod upraniwnienia</label>
+                    <input type="number" id="permissionCode" name="permissionCode" placeholder="1-6 znaków" value="1172" required>
+                    <span class="permissionCodeRequired Errors" id="errorPermissionCode" ></span>
+                </div>
+    
+                <div id="allForm2" class="allErrors Errors">
+                </div>
+
+                </div>
+                    <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input type="submit" value="Zapisz" class="form-button-submit">
+                    <a href="listaOsobEgzaminowanych.html" class="form-button-cancel">Anuluj</a>
+                </div>
+    
+            </form>
+                             
+        </main>
+
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,78 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+            <h2>Lista osób egzaminowanych</h2>
+            
+            <table id="tabelka" class="table-list">
+                <tr>
+                    <th>Pesel</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Kod uprawnienia</th>
+                    <th>Akcje</th>
+                </tr>
+
+                <tbody>
+                    <tr>
+                        <td>87152355559</td>
+                        <td>Jan</td>
+                        <td>Kowalski</td>
+                        <td>1172</td>
+                        <td>
+                            <a href="/Osoba/szczegóły/1" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="/Osoba/edit/1" class="list-actions-button-edit">Edytuj</a>
+                            
+                            <a href="/Osoba" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>95022459444</td>
+                        <td>Marcin</td>
+                        <td>Nowakowski</td>
+                        <td>1177</td>
+                        <td> 
+                            <a href="szczegółyOsoby" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="edycjaOsobe" class="list-actions-button-edit">Edytuj</a>
+                                
+                            <a href="PytaniePotwierdzUsunOsoby" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>95022459555</td>
+                        <td>Paweł</td>
+                        <td>Zborowski</td>
+                        <td>13172</td>
+                        <td>  
+                            <a href="szczegółyOsoby" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="edycjaOsobe" class="list-actions-button-edit">Edytuj</a>
+                                
+                            <a href="PytaniePotwierdzUsunOsoby" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>95022459666</td>
+                        <td>JŁukasz</td>
+                        <td>Jantar</td>
+                        <td>17442</td>
+                        <td>  
+                            <a href="szczegółyOsoby" class="list-actions-button-details">Szczegóły</a>
+                                
+                            <a href="edycjaOsobe" class="list-actions-button-edit">Edytuj</a>
+                                
+                            <a href="PytaniePotwierdzUsunOsoby" class="list-actions-button-delete">Usuń</a>
+                        </td>
+                    </tr>
+                </tbody>           
+            </table>
+            
+            <p><a href="/Osoba/dodajOsobe" class="button-add">Dodaj nową osobę</a></p>
+        
+        </main>
+<%- include('../../fragments/footer.ejs') %>
+

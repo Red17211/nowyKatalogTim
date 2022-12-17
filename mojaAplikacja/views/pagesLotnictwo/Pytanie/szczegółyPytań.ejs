@@ -1,0 +1,91 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Szczegóły pytań</h2>
+
+            <form  id="formularz" class="form">
+                
+                <label for="treść">Treść pytania:<span class="symbol-required">*</span></label> 
+                <input type="text" name="treść" id="treść" value="Załoga statku powietrznego ma obowiązek zapinania wszystkich pasów bezpieczeństwa i uprzęży" disabled>
+            
+                <label for="odpowiedz1">Odpowiedź 1:<span class="symbol-required">*</span></label> 
+                <input type="text" name="dpowiedz1" id="odpowiedz1" value="Do startu i lądowania oraz w sytuacjach kiedy dowódca statku powietrznego uzna to za konieczne" disabled>
+    
+                <label for="odpowiedz2">Odpowiedź 2:<span class="symbol-required">*</span></label>
+                <input type="text" name="odpowiedz2" id="odpowiedz2" value="Do startu i do lądowania" disabled>
+                
+                <label for="odpowiedz3">Odpowiedź 3:<span class="symbol-required">*</span></label>
+                <input type="text" name="odpowiedz3" id="odpowiedz3" value="Tylko na polecenie dowódcy załogi statku powietrznego" disabled>
+               
+                <label for="poporawna">Poprawan odpowiedź:<span class="symbol-required">*</span></label>
+                <input type="number" name="poporawna" id="poporawna" value="1" disabled>
+
+                <label for="przedmiot">Przedmiot:<span class="symbol-required">*</span></label>
+                <input type="text" name="przedmiot" id="przedmiot" value="Nawigacja ogólna" disabled>
+
+                <br><br>    
+
+                <h3>Lista udzielonych odpowiedzi w egzaminach na to pytanie:</h3>
+                
+                <table id="tabelka" class="table-list">
+                    
+                    <tr>
+                        <th>Id</th>
+                        <th>Odpowiedź</th>
+                        <th>Godzina odpowiedzi</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Pesel egzaminowanego</th>
+                    </tr>
+    
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>10 01</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>10 02</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>3</td>
+                            <td>23</td>
+                            <td>10 03</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>10 04</td>
+                            <td>Jan</td>
+                            <td>Kowalski</td>
+                            <td>87152355559</td>
+                        </tr>
+    
+                    </tbody>  
+         
+                </table>
+
+                <div class="form-buttons"> 
+                    <p id="errorSummary"></p>
+                    <a href="edytujPytanie.html" class="form-button-submit">Edycja</a>
+                    <a href="listaPytan.html" class="form-button-cancel">Powrót</a>
+                    
+                </div>
+                
+            </form>
+        </main>
+ <%- include('../../fragments/footer.ejs') %>

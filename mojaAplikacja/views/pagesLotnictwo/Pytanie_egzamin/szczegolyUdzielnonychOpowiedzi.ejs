@@ -1,0 +1,101 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+
+            <h2>Szczegóły udzielonej odpowiedzi</h2>
+
+            <form  id="formularz1" class="form">
+                
+                <label for="odpowiedź">Odpowiedź:<span class="symbol-required">*</span></label> 
+                <input type="text" name="odpowiedź" id="odpowiedź" value="1" disabled>
+            
+                <label for="godzina">Godzina odpowiedzi:<span class="symbol-required">*</span></label> 
+                <input type="time" name="godzina" id="godzina" value="10:01" disabled>
+    
+                <label for="imię">Imię:<span class="symbol-required">*</span></label>
+                <input type="text" name="imię" id="imię" value="Jan" disabled>
+                
+                <label for="nazwisko">Nazwisko:<span class="symbol-required">*</span></label>
+                <input type="text" name="nazwisko" id="nazwisko" value="Kowalski" disabled>
+               
+                <label for="pesel">Pesel egzaminowanego:<span class="symbol-required">*</span></label>
+                <input type="number" name="pesel" id="pesel" value="87152355559" disabled>
+
+                <br><br>
+
+                
+
+                <div class="form-buttons"> 
+                    <p id="errorSummary"></p>
+                    <a href="edytujUdzieloneOpowiedzi.html" class="form-button-submit">Edycja</a>
+                    <a href="pytanieEgzamin.html" class="form-button-cancel">Powrót</a>
+                    
+                </div>
+                
+            </form>
+
+            <h3>Szczegóły egzaminu</h3>
+
+                <form  id="formularz" class="form">
+                
+                    <label for="przedmiot1">Nazwa przedmiotu:<span class="symbol-required">*</span></label> 
+                    <input type="text" name="przedmiot1" id="przedmiot1" value="Nawigacja" disabled>
+                
+                    <label for="data">Data:<span class="symbol-required">*</span></label> 
+                    <input type="date" name="data" id="data" value="2022-10-15" disabled>
+        
+                    <label for="rozpoczęcie">Godzina rozpoczęcia:<span class="symbol-required">*</span></label>
+                    <input type="time" name="rozpoczęcie" id="rozpoczęcie" value="15:00" disabled>
+                    
+                    <label for="zakończenie">Godzina zakończenia:</label>
+                    <input type="time" name="zakończenie" id="zakończenie" value="17:00" disabled>
+                   
+                    <label for="punkty">Liczba punktów do zdobycia:</label>
+                    <input type="number" name="punkty" id="punkty" value="50" disabled>
+
+                    
+                </form>
+
+                <h3>Szczegóły pytania</h3>
+
+                <form  id="formularz4" class="form">
+                    
+                    <label for="treść">Treść pytania:<span class="symbol-required">*</span></label> 
+                    <input type="text" name="treść" id="treść" value="Załoga statku powietrznego ma obowiązek zapinania wszystkich pasów bezpieczeństwa i uprzęży" disabled>
+                
+                    <label for="odpowiedz1">Odpowiedź 1:<span class="symbol-required">*</span></label> 
+                    <input type="text" name="odpowiedz1" id="odpowiedz1" value="Do startu i lądowania oraz w sytuacjach kiedy dowódca statku powietrznego uzna to za konieczne" disabled>
+        
+                    <label for="odpowiedz2">Odpowiedź 2:<span class="symbol-required">*</span></label>
+                    <input type="text" name="odpowiedz2" id="odpowiedz2" value="Do startu i do lądowania" disabled>
+                    
+                    <label for="odpowiedz3">Odpowiedź 3:<span class="symbol-required">*</span></label>
+                    <input type="text" name="odpowiedz3" id="odpowiedz3" value="Tylko na polecenie dowódcy załogi statku powietrznego" disabled>
+                   
+                    <label for="poporawna">Poprawan odpowiedź:<span class="symbol-required">*</span></label>
+                    <input type="number" name="poporawna" id="poporawna" value="1" disabled>
+    
+                    <label for="przedmiot2">Przedmiot:<span class="symbol-required">*</span></label>
+                    <input type="text" name="przedmiot2" id="przedmiot2" value="Nawigacja ogólna" disabled>
+    
+                </form>
+
+                <h3>Szczegóły osoby udzielającej odpowiedzi:</h3>
+                <form  id="formularz3" class="form">
+                
+                    <label for="pesel">Pesel:<span class="symbol-required">*</span></label>
+                    <input type="number" name="pesel" id="pesel1" value="87152355559" disabled>
+                
+                    <label for="imię">Imię:<span class="symbol-required">*</span></label>
+                    <input type="text" name="imię" id="Imię" value="Jan" disabled>
+        
+                    <label for="nazwisko">Nazwisko:<span class="symbol-required">*</span></label>
+                    <input type="text" name="nazwisko" id="Nazwisko" value="Kowalski" disabled>
+                    
+                    <label for="kod">Kod uprawnienia:<span class="symbol-required">*</span></label>
+                    <input type="number" name="kod" id="kod" value="50" disabled>
+                    
+                </form>
+
+        </main>
+<%- include('../../fragments/footer.ejs') %>

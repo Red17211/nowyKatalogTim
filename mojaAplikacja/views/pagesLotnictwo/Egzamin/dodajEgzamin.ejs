@@ -1,0 +1,37 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Dodaj nowy egzamin</h2>
+            <form  id="formularz2" class="form" novalidate onsubmit="return validateForm();" action="added" >
+                <div>
+                    <label for="myDate">Data egzaminu</label>
+                    <input type="date" id="myDate" name="myDate" required>
+                    <span id="errorMyDate" class="Errors myDateRequired"></span>
+                </div>
+                <div>
+                    <label for="item">Przedmiot</label>
+                    <input type="text" id="item" name="item" placeholder="2-60 znaków" required>
+                    <span id="errorItem" class="itemRequired Errors"></span>
+                </div>
+                <div>
+                    <label for="startTime">Godzina rozpoczęcia</label>
+                    <input type="time" id="startTime" name="startTime" required>
+                    <span id="errorStartTime" class="startTimeRequired Errors"></span>
+                </div>
+                <div>
+                    <label for="endTime">Godzina zakończenia</label>
+                    <input type="time" id="endTime" name="endTime">
+                </div>
+                <div>
+                    <label for="points">Liczba punktów</label>
+                    <input type="number" id="points" name="points" placeholder="Liczba punktów">
+                </div>
+                <div id="allForm2" class="allErrors Errors">
+                </div>
+                <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input  type="submit" value="Dodaj" class="form-button-submit">
+                    <a href="/egzamin" class="form-button-cancel">Anuluj</a>
+                </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

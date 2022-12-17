@@ -1,0 +1,59 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+
+            <h2>Edycja egzaminu</h2>
+
+
+            <form  id="formularz" class="form" novalidate onsubmit="return validateForm();" action="../editedPytanieKom">
+
+                <div>
+                    <label for="contents">Treść pytania</label>
+                    <input type="text" id="contents" name="contents" placeholder="5-60 znaków" value="AMC jest to" required>
+                    <span id="cont" class="contentsRequired Errors" ></span>
+                </div>
+                
+                <div>
+                    <label for="response1">Odpowiedź 1</label>
+                    <input type="text" id="response1" name="response1" placeholder="3-60 znaków" value="Ośrodek Zarządzania Przestrzenią Powietrzną" required>
+                    <span id="errorResponse1" class="response1Required Errors"></span>
+                </div>
+
+                <div>
+                    <label for="response2">Odpowiedź 2</label>
+                    <input type="text" id="response2" name="response2" placeholder="3-60 znaków" value="Ośrodek Zarządzania Przepływem Ruchu Lotniczego" required>
+                    <span id="errorResponse2" class="response2Required Errors"></span>
+                </div>
+
+                <div>
+                    <label for="response3">Odpowiedź 3</label>
+                    <input type="text" id="response3" name="response3" placeholder="3-60 znaków" value="Plan użytkowania przestrzeni powietrznej" required>
+                    <span id="errorResponse3" class="response3Required Errors"></span>
+                </div>
+
+                <div>
+                    <label for="correctAnswer">Poprawna odpowiedź</label>
+                    <input type="number" id="correctAnswer" name="correctAnswer" placeholder="1-60 znaków" value="1" required>
+                    <span id="errorCorrectAnswer" class="correctAnswerRequired Errors"></span>
+                </div>
+
+                <div>
+                    <label for="item">Przedmiot</label>
+                    <input type="text" id="item" name="item" placeholder="3-60 znaków" value="Nawigacja ogólna" required>
+                    <span id="errorItem" class="itemRequired Errors"></span>
+                </div>
+
+
+                <div id="allForm" class="allErrors Errors">
+                </div>
+
+
+                <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input  type="submit" value="Zapisz" class="form-button-submit">
+                    <a href="/Pytanie" class="form-button-cancel">Anuluj</a>
+                </div>
+
+            </form>
+
+        </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,35 @@
+ <%- include('../../fragments/header.ejs') %>
+
+            <h2>Edycja pytania</h2>
+
+            <form  id="formularz" class="form" action="added.html">
+                
+                <label for="treść">Treść pytania:<span class="symbol-required">*</span></label> 
+                <input type="text" name="treść" id="treść" class="errors-text" required>
+                <span class="Errors myDateRequired">Pole jest wymagane</span>
+            
+                <label for="odpowiedz1">Odpowiedź 1:<span class="symbol-required">*</label> 
+                <input type="text" name="odpowiedz1" id="odpowiedz1" required>
+    
+                <label for="odpowiedz2">Odpowiedź 2:<span class="symbol-required">*</span></label>
+                <input type="text" name="odpowiedz2" id="odpowiedz2" required>
+                
+                <label for="odpowiedz3">Odpowiedź 3:<span class="symbol-required">*</span></label>
+                <input type="text" name="odpowiedz3" id="odpowiedz3">
+               
+                <label for="poporawna">Poprawan odpowiedź:<span class="symbol-required">*</span></label>
+                <input type="number" name="poporawna" id="poporawna">
+
+                <label for="przedmiot">Przedmiot:<span class="symbol-required">*</span></label>
+                <input type="text" name="przedmiot" id="przedmiot">
+
+                <div class="form-buttons"> 
+                    <p id="errorSummary"></p>
+                    <input  type="submit" value="Zapisz" class="form-button-submit"/>
+                    <a href="listaPytan.html" class="form-button-cancel">Anuluj</a>
+                    
+                </div>
+                
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

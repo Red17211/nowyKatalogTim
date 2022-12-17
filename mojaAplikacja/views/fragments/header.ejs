@@ -1,0 +1,24 @@
+<!--Strona główna, sprawdzone w3-->
+<!DOCTYPE html>
+ <html lang ="pl-PL">
+ <head>
+    <link rel="stylesheet" href="/style.css">
+
+    <meta charset="UTF-8">
+    <title>System egzaminacyjny urzędu lotnictwa cywilnego</title>
+</head>
+<body>
+    <header>
+        <h1>System egzaminacyjny urzędu lotnictwa cywilnego</h1>
+        <img src="images/lotnictwo.png" alt="SEULC Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <li><a href="/Egzamin"class="<%= navLocation == 'exam' ? 'active' : ''%>">Egzamin</a></li>
+            <li><a href="/Pytanie_egzamin"class="<%= navLocation == 'anExam' ? 'active' : ''%>">Pytanie egzamin</a></li>
+            <li><a href="/Pytanie"class="<%= navLocation == 'question' ? 'active' : ''%>">Pytanie</a></li>
+            <li><a href="/Osoba"class="<%= navLocation == 'person' ? 'active' : ''%>">Osoba</a></li>
+        </ul>
+    </nav>
