@@ -8,7 +8,7 @@ router.get('/dodajPytanie', questionController.showEgzaminDodajPytanie);
 router.get('/details/:questionId', questionController.showExamDetails);
 router.get('/edit/:questionId', questionController.showEditPage);
 router.get('/addedKom', questionController.showAddedConfirmation);
-router.get('/editedPytanie', questionController.showEditedConfirmation);
+router.get('/editedPytanieKom', questionController.showEditedConfirmation);
 router.get('/deletedKom', questionController.showDeletedConfirmation);
 
 
