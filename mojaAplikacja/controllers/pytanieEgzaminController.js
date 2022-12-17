@@ -12,7 +12,7 @@ exports.showEditPage = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/edytujUdzieloneOdpowiedzi', {navLocation:'anExam'});
 }
 exports.showAddedConfirmation = (reg, res, next) => {
-    res.render('pagesLotnictwo/Pytanie_egzamin/KomunikatZakończeniaEgzaminu', {navLocation:'anExam'});
+    res.render('pagesLotnictwo/Pytanie_egzamin/KomunikatZakonczeniaEgzaminu', {navLocation:'anExam'});
 }
 exports.showEditedConfirmation = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/edited', {navLocation:'anExam'});
