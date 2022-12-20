@@ -2,9 +2,8 @@ const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
 const Person = sequelize.define("Person", {
-    _id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+    pesel: {
+        type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true
     },
@@ -16,9 +15,9 @@ const Person = sequelize.define("Person", {
        type: Sequelize.STRING,
        allowNull: false
    },
-   pesel: {
-    type: Sequelize.STRING,
-    allowNull: false
+   permissionCode: {
+          type: Sequelize.INTEGER,
+          allowNull: false
    }
 });
 

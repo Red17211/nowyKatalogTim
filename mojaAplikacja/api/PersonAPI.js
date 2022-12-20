@@ -1,9 +1,9 @@
-const PersonRepository = require('../repository/mysql2/PersonRepository');
+const PersonRepository = require('../repository/sequelize/PersonRepository');
 
 exports.getPersons = (req, res, next) => {
     PersonRepository.getPersons()
         .then(persons => {
-            res.status(200).json(emps);
+            res.status(200).json(persons);
         })
         .catch(err => {
             console.log(err);
@@ -20,7 +20,7 @@ exports.getPersonById = (req, res, next) => {
                 });
             }
             else{
-                res.status(200).json(emp);
+                res.status(200).json(person);
             }
         });
 };

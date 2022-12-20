@@ -1,4 +1,14 @@
+const PersonRepository = require('../repository/sequelize/PersonRepository');
+
+
 exports.showOsobaList = (reg, res, next) => {
+//    PersonRepository.getPersons()
+//        .then(persons => {
+//            res.render('pagesLotnictwo/Osoba/listaOsobEgzaminowanych', {
+//                persons: persons,
+//                navLocation: 'person'
+//            });
+//        });
     res.render('pagesLotnictwo/Osoba/listaOsobEgzaminowanych', {navLocation:'person'});
 }
 exports.showDodajOsobe = (reg, res, next) => {

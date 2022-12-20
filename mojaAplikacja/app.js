@@ -30,7 +30,15 @@ app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
 app.use('/Pytanie', PytanieRouter);
 app.use('/Osoba', usersRouter);
 
+const personApiRouter = require('./routes/api/PersonApiRoute');
+const questionApiRouter = require('./routes/api/QuestionApiRoute');
+const examApiRouter = require('./routes/api/ExamApiRoute');
+const questionExamApiRouter = require('./routes/api/QuestionExamApiRoute');
 
+app.use('/api/persons', personApiRouter);
+app.use('/api/questions', questionApiRouter);
+app.use('/api/exams', examApiRouter);
+app.use('/api/questionExams', questionExamApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,5 +61,8 @@ sequelizeInit()
     .catch(err => {
         console.log(err);
     });
+
+
+
 
 module.exports = app;

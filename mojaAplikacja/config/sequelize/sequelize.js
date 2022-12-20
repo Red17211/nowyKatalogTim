@@ -5,4 +5,4 @@ const sequelize = new Sequelize('tin-example-sequelize', 'root', 'root', {
     host: 'localhost'
 });
 
-module.exports = sequelize;
+module.exports =  sequelize;
