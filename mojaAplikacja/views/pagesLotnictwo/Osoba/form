@@ -1,0 +1,27 @@
+<main>
+    script type="application/javascript" src="/js/validationPersonForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <input type="hidden" name="_id" value="<%=person._id %>">
+
+    <input type="number" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+    <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+    <input type="text" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+    <input type="number" name="persmissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+    <h2>
+        Szczegóły osoby
+    </h2>
+    <table clss="table-list>
+        <thead>
+        <tr>
+            <
