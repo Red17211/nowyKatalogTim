@@ -108,7 +108,6 @@ module.exports = () => {
                 })
             .then(questionExams => {
                 if( !questionExams || questionExams.length == 0 ) {
-                console.log('SIEMAasd: ' + allQuestions[0]._id);
                     return Question_Exam.bulkCreate([
 
                         {examId: 1, questionId: 1, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
@@ -132,7 +131,6 @@ module.exports = () => {
                     });
                 }
                 else{
-                console.log('SIEMA2: ' + allQuestions[0]._id);
                     return questionExams;
                 }
             })

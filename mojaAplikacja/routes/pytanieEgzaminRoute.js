@@ -11,7 +11,7 @@ router.get('/edit/:examId', anExamController.showEditPage);
 router.get('/KomunikatZakonczeniaEgzaminu', anExamController.showAddedConfirmation);
 router.get('/edited', anExamController.showEditedConfirmation);
 router.get('/deleted', anExamController.showDeletedConfirmation);
-router.get('/deleteConfirmation', anExamController.showConfirmPage);
+
 
 router.post('/add', anExamController.addQuestionExam);
 router.post('/edit', anExamController.updateQuestionExam);

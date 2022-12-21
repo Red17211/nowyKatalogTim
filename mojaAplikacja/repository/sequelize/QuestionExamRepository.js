@@ -7,6 +7,7 @@ exports.getQuestionExams = () => {
     return QuestionExam.findAll();
 };
 
+
 exports.getQuestionExamById = (questionExamId) => {
     return QuestionExam.findByPk(questionExamId);
 };

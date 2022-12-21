@@ -19,25 +19,26 @@ exports.showListaPytanieEgzamin = (req, res, next) => {
 }
 
 exports.showQuestionExamDetails = (req, res, next) => {
-    let allQuestions;
-    QuestionRepository.getQuestions()
+
+
+           const questionExamId = req.params.questionExamId;
+               QuestionExamRepository.getQuestionExamById(questionExamId)
+                   .then(questionExam =>{
+QuestionRepository.getQuestions()
         .then(questions =>{
             allQuestions = questions;
             return QuestionExamRepository.getQuestionExams();
-        })
-   .then(questionExam =>{
-       const questionExamId = req.params.questionExamId;
-        let qe = QuestionExamRepository.getQuestionExamById(questionExamId);
-       console.log("999: " + qe.answer)
-       res.render('pagesLotnictwo/Pytanie_egzamin/form', {
-           questionExam: qe,
-           pageTitle: 'Szczegóły udzielonych odpowiedzi na egzaminach',
-           formMode: 'showDetails',
-           formAction: '',
-           navLocation: 'anExam',
-           allQuestions: allQuestions
-       });
-       });
+        });
+
+                       res.render('pagesLotnictwo/Pytanie_egzamin/form', {
+                           questionExam: questionExam,
+                           pageTitle: 'Szczegóły udzielonych odpowiedzi na egzaminach',
+                           formMode: 'showDetails',
+                           formAction: '',
+                           navLocation: 'anExam'
+                       });
+
+                   });
 }
 
 exports.wyborTematu = (req, res, next) => {
@@ -59,12 +60,6 @@ exports.showEditedConfirmation = (req, res, next) => {
 }
 exports.showDeletedConfirmation = (req, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/deleted', {navLocation:'anExam'});
-}
-exports.showConfirmPage = (req, res, next) => {
-    res.render('pagesLotnictwo/Pytanie_egzamin/PytPotUsunPytEgzamin', {navLocation:'anExam'});
-}
-exports.getExam = (req, res, next) => {
-    res.render('pagesLotnictwo/Pytanie_egzamin/PytPotUsunPytEgzamin', {navLocation:'anExam'});
 }
 
 exports.addQuestionExam = (req, res, next) => {

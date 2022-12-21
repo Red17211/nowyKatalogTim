@@ -11,12 +11,9 @@
         <input type="number" name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
-        <label for="examId">Id pytania:<span class="symbol-required">*</span></label>
-        <input type="number" name="questionId" id="questionId" placeholder="" value="<%= questionExam.questionId %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
-        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
-        <select id="question" name="questionId" required <%= (formMode == 'showDetails') ? 'enabled' : ''%> >
+ <label for="question">Pytanie:<span class="symbol-required">*</span></label>
+        <select id="question" name="questionId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
             <option value="" selected>--- Wybierz pytanie ---</option>
             <% for (let i=0; i<allQuestions.length; i++) { let question = allQuestions[i]; %>
 
