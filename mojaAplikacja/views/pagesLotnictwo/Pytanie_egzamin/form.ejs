@@ -1,0 +1,70 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="/js/validationQuestionExamForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <% console.log("IIIIIIIIIIIIIIIIIIII: " + questionExam.answer); %>
+        <label for="examId">Id egzaminu:<span class="symbol-required">*</span></label>
+        <input type="number" name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="examId">Id pytania:<span class="symbol-required">*</span></label>
+        <input type="number" name="questionId" id="questionId" placeholder="" value="<%= questionExam.questionId %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
+        <select id="question" name="questionId" required <%= (formMode == 'showDetails') ? 'enabled' : ''%> >
+            <option value="" selected>--- Wybierz pytanie ---</option>
+            <% for (let i=0; i<allQuestions.length; i++) { let question = allQuestions[i]; %>
+
+                <option value="<%= question._id %>" label="<%= question.question %>"
+                <% console.log("1: " + questionExam._id + ", 2: " +allQuestions[i]._id) %>
+                <%= (questionExam._id == allQuestions[i]._id) ? 'selected' : ''%>></option>
+            <% } %>
+        </select>
+
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/Pytanie_egzamin/edit/<%= questionExam._id %>" class="form-button-submit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+            Lista udzielonych odpowiedzi na egzaminach
+        </h2>
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>Pytanie</th>
+                <th>Odpowiedz</th>
+                <th>Godzina odpowiedzi</th>
+                <th>Cos nowego</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            </tbody>
+        </table>
+
+
+        <% } %>
+
+
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/Osoba">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/Osoba">Powrót</a>
+            <% } %>
+        </div>
+        </form>
+</main>
+ <%- include('../../fragments/footer.ejs') %>

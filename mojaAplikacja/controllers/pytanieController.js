@@ -24,6 +24,7 @@ exports.showEgzaminDodajPytanie = (req, res, next) => {
             });
 }
 exports.showQuestionDetails = (req, res, next) => {
+
     const questionId = req.params.questionId;
             QuestionRepository.getQuestionById(questionId)
                 .then(question =>{

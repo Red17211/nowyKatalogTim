@@ -22,12 +22,25 @@ exports.showDodajOsobe = (req, res, next) => {
     });
 }
 
+exports.showListaPytanieEgzamin = (req, res, next) => {
+    let allQuestions;
+    QuestionRepository.getQuestions()
+        .then(questions =>{
+            allQuestions = questions;
+            return QuestionExamRepository.getQuestionExams();
+        })
+        .then(questionExams => {
+            res.render('pagesLotnictwo/Pytanie_egzamin/pytanieEgzamin', {
+                questionExams: questionExams,
+                navLocation: 'anExam',
+                allQuestions: allQuestions
+            });
+        });
+}
+
 exports.showPersonDetails = (req, res, next) => {
     const personId = req.params.personId;
-
-
     PersonRepository.getPersonById(personId)
-
         .then(person =>{
         const q = QuestionRepository.getQuestionById(1);
         console.log('OOO: ' + q._id);
@@ -40,7 +53,6 @@ exports.showPersonDetails = (req, res, next) => {
                 qr: q
             });
         });
-    //res.render('pagesLotnictwo/Osoba/szczegolyOsoby', {navLocation:'person'});
 }
 exports.showAddedConfirmation = (req, res, next) => {
     res.render('pagesLotnictwo/Osoba/added', {navLocation:'person'});

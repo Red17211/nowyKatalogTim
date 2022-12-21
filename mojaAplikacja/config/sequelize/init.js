@@ -112,7 +112,20 @@ module.exports = () => {
                     return Question_Exam.bulkCreate([
 
                         {examId: 1, questionId: 1, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
-                        {examId: 2, questionId: 2, answer: 3, answerTime: '15:36', candidatePesel: 88022708956}
+                        {examId: 2, questionId: 2, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 3, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 4, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 5, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 6, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 7, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 8, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 9, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 10, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 11, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 12, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 13, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 14, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 15, answer: 1, answerTime: '15:36', candidatePesel: 88022708956}
                     ])
                     .then( () => {
                         return Question_Exam.findAll();
