@@ -1,92 +1,37 @@
 <%- include('../../fragments/header.ejs') %>
 
         <main>
-            <h2>Pytanie</h2>
-            <table id="tabelka" class="table-list">
-                <tr>
-                    <th>Id</th>
-                    <th>Treść pytania</th>
-                    <th>Odpowiedź 1</th>
-                    <th>Odpowiedź 2</th>
-                    <th>Odpowiedź 3</th>
-                    <th>Poprawna odpowiedź</th>
-                    <th>Przedmiot</th>
-                    <th>Akcje</th>
-                </tr>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Załoga statku powietrznego ma obowiązek zapinania wszystkich pasów bezpieczeństwa i uprzęży</td>
-                        <td>Do startu i lądowania oraz w sytuacjach kiedy dowódca statku powietrznego uzna to za konieczne</td>
-                        <td>Do startu i do lądowania</td>
-                        <td>Tylko na polecenie dowódcy załogi statku powietrznego</td>
-                        <td>1</td>
-                        <td>Nawigacja ogólna</td>
-                        <td>
-                            <a href="/Pytanie/details/1" class="list-actions-button-details">Szczegóły</a>
-
-                            <a href="/Pytanie/edit/1" class="list-actions-button-edit">Edytuj</a>
-
-                            <a href="/Pytanie/deletedKom" class="list-actions-button-delete">Usuń</a>
-                            </td>
-                        </tr>
-
-                    <tr>
-                        <td>2</td>
-                            <td>Dostępność przestrzeni powietrznej może być czasowo ograniczona ze względu na</td>
-                            <td>Wszystkie odpowiedzi są poprawne</td>
-                            <td>Obronność państwa</td>
-                            <td>Bezpieczeństwo publiczne</td>
-                            <td>2</td>
-                            <td>Nawigacja ogólna</td>
-                            <td>
-                                <a href="/Pytanie/details/2" class="list-actions-button-details">Szczegóły</a>
-
-                                <a href="/Pytanie/edit/2" class="list-actions-button-edit">Edytuj</a>
-
-                                <a href="/Pytanie/deletedKom" class="list-actions-button-delete">Usuń</a>
-                        </td>
-                    </tr>
-
+                    <h2>Lista pytań</h2>
+                    <table id=tabelka" class="table-list">
                         <tr>
-                            <td>3</td>
-                            <td>AMC jest to:",</td>
-                            <td>Ośrodek Zarządzania Przestrzenią Powietrzną</td>
-                            <td>Ośrodek Zarządzania Przepływem Ruchu Lotniczego</td>
-                            <td>Plan użytkowania przestrzeni powietrznej</td>
-                            <td>1</td>
-                            <td>Nawigacja ogólna</td>
-                            <td>
-                                <a href="/Pytanie/details/3" class="list-actions-button-details">Szczegóły</a>
-
-                                <a href="/Pytanie/edit/3" class="list-actions-button-edit">Edytuj</a>
-
-                                <a href="/Pytanie/deletedKom" class="list-actions-button-delete">Usuń</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>ARP, wg ICAO, jest to:</td>
-                            <td>Punkt odniesienia lotniska</td>
-                            <td>Najwyższe wzniesienie lotniska</td>
-                            <td>Współrzędne drogi startowej</td>
-                            <td>1</td>
-                            <td>Nawigacja ogólna</td>
-                            <td>
-                                <a href="/Pytanie/details/4" class="list-actions-button-details">Szczegóły</a>
-                                    
-                                <a href="/Pytanie/edit/4" class="list-actions-button-edit">Edytuj</a>
-                                    
-                                <a href="/Pytanie/deletedKom" class="list-actions-button-delete">Usuń</a>
-                            </td>
-                        </tr>
-
-                    </tbody>        
-            </table>
-
-            <p><a href="/Pytanie/dodajPytanie" class="button-add">Dodaj nowe pytanie</a></p>
-
-        </main>
+                                            <th>Id</th>
+                                            <th>Treść pytania</th>
+                                            <th>Odpowiedź 1</th>
+                                            <th>Odpowiedź 2</th>
+                                            <th>Odpowiedź 3</th>
+                                            <th>Poprawna odpowiedź</th>
+                                            <th>Przedmiot</th>
+                                            <th>Akcje</th>
+                                        </tr>
+                        <tbody>
+                                    <% for (let question of questions) { %>
+                                        <tr>
+                                            <td><%= question._id %></td>
+                                            <td><%= question.question %></td>
+                                            <td><%= question.answer1 %></td>
+                                            <td><%= question.answer2 %></td>
+                                            <td><%= question.answer3 %></td>
+                                            <td><%= question.correctAnswer %></td>
+                                            <td><%= question.subject %></td>
+                                            <td>
+                                                <a href="../Pytanie/details/<%=question._id%>" class="list-actions-button-details">Szczegóły</a>
+                                                <a href="../Pytanie/edit/<%=question._id%>" class="list-actions-button-edit">Edytuj</a>
+                                                <a href="../Pytanie/delete/<%=question._id%>" class="list-actions-button-delete">Usuń</a>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                    <p><a href="/Pytanie/dodajPytanie" class="button-add">Dodaj nowe pytanie</a></p>
+                </main>
 <%- include('../../fragments/footer.ejs') %>

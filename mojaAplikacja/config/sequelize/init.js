@@ -73,7 +73,7 @@ module.exports = () => {
             if( !exams || exams.length == 0 ) {
 
                 return Exam.bulkCreate([
-                    {examDate: '2022-12-12', subject: 'Nawigacja', startTime: '15:00', endTime: '17:00', points: 10},
+                    {examDate: '12.12.2022', subject: 'Nawigacja', startTime: '15:00', endTime: '17:00', points: 10},
                     {examDate: '2022-12-12', subject: 'Fizyka', startTime: '16:00', endTime: '17:30', points: 15},
                     {examDate: '2022-12-14', subject: 'Fizyka', startTime: '16:00', endTime: '17:30', points: 15}
                 ])
@@ -110,6 +110,7 @@ module.exports = () => {
                     return questionExams;
                 }
             })
+
 
         ;
 }

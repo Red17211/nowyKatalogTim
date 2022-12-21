@@ -12,7 +12,7 @@
 
 
         <label for="examDate">Data egzaminu:<span class="symbol-required">*</span></label>
-        <input type="date" name="examDate" id="examDate" placeholder="2-30 znaków" value="<%= exam.examDate %>"
+        <input type="date" name="examDate" id="examDate" placeholder="2-30 znaków" value="<%= exam.examDate.toISOString().split('T')[0] %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
         <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>

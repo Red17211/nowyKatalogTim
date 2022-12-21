@@ -1,0 +1,73 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationExamForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+
+        <label for="_id">Id:<span class="symbol-required">*</span></label>
+        <input type="number" name="_id" id="_id" placeholder="" value="<%= question._id %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+
+        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
+        <input type="text" name="question" id="question" placeholder="2-130 znaków" value="<%= question.question %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="answer1">Odpowiedź 1:<span class="symbol-required">*</span></label>
+        <input type="text" name="answer1" id="answer1" placeholder="2-30 znaków" value="<%= question.answer1 %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="answer2">Odpowiedź 2:<span class="symbol-required">*</span></label>
+        <input type="text" name="answer2" id="answer2" placeholder="2-30 znaków" value="<%= question.answer2 %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="answer3">Odpowiedź 3:<span class="symbol-required">*</span></label>
+        <input type="text" name="answer3" id="answer3" placeholder="2-30 znaków" value="<%= question.answer3 %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="correctAnswer">Poprawna odpowiedź:<span class="symbol-required">*</span></label>
+        <input type="text" name="correctAnswer" id="correctAnswer" placeholder="2-30 znaków" value="<%= question.correctAnswer %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
+        <input type="text" name="subject" id="subject" placeholder="2-30 znaków" value="<%= question.subject %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/Pytanie/edit/<%= question._id %>" class="form-button-submit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+            Lista udzielonych odpowiedzi na egzaminach
+        </h2>
+        <table clss="table-list">
+            <thead>
+            <tr>
+                <th>Pytanie</th>
+                <th>Odpowiedz</th>
+                <th>Godzina odpowiedzi</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/Pytanie">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/Pytanie">Powrót</a>
+            <% } %>
+        </div>
+        </form>
+</main>
+ <%- include('../../fragments/footer.ejs') %>

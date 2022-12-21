@@ -71,25 +71,28 @@ exports.addExam = (req, res, next) => {
     console.log('CON: ' + examData);
     ExamRepository.createExam(examData)
         .then( result => {
-            res.redirect('/Exam');
+            res.redirect('../../Egzamin/added');
         });
 }
 
 
 exports.updateExam = (req, res, next) => {
-    const examId = req.body.examId;
+    const examId = req.body._id;
     const examData = { ...req.body };
     console.log('id: ' + examId + ', data: ' + examData);
     ExamRepository.updateExam(examId, examData)
         .then( result => {
-            res.redirect('../../Exam/edited');
+            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+            res.redirect('../../Egzamin/edited');
         });
 }
 
 exports.deleteExam = (req, res, next) => {
-    const examId = req.params._id;
+    const examId = req.params.examId;
     ExamRepository.deleteExam(examId)
         .then( () => {
-            res.redirect('/Exam')
+            res.redirect('../../Egzamin/deleted')
         });
 }
+
+

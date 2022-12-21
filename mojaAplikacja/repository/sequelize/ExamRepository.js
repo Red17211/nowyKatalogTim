@@ -24,6 +24,7 @@ exports.updateExam = (examId, examData) => {
     const subject = examData.subject;
     const startTime = examData.startTime;
     const endTime = examData.endTime;
+    const points = examData.points;
     return Exam.update(examData, {where: {_id: examId}});
 };
 

@@ -13,7 +13,7 @@ router.get('/deleted', examController.showDeletedConfirmation);
 router.get('/deleteConfirmation', examController.showConfirmPage);
 
 router.post('/add', examController.addExam);
-router.post('/edit/:examId', examController.updateExam);
+router.post('/edit', examController.updateExam);
 router.get('/delete/:examId', examController.deleteExam);
 
 module.exports = router;
