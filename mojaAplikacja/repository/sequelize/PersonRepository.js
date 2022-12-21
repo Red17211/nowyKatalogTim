@@ -1,12 +1,21 @@
 const Person = require("../../model/sequelize/Person");
-
+const QuestionExam = require("../../model/sequelize/Question_Exam");
+const Exam = require("../../model/sequelize/Exam");
 
 exports.getPersons = () => {
     return Person.findAll();
 };
 
 exports.getPersonById = (personId) => {
-    return Person.findByPk(personId);
+    return Person.findByPk(personId,
+        {
+            include: [{
+                model: QuestionExam,
+                as: 'answers'
+
+            }]
+        }
+    );
 };
 
 exports.createPerson = (newPersondata) => {
@@ -22,12 +31,14 @@ exports.updatePerson = (personId, personData) => {
     const firstName = personData.firstName;
     const lastName = personData.lastName;
     const pesel = personData.pesel;
-    return Person.update(personData, {where: {_id: personId}});
+    const permissionCode = personData.permissionCode;
+    return Person.update(personData, {where: {pesel: personId}});
 };
+
 
 exports.deletePerson = (personId) => {
     return Person.destroy({
-       where: { _id: personId }
+       where: { pesel: personId }
     });
 };
 

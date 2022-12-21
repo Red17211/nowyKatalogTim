@@ -16,9 +16,11 @@ const Person = sequelize.define("Person", {
        allowNull: false
    },
    permissionCode: {
-          type: Sequelize.INTEGER,
-          allowNull: false
+      type: Sequelize.INTEGER,
+      allowNull: false
    }
 });
 
 module.exports = Person;
+
+

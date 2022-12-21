@@ -18,15 +18,15 @@
                                 <td><%= person.lastName %></td>
                                 <td><%= person.permissionCode %></td>
                                 <td>
-                                    <a href="szczegółyOsoby/<%=person._id%>" class="list-actions-button-details">Szczegóły</a>
-                                    <a href="edycjaOsobe/<%=person._id%>" class="list-actions-button-edit">Edytuj</a>
-                                    <a href="PytaniePotwierdzUsunOsoby/<%=person._id%>" class="list-actions-button-delete">Usuń</a>
+                                    <a href="../Osoba/details/<%=person.pesel%>" class="list-actions-button-details">Szczegóły</a>
+                                    <a href="../Osoba/edit/<%=person.pesel%>" class="list-actions-button-edit">Edytuj</a>
+                                    <a href="../Osoba/delete/<%=person.pesel%>" class="list-actions-button-delete">Usuń</a>
                                 </td>
                             </tr>
                             <% } %>
             </tbody>
             </table>
-            <p><a href="/Osoba/dodajOsobe" class="button-add">Dodaj nową osobę</a></p>
+            <p><a href="/Osoba/add" class="button-add">Dodaj nową osobę</a></p>
         
         </main>
 <%- include('../../fragments/footer.ejs') %>

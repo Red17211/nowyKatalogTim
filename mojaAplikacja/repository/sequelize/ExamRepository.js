@@ -11,6 +11,7 @@ exports.getExamById = (examId) => {
 
 exports.createExam = (newExamData) => {
     return Exam.create({
+        examDate: newExamData.examDate,
         subject: newExamData.subject,
         startTime: newExamData.startTime,
         endTime: newExamData.endTime,
@@ -19,6 +20,7 @@ exports.createExam = (newExamData) => {
 };
 
 exports.updateExam = (examId, examData) => {
+    const examDate = examData.examDate;
     const subject = examData.subject;
     const startTime = examData.startTime;
     const endTime = examData.endTime;

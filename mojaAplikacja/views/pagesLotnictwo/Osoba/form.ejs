@@ -1,0 +1,69 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationPersonForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+
+        <label for="pesel">PESEL:<span class="symbol-required">*</span></label>
+        <input type="number" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+
+        <label for="firstName">Imię:<span class="symbol-required">*</span></label>
+        <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="lastName">Nazwisko:<span class="symbol-required">*</span></label>
+        <input type="text" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+
+        <label for="permissionCode">Poziom dostępu:<span class="symbol-required">*</span></label>
+        <input type="number" name="permissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/Osoba/edit/<%= person.pesel %>" class="form-button-submit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+            Lista udzielonych odpowiedzi na egzaminach
+        </h2>
+        <table clss="table-list">
+            <thead>
+            <tr>
+                <th>Pytanie</th>
+                <th>Odpowiedz</th>
+                <th>Godzina odpowiedzi</th>
+            </tr>
+            </thead>
+            <tbody>
+                    <% for (let odp of person.answers) { %>
+                        <tr>
+                            <td><a href="/questionExam/details/<%= odp._id %>"><%= odp.answerTime %></a></td>
+                            <td><%= odp.answer %></td>
+                            <td><%= odp.answerTime %></td>
+                        </tr>
+                    <% } %>
+
+            </tbody>
+        </table>
+        <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/Osoba">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/Osoba">Powrót</a>
+            <% } %>
+        </div>
+        </form>
+</main>
+ <%- include('../../fragments/footer.ejs') %>

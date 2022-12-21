@@ -7,9 +7,10 @@ const Question_Exam = require('../../model/sequelize/Question_Exam');
 
 module.exports = () => {
 
-    Person.hasMany(Question_Exam, {as: 'answeredQuestions', foreignKey: {name: 'candidatePesel', allowNull: false}});
+    Person.hasMany(Question_Exam, {as: 'answers', foreignKey: {name: 'candidatePesel', allowNull: false}});
     Question.hasMany(Question_Exam, {as: 'answeredQuestions', foreignKey: {name: 'questionId', allowNull: false}});
-    Exam.hasMany(Question_Exam, {as: 'answeredQuestions', foreignKey: {name: 'examId', allowNull: false}});
+    Exam.hasMany(Question_Exam, {as: 'answers2', foreignKey: {name: 'examId', allowNull: false}});
+
 
     let allPersons;
     let allQuestions;
@@ -63,9 +64,10 @@ module.exports = () => {
 //            return Question.findAll();
 //        })
 
-       .then( exams => {
-            allExams = exams;
-            return Exam.findAll();
+       .then( () => {
+            let list = Exam.findAll();
+            console.log('EXX ' + list);
+            return list;
         })
         .then(exams => {
             if( !exams || exams.length == 0 ) {
@@ -78,6 +80,7 @@ module.exports = () => {
                 .then( () => {
                     return Exam.findAll();
                 });
+
             }
             else{
                 return exams;
