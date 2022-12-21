@@ -48,8 +48,21 @@ module.exports = () => {
         .then(questions => {
             if( !questions || questions.length == 0 ) {
                 return Question.bulkCreate([
-                    {question: 'Co ma ala?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
-                    {question: 'Co ma ala?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'}
+                    {question: 'Co to jest kompas?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
+                    {question: 'Ile km to jedna mila?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
+                    {question: 'Co to jest równik?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
+                    {question: 'Ile średnio wytrzyma człowiek pod wodą?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
+                    {question: 'Co to jest lotka w samolocie?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Nawigacja'},
+                    {question: 'Do czego służy statecznik poziomy?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Człowiek'},
+                    {question: 'Co to jest hipotermia?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Człowiek'},
+                    {question: 'Do czego służy siłownik podwozia?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Człowiek'},
+                    {question: 'Jak nazywa się jednostka odległości w lotnictwie?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Człowiek'},
+                    {question: 'Ile egzaminów trzeba zaliczyć do licencji CPL?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Człowiek'},
+                    {question: 'Kto powołuję komisje ds. badania wypadków lotniczych', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Prawo'},
+                    {question: 'Kto wydaje licencje załogi lotniczej?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Prawo'},
+                    {question: 'Ile lat jest ważne ipranienie ME?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Prawo'},
+                    {question: 'Co to jest IR?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Prawo'},
+                    {question: 'Co to jest VFR?', answer1: 'Kota', answer2: 'Psa', answer3: 'Kreta', correctAnswer: 'Nic nie ma', subject: 'Prawo'}
                 ])
                 .then( () => {
                     return Question.findAll();

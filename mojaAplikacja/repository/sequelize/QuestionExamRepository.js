@@ -1,12 +1,14 @@
 const QuestionExam = require("../../model/sequelize/Question_Exam");
-
+const Exam = require("../../model/sequelize/Exam");
+const Person = require("../../model/sequelize/Person");
+const Question = require("../../model/sequelize/Question");
 
 exports.getQuestionExams = () => {
     return QuestionExam.findAll();
 };
 
 exports.getQuestionExamById = (id) => {
-    return QuestionExam.findByPk(id)
+    return QuestionExam.findByPk(id);
 };
 
 exports.createQuestionExam = (newQuestionExamData) => {

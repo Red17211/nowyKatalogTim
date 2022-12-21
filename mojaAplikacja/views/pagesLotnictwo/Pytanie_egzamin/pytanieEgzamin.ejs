@@ -1,86 +1,55 @@
 <%- include('../../fragments/header.ejs') %>
+<main>
+                    <h2>Lista udzielonych odpowiedzi na egzaminie przez osoby</h2>
+                    <table id=tabelka" class="table-list">
+                        <tr>
+                                            <th>Id</th>
+                                            <th>Id egzaminu</th>
+                                            <th>Pytanie</th>
+                                            <th>Odpowiedź</th>
+                                            <th>Godzina odpowiedzi</th>
+                                            <th>Pesel kandydate</th>
+                                            <th>Akcje</th>
+                                        </tr>
+                        <tbody>
+                                    <% for (let questionExam of questionExams) { %>
+                                        <tr>
 
-        <main>
-            <h2>Egzaminy: Udzielone odpowiedzi</h2>
-            <table id="tabelka" class="table-list">
-                <tr>
-                    <th>Id</th>
-                    <th>Odpowiedź</th>
-                    <th>Godzina odpowiedzi</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Pesel egzaminowanego</th>
-                    <th>Akcje</th>
-                </tr>
+                                            <td><%= questionExam._id %></td>
+                                            <td><%= questionExam.examId %></td>
 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>10 01</td>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>87152355559</td>
-                        <td>
-                            <a href="/Pytanie_egzamin/details/1" class="list-actions-button-details">Szczegóły</a>
+                                            <% let a %>
+                                            <% for (let q of allQuestions) { %>
+                                                <% if (q._id == questionExam._id) {a=q; break;} %>
+                                            <% } %>
 
-                            <a href="/Pytanie_egzamin/edit/1" class="list-actions-button-edit">Edytuj</a>
+                                            <td><%= a.question %></td>
 
-                            <a href="/Pytanie_egzamin/deleteConfirmation" class="list-actions-button-delete">Usuń</a>
-                        </td>
-                    </tr>
+                                            <% let answer %>
+                                            <% if (questionExam.answer==1)  {answer = a.answer1;}
+                                                else if(questionExam.answer==2)  {answer = a.answer2;}
+                                                else if(questionExam.answer==3)  {answer = a.answer3;}
+                                                else if(questionExam.answer==4)  {answer = a.correctAnswer;}
+                                            %>
 
-                    <tr>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>10 02</td>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>87152355559</td>
-                        <td>
-                            <a href="szczegolyUdzielnonychOpowiedzi.html" class="list-actions-button-details">Szczegóły</a>
 
-                            <a href="edytujUdzieloneOpowiedzi.html" class="list-actions-button-edit">Edytuj</a>
 
-                            <a href="PytPotUsunPytEgzamin.html" class="list-actions-button-delete">Usuń</a>
-                        </td>
-                    </tr>
+                                            <td><%= answer %></td>
 
-                    <tr>
-                        <td>3</td>
-                        <td>23</td>
-                        <td>10 03</td>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>87152355559</td>
-                        <td>
-                            <a href="szczegolyUdzielnonychOpowiedzi.html" class="list-actions-button-details">Szczegóły</a>
 
-                            <a href="edytujUdzieloneOpowiedzi.html" class="list-actions-button-edit">Edytuj</a>
 
-                            <a href="PytPotUsunPytEgzamin.html" class="list-actions-button-delete">Usuń</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>10 04</td>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>87152355559</td>
-                        <td>
-                            <a href="szczegolyUdzielnonychOpowiedzi.html" class="list-actions-button-details">Szczegóły</a>
-
-                            <a href="edytujUdzieloneOpowiedzi.html" class="list-actions-button-edit">Edytuj</a>
-
-                            <a href="PytPotUsunPytEgzamin.html" class="list-actions-button-delete">Usuń</a>
-                        </td>
-                    </tr>
-                    </tbody>            
-            </table>
-           
-            <p><a href="/Pytanie_egzamin/egzamin" class="button-add">Rozpocznij egzamin</a></p>
-       
-        </main>  
+                                            <td><%= questionExam.answerTime %></td>
+                                            <td><%= questionExam.candidatePesel %></td>
+                                            <td>
+                                                <a href="../Pytanie_egzamin/details/<%=questionExam._id%>" class="list-actions-button-details">Szczegóły</a>
+                                                <a href="../Pytanie_egzamin/edit/<%=questionExam._id%>" class="list-actions-button-edit">Edytuj</a>
+                                                <a href="../Pytanie_egzamin/delete/<%=questionExam._id%>" class="list-actions-button-delete">Usuń</a>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                    <p><a href="/Pytanie_egzamin/wyborEgzaminu" class="button-add">Rozpocznij egzamin</a></p>
+                </main>
 <%- include('../../fragments/footer.ejs') %>
+

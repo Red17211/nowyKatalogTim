@@ -12,6 +12,7 @@ exports.getQuestions = (req, res, next) => {
 
 exports.getQuestionById = (req, res, next) => {
     const questionId = req.params.questionId;
+
     QuestionRepository.getQuestionById(questionId)
         .then(question => {
             if(!question){

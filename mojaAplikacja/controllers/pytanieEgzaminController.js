@@ -1,5 +1,24 @@
-exports.showListaPytanieEgzamin = (reg, res, next) => {
-res.render('pagesLotnictwo/Pytanie_egzamin/pytanieEgzamin', {navLocation:'anExam'});
+const QuestionExamRepository = require('../repository/sequelize/QuestionExamRepository');
+const QuestionRepository = require('../repository/sequelize/QuestionRepository');
+
+exports.showListaPytanieEgzamin = (req, res, next) => {
+    let allQuestions;
+    QuestionRepository.getQuestions()
+        .then(questions =>{
+            allQuestions = questions;
+            return QuestionExamRepository.getQuestionExams();
+        })
+        .then(questionExams => {
+            res.render('pagesLotnictwo/Pytanie_egzamin/pytanieEgzamin', {
+                questionExams: questionExams,
+                navLocation: 'anExam',
+                allQuestions: allQuestions
+            });
+        });
+}
+
+exports.wyborTematu = (req, res, next) => {
+    res.render('pagesLotnictwo/Pytanie_egzamin/wyborEgzaminu', {navLocation:'anExam'});
 }
 
 exports.showPytanieRozpEgzamin = (reg, res, next) => {
@@ -21,5 +40,8 @@ exports.showDeletedConfirmation = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/deleted', {navLocation:'anExam'});
 }
 exports.showConfirmPage = (reg, res, next) => {
+    res.render('pagesLotnictwo/Pytanie_egzamin/PytPotUsunPytEgzamin', {navLocation:'anExam'});
+}
+exports.getExam = (reg, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/PytPotUsunPytEgzamin', {navLocation:'anExam'});
 }

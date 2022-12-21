@@ -5,6 +5,7 @@ const anExamController = require('../controllers/pytanieEgzaminController');
 router.get('/', anExamController.showListaPytanieEgzamin);
 
 router.get('/egzamin', anExamController.showPytanieRozpEgzamin);
+router.get('/wyborEgzaminu', anExamController.wyborTematu);
 router.get('/details/:examId', anExamController.showExamDetails);
 router.get('/edit/:examId', anExamController.showEditPage);
 router.get('/KomunikatZakonczeniaEgzaminu', anExamController.showAddedConfirmation);

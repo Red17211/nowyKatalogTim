@@ -5,9 +5,17 @@ exports.getQuestions = () => {
     return Question.findAll();
 };
 
+exports.getQuestionsBySubject = (sub) => {
+    return Question.findAll({
+        where: {
+            subject: sub
+        }
+    });
+};
+
 exports.getQuestionById = (questionId) => {
-    return Question.findByPk(questionId
-    );
+    let q = Question.findByPk(questionId);
+    return q;
 };
 
 exports.createQuestion = (newQuestiondata) => {

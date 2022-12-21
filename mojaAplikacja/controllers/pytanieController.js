@@ -32,10 +32,11 @@ exports.showQuestionDetails = (req, res, next) => {
                         pageTitle: 'Szczegóły pytania',
                         formMode: 'showDetails',
                         formAction: '',
-                        navLocation: 'queestion'
+                        navLocation: 'question',
                     });
                 });
 }
+
 exports.showEditedConfirmation = (req, res, next) => {
     res.render('pagesLotnictwo/Pytanie/editedPytanieKom', {navLocation:'question'});
 }

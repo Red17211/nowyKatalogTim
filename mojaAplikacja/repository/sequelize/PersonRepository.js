@@ -18,6 +18,7 @@ exports.getPersonById = (personId) => {
     );
 };
 
+
 exports.createPerson = (newPersondata) => {
     return Person.create({
         firstName: newPersondata.firstName,

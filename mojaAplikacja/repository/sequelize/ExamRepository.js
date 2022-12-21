@@ -5,6 +5,7 @@ exports.getExams = () => {
     return Exam.findAll();
 };
 
+
 exports.getExamById = (examId) => {
     return Exam.findByPk(examId);
 };

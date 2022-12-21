@@ -28,6 +28,7 @@ const Question_Exam = sequelize.define("QuestionExam", {
        type: Sequelize.BIGINT,
        allowNull: false
    }
+
 });
 
 module.exports = Question_Exam;

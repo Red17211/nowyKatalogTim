@@ -1,4 +1,5 @@
 <%- include('../../fragments/header.ejs') %>
+
 <main>
     <script type="application/javascript" src="/js/validationPersonForm.js"></script>
     <h2><%= pageTitle %></h2>
@@ -34,26 +35,33 @@
         <h2>
             Lista udzielonych odpowiedzi na egzaminach
         </h2>
-        <table clss="table-list">
+        <table class="table-list">
             <thead>
             <tr>
                 <th>Pytanie</th>
                 <th>Odpowiedz</th>
                 <th>Godzina odpowiedzi</th>
+                <th>Cos nowego</th>
             </tr>
             </thead>
             <tbody>
                     <% for (let odp of person.answers) { %>
+
                         <tr>
-                            <td><a href="/questionExam/details/<%= odp._id %>"><%= odp.answerTime %></a></td>
+                            <td><a href="/Pytanie_egzamin/details/<%= odp._id %>"><%= odp.questionId %></a></td>
                             <td><%= odp.answer %></td>
                             <td><%= odp.answerTime %></td>
+                            <td><%= 'aaa: ' + qr.question %></td>
                         </tr>
                     <% } %>
 
             </tbody>
         </table>
+
+
         <% } %>
+
+
 
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>

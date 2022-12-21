@@ -1,5 +1,5 @@
 const PersonRepository = require('../repository/sequelize/PersonRepository');
-
+const QuestionRepository = require('../repository/sequelize/QuestionRepository');
 
 exports.showOsobaList = (req, res, next) => {
     PersonRepository.getPersons()
@@ -24,14 +24,20 @@ exports.showDodajOsobe = (req, res, next) => {
 
 exports.showPersonDetails = (req, res, next) => {
     const personId = req.params.personId;
+
+
     PersonRepository.getPersonById(personId)
+
         .then(person =>{
+        const q = QuestionRepository.getQuestionById(1);
+        console.log('OOO: ' + q._id);
             res.render('pagesLotnictwo/Osoba/form', {
                 person: person,
                 pageTitle: 'Szczegóły osoby',
                 formMode: 'showDetails',
                 formAction: '',
-                navLocation: 'person'
+                navLocation: 'person',
+                qr: q
             });
         });
     //res.render('pagesLotnictwo/Osoba/szczegolyOsoby', {navLocation:'person'});

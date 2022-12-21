@@ -12,6 +12,7 @@ exports.getPersons = (req, res, next) => {
 
 exports.getPersonById = (req, res, next) => {
     const personId = req.params.personId;
+    console.log('aaaaa: ' + personId);
     PersonRepository.getPersonById(personId)
         .then(person => {
             if(!person){
