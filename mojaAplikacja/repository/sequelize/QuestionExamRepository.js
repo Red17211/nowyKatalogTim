@@ -7,7 +7,6 @@ exports.getQuestionExams = () => {
     return QuestionExam.findAll();
 };
 
-
 exports.getQuestionExamById = (questionExamId) => {
     return QuestionExam.findByPk(questionExamId);
 };
@@ -21,6 +20,13 @@ exports.createQuestionExam = (newQuestionExamData) => {
     });
 };
 
+exports.getQuestionsBySubject = (subject1) => {
+    return QuestionExam.findAll({
+        where: {
+            subject: subject1
+        }
+    });
+};
 
 exports.updateQuestionExam = (questionExamId, questionExamData) => {
     const examId = questionExamData.question;

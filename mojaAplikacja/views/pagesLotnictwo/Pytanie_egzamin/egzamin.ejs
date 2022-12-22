@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
 
-    <form  id="formularz"  method="post" action="<%=formAction%>" novalidate class="form"">
+    <form  id="formularz"  method="post" action="<%=formAction%>" novalidate class="form">
         <h2>Egzamin z przedmiotu: <%=qts[0].subject%></h2>
         <h4>Kandydat: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
         <h4>Data: <%=new Date()%></h4>
