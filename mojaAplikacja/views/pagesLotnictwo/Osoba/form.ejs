@@ -9,21 +9,21 @@
 
         <label for="pesel">PESEL:<span class="symbol-required">*</span></label>
         <input type="number" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
 
         <label for="firstName">Imię:<span class="symbol-required">*</span></label>
         <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
         <label for="lastName">Nazwisko:<span class="symbol-required">*</span></label>
         <input type="text" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
 
         <label for="permissionCode">Poziom dostępu:<span class="symbol-required">*</span></label>
         <input type="number" name="permissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
@@ -54,7 +54,6 @@
                             <td><%= odp.answer %></td>
                         </tr>
                     <% } %>
-
             </tbody>
         </table>
 

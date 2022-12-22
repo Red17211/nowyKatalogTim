@@ -87,8 +87,8 @@ module.exports = () => {
 
                 return Exam.bulkCreate([
                     {examDate: '12.12.2022', subject: 'Nawigacja', startTime: '15:00', endTime: '17:00', points: 10},
-                    {examDate: '2022-12-12', subject: 'Fizyka', startTime: '16:00', endTime: '17:30', points: 15},
-                    {examDate: '2022-12-14', subject: 'Fizyka', startTime: '16:00', endTime: '17:30', points: 15}
+                    {examDate: '2022-12-12', subject: 'Człowiek', startTime: '16:00', endTime: '17:30', points: 15},
+                    {examDate: '2022-12-14', subject: 'Prawo', startTime: '16:00', endTime: '17:30', points: 15}
                 ])
                 .then( () => {
                     return Exam.findAll();
@@ -112,12 +112,12 @@ module.exports = () => {
 
                         {examId: 1, questionId: 1, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 2, questionId: 2, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
-                        {examId: 1, questionId: 3, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
-                        {examId: 2, questionId: 4, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 1, questionId: 3, answer: 4, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 4, answer: 4, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 1, questionId: 5, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
-                        {examId: 2, questionId: 6, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 6, answer: 4, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 1, questionId: 7, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
-                        {examId: 2, questionId: 8, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
+                        {examId: 2, questionId: 8, answer: 4, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 1, questionId: 9, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 2, questionId: 10, answer: 3, answerTime: '15:36', candidatePesel: 88022708956},
                         {examId: 1, questionId: 11, answer: 1, answerTime: '15:36', candidatePesel: 88022708956},

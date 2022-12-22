@@ -1,53 +1,33 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
-    <form  id="formularz" class="form3">
-           
-        <p>Kto jest uprawniony do wydania licencji załogi lotniczej:</p>
-            <input type="radio" id="p1" name="p1">
-            <label for="p1">Instruktor prowadzący zajęcia praktyczne</label><br>
 
-            <input type="radio" id="p2" name="p1">
-            <label for="p2">Minister ds. transportu</label><br>
+    <form  id="formularz"  method="post" action="<%=formAction%>" novalidate class="form"">
+        <h2>Egzamin z przedmiotu: <%=qts[0].subject%></h2>
+        <h4>Kandydat: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
+        <h4>Data: <%=new Date()%></h4>
 
-            <input type="radio" id="p3" name="p1">
-            <label for="p3">Prezes urzędu lotnictwa cywilnego</label><br>
 
-            <input type="radio" id="p4" name="p1">
-            <label for="p4">Pracownik urzędu miasta właściwego dla miejsca zamieszkania</label><br>
 
-        <p>Ile jest ważne uprawnienie na loty wg. wskazań przyrządów (IR):</p>
-            <input type="radio" id="p5" name="p2">
-            <label for="p5">1 rok</label><br>
+        <% for (q of qts) { %>
 
-            <input type="radio" id="p6" name="p2">
-            <label for="p6">2 lata przy zachowaniu 1 klasy badań lotniczo-lekarskich</label><br>
+        <hr>
 
-            <input type="radio" id="p7" name="p2">
-            <label for="p7">3 lata</label><br>
 
-            <input type="radio" id="p9" name="p2">
-            <label for="p9">Bezterminowo</label><br>
+        <p><strong><%= q.question %></strong><p>
 
-        <p>Do czego służy trymer w samolocie:</p>
-            <input type="radio" id="p10" name="p2">
-            <label for="p10">Do ustawienia właściwego kąta natarcia płatowca</label><br>
 
-            <input type="radio" id="p11" name="p2">
-            <label for="p11">Do odciążenia pilota w siłach działających na drążek lub wolant</label><br>
 
-            <input type="radio" id="p12" name="p2">
-            <label for="p12">Do ustabilizowania toru lotu</label><br>
+        <label>&emsp;<input type="radio" name="answer1"><%= q.answer1 %></label>
+        <label>&emsp;<input type="radio" name="answer2"><%= q.answer2 %></label>
+        <label>&emsp;<input type="radio" name="answer3"><%= q.answer3 %></label>
 
-            <input type="radio" id="p13" name="p2">
-            <label for="p13">Trymer potrzebny jest jedynie mechanikowi pokładowemu na ziemi</label><br>
+        <% } %>
 
-        
         <div class="form-buttons"> 
             <p id="errorSummary"></p>
+        <input type="submit" value="Zakończ egzamin" class="form-button-submit">>
 
-            <a href="KomunikatZakonczeniaEgzaminu" class="form-button-submit">Zakończ Egzamin</a>
-            <a href="/" class="form-button-cancel">Powrót</a>
-            
+        <a href="/../Pytanie_egzamin" class="form-button-cancel">Powrót</a>
         </div>
 
     </form>

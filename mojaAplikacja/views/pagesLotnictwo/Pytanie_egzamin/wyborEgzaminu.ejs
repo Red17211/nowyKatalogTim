@@ -1,13 +1,12 @@
 <%- include('../../fragments/header.ejs') %>
         <main>
-            <label for="subjects">Wybierz przedmiot:</label>
+            <form class="form" action="submit" novalidate>
 
-            <select name="subjects" id="subjects">
-              <option value="s1">Nawigacja</option>
-              <option value="s2">Prawo</option>
-              <option value="s3">Człowiek</option>
-            </select>
 
-             <a href="/Pytanie_egzamin/egzamin" class="form-button-submit">Rozpocznij egzamin</a>
+                <a href="/Pytanie_egzamin/egzamin/Nawigacja" class="form-button-submit">Rozpocznij egzamin (Nawigacja)</a>
+                <a href="/Pytanie_egzamin/egzamin/Człowiek" class="form-button-submit">Rozpocznij egzamin (Człowiek)</a>
+                <a href="/Pytanie_egzamin/egzamin/Prawo" class="form-button-submit">Rozpocznij egzamin (Prawo)</a>
+            </form>
+
         </main>
 <%- include('../../fragments/footer.ejs') %>

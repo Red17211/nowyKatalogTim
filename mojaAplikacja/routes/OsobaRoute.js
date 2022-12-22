@@ -12,7 +12,6 @@ router.get('/editedOsoba', personController.showEditedConfirmation);
 router.get('/deleted', personController.showDeletedConfirmation);
 router.get('/PytaniePotwierdzUsunOsoby', personController.showConfirmPage);
 
-
 router.post('/add', personController.addPerson);
 router.post('/edit', personController.updatePerson);
 router.get('/delete/:personId', personController.deletePerson);

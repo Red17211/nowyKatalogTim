@@ -6,22 +6,29 @@
 
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 
-        <% console.log("IIIIIIIIIIIIIIIIIIII: " + questionExam.answer); %>
         <label for="examId">Id egzaminu:<span class="symbol-required">*</span></label>
-        <input type="number" name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <input type="number" name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>">
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
 
- <label for="question">Pytanie:<span class="symbol-required">*</span></label>
+        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
         <select id="question" name="questionId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
-            <option value="" selected>--- Wybierz pytanie ---</option>
-            <% for (let i=0; i<allQuestions.length; i++) { let question = allQuestions[i]; %>
+        <option value="" selected>--- Wybierz pytanie ---</option>
+        <% for (let i=0; i<allQuestions.length; i++) { let question = allQuestions[i]; %>
 
-                <option value="<%= question._id %>" label="<%= question.question %>"
-                <% console.log("1: " + questionExam._id + ", 2: " +allQuestions[i]._id) %>
-                <%= (questionExam._id == allQuestions[i]._id) ? 'selected' : ''%>></option>
-            <% } %>
+        <option value="<%= question._id %>" label="<%= question.question %>"
+        <% console.log("1: " + questionExam._id + ", 2: " +allQuestions[i]._id) %>
+        <%= (questionExam._id == allQuestions[i]._id) ? 'selected' : ''%>></option>
+        <% } %>
         </select>
+
+        <label for="answer">Odpowiedz:<span class="symbol-required">*</span></label>
+        <input type="text" name="answer" id="answer" placeholder="" value="<%= questionExam.answer==1 ? allQuestions[questionExam.questionId].answer1  + ' (nieprawidłowa)' : questionExam.answer==2 ? allQuestions[questionExam.questionId].answer2  + ' (nieprawidłowa)' : questionExam.answer==3  ? allQuestions[questionExam.questionId].answer3 + ' (nieprawidłowa)' : allQuestions[questionExam.questionId].correctAnswer + ' (poprawna odpowiedz)' %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <label for="person">Kandydat:<span class="symbol-required">*</span></label>
+        <input type="text" name="person" id="person" placeholder="" value="<%= person.firstName+' '+person.lastName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
@@ -29,39 +36,18 @@
         </div>
         <% } %>
 
-        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
-        <h2>
-            Lista udzielonych odpowiedzi na egzaminach
-        </h2>
-        <table class="table-list">
-            <thead>
-            <tr>
-                <th>Pytanie</th>
-                <th>Odpowiedz</th>
-                <th>Godzina odpowiedzi</th>
-                <th>Cos nowego</th>
-            </tr>
-            </thead>
-            <tbody>
-
-
-            </tbody>
-        </table>
-
-
-        <% } %>
 
 
 
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                <a class="form-button-cancel" href="/Osoba">Anuluj</a>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+            <a class="form-button-cancel" href="/Pytanie_egzamin">Anuluj</a>
             <% } else { %>
-                <a class="form-button-cancel" href="/Osoba">Powrót</a>
+            <a class="form-button-cancel" href="/Pytanie_egzamin">Powrót</a>
             <% } %>
         </div>
-        </form>
+    </form>
 </main>
- <%- include('../../fragments/footer.ejs') %>
+<%- include('../../fragments/footer.ejs') %>
