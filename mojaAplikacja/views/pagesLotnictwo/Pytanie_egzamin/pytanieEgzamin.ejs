@@ -8,7 +8,8 @@
                                             <th>Pytanie</th>
                                             <th>Odpowiedź</th>
                                             <th>Godzina odpowiedzi</th>
-                                            <th>Pesel kandydate</th>
+                                            <th>Pesel kandydata</th>
+                                            <th>Kandydat</th>
                                             <th>Akcje</th>
                                         </tr>
 
@@ -21,7 +22,7 @@
 
                                             <% let a %>
                                             <% for (let q of allQuestions) { %>
-                                                <% if (q._id == questionExam._id) {a=q; break;} %>
+                                                <% if (q._id == questionExam.questionId) {a=q; break;} %>
                                             <% } %>
 
                                             <td><%= a.question %></td>
@@ -41,6 +42,16 @@
 
                                             <td><%= questionExam.answerTime %></td>
                                             <td><%= questionExam.candidatePesel %></td>
+
+
+                                            <% let person %>
+                                            <% for (let p of allPersons) { %>
+                                            <% console.log('Sprawdzam ' + p.pesel + '/' + questionExam.candidatePesel); %>
+                                            <% if (p.pesel == questionExam.candidatePesel) {person=p.firstName + ' ' + p.lastName; break;} %>
+                                            <% } %>
+
+                                            <td><%= person %></td>
+
                                             <td>
                                                 <a href="../Pytanie_egzamin/details/<%=questionExam._id%>" class="list-actions-button-details">Szczegóły</a>
                                                 <a href="../Pytanie_egzamin/edit/<%=questionExam._id%>" class="list-actions-button-edit">Edytuj</a>

@@ -10,7 +10,7 @@ const Exam = sequelize.define("Exam", {
     },
     examDate: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
     },
     subject: {
         type: Sequelize.STRING,

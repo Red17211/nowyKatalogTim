@@ -38,6 +38,7 @@ exports.createQuestionExam = (req, res, next) => {
         });
 };
 
+
 exports.updateQuestionExam = (req, res, next) => {
 const questionExamId = req.params.questionExamId;
     QuestionExamRepository.updateQuestion(questionExamId, req.body)

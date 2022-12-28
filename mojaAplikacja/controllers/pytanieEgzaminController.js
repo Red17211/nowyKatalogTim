@@ -3,26 +3,31 @@ const QuestionRepository = require('../repository/sequelize/QuestionRepository')
 const ExamRepository = require('../repository/sequelize/ExamRepository');
 const PersonRepository = require('../repository/sequelize/PersonRepository');
 
+
 exports.showListaPytanieEgzamin = (req, res, next) => {
     let allQuestions;
-    let person;
+    let allPersons;
     QuestionRepository.getQuestions()
         .then(questions =>{
             allQuestions = questions;
             return QuestionExamRepository.getQuestionExams();
         })
-
         .then(questionExams => {
-            res.render('pagesLotnictwo/Pytanie_egzamin/pytanieEgzamin', {
-                questionExams: questionExams,
-                navLocation: 'anExam',
-                allQuestions: allQuestions,
-                person: person
+            PersonRepository.getPersons()
+                .then(persons =>{
+                    res.render('pagesLotnictwo/Pytanie_egzamin/pytanieEgzamin', {
+                        questionExams: questionExams,
+                        navLocation: 'anExam',
+                        allQuestions: allQuestions,
+                        allPersons: persons
+                    })
+
             });
         })
-
         ;
 }
+
+
 
 exports.showQuestionExamDetails = (req, res, next) => {
     let allQuestions;
@@ -69,19 +74,28 @@ exports.showPytanieRozpEgzamin = (req, res, next) => {
     let qts;
     let candidate;
     let allQuestions;
+    let exam;
+
     QuestionRepository.getQuestionsBySubject(subject)
         .then(qts2 =>{
             PersonRepository.getPersons()
                 .then(persons => {
-                    res.render('pagesLotnictwo/Pytanie_egzamin/egzamin', {
-                       pageTitle: 'Egzamin',
-                       formAction: './',
-                       navLocation: 'anExam',
-                       qts: qts2,
-                       allQuestions: qts2,
-                       subject: subject,
-                       candidate: persons[0]
-                   });
+                    ExamRepository.getExamBySubject(subject)
+                        .then(exam =>{
+                            console.log("examId: " + exam._id);
+                            console.log("ss: " + subject);
+                            console.log("subject: " + exam.subject);
+                            res.render('pagesLotnictwo/Pytanie_egzamin/egzamin', {
+                               pageTitle: 'Egzamin',
+                               formAction: '/Pytanie_egzamin/add',
+                               navLocation: 'anExam',
+                               qts: qts2,
+                               allQuestions: qts2,
+                               subject: subject,
+                               candidate: persons[0],
+                               exam: exam
+                           });
+                        })
                 })
 
         });
@@ -101,15 +115,12 @@ exports.showDeletedConfirmation = (req, res, next) => {
 }
 
 exports.addQuestionExam = (req, res, next) => {
-//    res.render('pagesLotnictwo/Pytanie_egzamin/form', {
-//        questionExam: {},
-//        pageTitle: 'Manualne wprowadzanie odpowiedzi kandydatów przez administratora',
-//
-//        formMode: 'createNew',
-//        btnLabel: 'Dodaj odpowiedź',
-//        formAction: '/Pytanie_egzamin/add',
-//        navLocation: 'questionExam'
-//    });
+    const questionExamData = { ...req.body };
+    console.log('request body: ' + questionExamData);
+    QuestionExamRepository.createQuestionExam(questionExamData)
+        .then( result => {
+            res.redirect('/Pytanie_egzamin');
+        });
 }
 
 

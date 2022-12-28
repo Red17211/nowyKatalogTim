@@ -19,28 +19,26 @@ module.exports = () => {
 
     return sequelize
         .sync({force: true})
-
-        .then( () => {
-            let list = Person.findAll();
-            console.log('JOOOOO ' + list);
-            return list;
-        })
-        .then(persons => {
-            if( !persons || persons.length == 0 ) {
-                return Person.bulkCreate([
-                    {pesel: 88022708956, firstName: 'Jan', lastName: 'Kowalski', permissionCode: 1},
-                    {pesel: 134564569846, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1},
-                    {pesel: 847548518418, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1}
-                ])
-                .then( () => {
-                    return Person.findAll();
-                });
-            }
-            else{
-                return persons;
-            }
-        })
-///////////////////////////////////////////////////////////////////////////////////////
+            .then( () => {
+                let list = Person.findAll();
+                console.log('JOOOOO ' + list);
+                return list;
+            })
+            .then(persons => {
+                if( !persons || persons.length == 0 ) {
+                    return Person.bulkCreate([
+                        {pesel: 88022708956, firstName: 'Jan', lastName: 'Kowalski', permissionCode: 1},
+                        {pesel: 134564569846, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1},
+                        {pesel: 847548518418, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1}
+                    ])
+                    .then( () => {
+                        return Person.findAll();
+                    });
+                }
+                else{
+                    return persons;
+                }
+            })
         .then( questions => {
                     allQuestions = questions;
                     return Question.findAll();
@@ -72,19 +70,12 @@ module.exports = () => {
                 return questions;
             }
         })
-//        .then( questions => {
-//            allQuestions = questions;
-//            return Question.findAll();
-//        })
-
        .then( () => {
             let list = Exam.findAll();
-            console.log('EXX ' + list);
             return list;
         })
         .then(exams => {
             if( !exams || exams.length == 0 ) {
-
                 return Exam.bulkCreate([
                     {examDate: '12.12.2022', subject: 'Nawigacja', startTime: '15:00', endTime: '17:00', points: 10},
                     {examDate: '2022-12-12', subject: 'Człowiek', startTime: '16:00', endTime: '17:30', points: 15},
@@ -93,15 +84,11 @@ module.exports = () => {
                 .then( () => {
                     return Exam.findAll();
                 });
-
             }
             else{
                 return exams;
             }
         })
-
-
-
             .then( questionExams => {
                     allQuestionExams = questionExams;
                     return Question_Exam.findAll();

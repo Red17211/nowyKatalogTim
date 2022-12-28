@@ -5,6 +5,25 @@ exports.getExams = () => {
     return Exam.findAll();
 };
 
+exports.getExamBySubject = (sub) => {
+
+    let exam;
+
+    let result = Exam.findAll()
+        .then(exams =>{
+
+            for(let exam of exams ){
+                console.log("Joszka: " + exam.subject);
+                if(exam.subject == sub){
+                    return exam;
+                }
+
+            }
+        })
+    ;
+
+    return result;
+};
 
 exports.getExamById = (examId) => {
     return Exam.findByPk(examId);

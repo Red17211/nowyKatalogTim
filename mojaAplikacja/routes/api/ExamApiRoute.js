@@ -4,6 +4,7 @@ const router = express.Router();
 const examApiController = require('../../api/ExamAPI');
 
 router.get('/', examApiController.getExams);
+router.get('/:examId', examApiController.getExamById);
 router.post('/', examApiController.createExam);
 router.put('/', examApiController.updateExam);
 router.delete('/', examApiController.deleteExam);

@@ -102,7 +102,6 @@ exports.updatePerson = (req, res, next) => {
             res.redirect('../../Osoba/editedOsoba');
         });
 }
-
 exports.deletePerson = (req, res, next) => {
     const personId = req.params.personId;
     PersonRepository.deletePerson(personId)

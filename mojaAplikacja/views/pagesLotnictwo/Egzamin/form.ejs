@@ -1,13 +1,15 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
     <script type="application/javascript" src="/js/validationExamForm.js"></script>
+
+
     <h2><%= pageTitle %></h2>
 
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 
 
-        <label for="_id">Id:<span class="symbol-required">*</span></label>
-        <input type="number" name="_id" id="_id" placeholder="" value="<%= exam._id %>"
+
+        <input type="hidden" name="_id" id="_id" placeholder="" value="<%= exam._id %>"
 
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 

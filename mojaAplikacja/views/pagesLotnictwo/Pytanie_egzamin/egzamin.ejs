@@ -1,35 +1,75 @@
 <%- include('../../fragments/header.ejs') %>
-<main>
 
-    <form  id="formularz"  method="post" action="<%=formAction%>" novalidate class="form">
+<main>
+    <script type="application/javascript" src="/js/multiple.js"></script>
+    <form  id="formularz"  novalidate class="form">
         <h2>Egzamin z przedmiotu: <%=qts[0].subject%></h2>
         <h4>Kandydat: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
         <h4>Data: <%=new Date()%></h4>
 
-
-
+        <%  %>
+        <% let counter=0; %>
+        <% let examObject; %>
         <% for (q of qts) { %>
-
+        <% console.log("ELO " + counter); %>
         <hr>
-
-
         <p><strong><%= q.question %></strong><p>
+        <input type="hidden"  id="examId<%=counter %>" value=<%= exam._id %> >
+        <input type="hidden" id="questionId<%=counter %>" value=<%= q._id %> >
 
+        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=1><%= q.answer1 %></label>
+        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=2><%= q.answer2 %></label>
+        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=3><%= q.answer3 %></label>
+        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=4><%= q.correctAnswer %></label>
 
+        <input type="hidden" name="questionId[<%=counter %>]" value="12:00">
+        <input type="hidden" name="candidatePesel<%=counter %>" value=78945612311>
 
-        <label>&emsp;<input type="radio" name="answer1"><%= q.answer1 %></label>
-        <label>&emsp;<input type="radio" name="answer2"><%= q.answer2 %></label>
-        <label>&emsp;<input type="radio" name="answer3"><%= q.answer3 %></label>
-
+        <% counter = counter + 1; %>
         <% } %>
+
 
         <div class="form-buttons"> 
             <p id="errorSummary"></p>
-        <input type="submit" value="Zakończ egzamin" class="form-button-submit">>
+        <input type="button" onclick="insertIntoDatabaser(<%=counter%>)" value="Zakończ egzamin" class="form-button-submit">
 
         <a href="/../Pytanie_egzamin" class="form-button-cancel">Powrót</a>
         </div>
 
     </form>
 </main>
+<script>
+
+
+    function insertIntoDatabaser(counter) {
+        let isFormCorrect = true;
+        for(let i=0; i<counter; i++){
+            if(document.querySelector('input[name=\"answer' + i + '\"]:checked') == null){
+                isFormCorrect = false;
+            }
+        }
+
+        if(isFormCorrect == true){
+            for(let i=0; i<counter; i++){
+
+                let examId = document.getElementById("examId" + i).value;
+                let questionId = document.getElementById("questionId"+i).value;
+                let answer = document.querySelector('input[name=\"answer' + i + '\"]:checked').value;
+                let today = new Date();
+                let time = today.getHours() + ":" + today.getMinutes() ;
+
+                let json = "{\"examId\": "+examId+",\"questionId\": "+questionId+",\"answer\": "+answer+",\"answerTime\": \""+time+"\",\"candidatePesel\": 88022708956}";
+
+                insertIntoDatabase(json);
+            }
+
+            window.location.href = '../KomunikatZakonczeniaEgzaminu';
+        }
+
+        else{
+            alert("Nie wszystkie odpowiedzi zostały poprawnie zaznaczone");
+        }
+    }
+  </script>
 <%- include('../../fragments/footer.ejs') %>
+
