@@ -10,15 +10,42 @@ const Exam = sequelize.define("Exam", {
     },
     examDate: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                 msg:"Pole jest wymagane"
+            },
+            len: {
+                args: [14/12/2022],
+                msg: "Wymagany format to dd/mm/rr"
+            },
+        }
     },
     subject: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                 msg:"Pole jest wymagane"
+            },
+            len: {
+                args: [2,60],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            }
+        }
     },
    startTime: {
        type: Sequelize.TIME,
-       allowNull: false
+       allowNull: false,
+       validate: {
+           notEmpty: {
+                msg:"Pole jest wymagane"
+           },
+           len: {
+               args: [5],
+               msg: "Pole jest wymagane"
+           },
+       }
    },
    endTime: {
           type: Sequelize.TIME,
@@ -26,7 +53,17 @@ const Exam = sequelize.define("Exam", {
    },
    points: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+
+        validate: {
+                   notEmpty: {
+                        msg:"Pole jest wymagane"
+                   },
+                   len: {
+                       args: [2],
+                       msg: "Pole jest wymagane"
+                   },
+               }
     }
 });
 

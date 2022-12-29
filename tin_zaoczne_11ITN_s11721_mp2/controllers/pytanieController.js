@@ -13,7 +13,7 @@ QuestionRepository.getQuestions()
 exports.showEgzaminDodajPytanie = (req, res, next) => {
 
 
-     res.render('pagesLotnictwo/Pytanie/dodajPytanie', {
+     res.render('pagesLotnictwo/Pytanie/form', {
                 question: {},
                 pageTitle: 'Nowe pytanie',
 

@@ -1,12 +1,9 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
-    <script type="application/javascript" src="/js/validationExamForm.js"></script>
-
-
+    <script type="application/javascript" src="/js/validation.DodajNowyEgzamin.js"></script>
     <h2><%= pageTitle %></h2>
 
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
-
 
 
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= exam._id %>"
@@ -17,14 +14,17 @@
         <label for="examDate">Data egzaminu:<span class="symbol-required">*</span></label>
         <input type="date" name="examDate" id="examDate" placeholder="2-30 znaków" value="<%= (exam.examDate != null) ? exam.examDate.toISOString().split('T')[0] : '' %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorMyDate" class="Errors myDateRequired"></span>
 
         <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
         <input type="text" name="subject" id="subject" placeholder="2-30 znaków" value="<%= exam.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorItem" class="itemRequired Errors"></span>
 
         <label for="startTime">Godzina rozpoczęcia:<span class="symbol-required">*</span></label>
-        <input type="time" name="startTime" id="startTime" placeholder="2-30 znaków" value="<%= exam.startTime %>"
+        <input type="time" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorStartTime" class="startTimeRequired Errors"></span>
 
         <label for="endTime">Godzina zakońćzenia:<span class="symbol-required">*</span></label>
         <input type="time" name="endTime" id="endTime" placeholder="2-30 znaków" value="<%= exam.endTime %>"
@@ -33,6 +33,9 @@
         <label for="points">Punkty do zdobycia:<span class="symbol-required">*</span></label>
         <input type="number" name="points" id="points" placeholder="1-2 znak" value="<%= exam.points %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorPoints" class="itemRequired Errors"></span>
+
+        <div id="allForm2" class="allErrors Errors"></div>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">

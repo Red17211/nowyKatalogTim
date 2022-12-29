@@ -1,8 +1,8 @@
 function validateForm() {
 
     const peselInput = document.getElementById('pesel');
-    const nameInput = document.getElementById('name');
-    const surnameInput = document.getElementById('surname');
+    const nameInput = document.getElementById('firstName');
+    const surnameInput = document.getElementById('lastName');
     const permissionCodeInput = document.getElementById('permissionCode');
 
     const errorPesel = document.getElementById('errorPesel');

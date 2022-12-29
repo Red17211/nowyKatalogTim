@@ -28,8 +28,8 @@ module.exports = () => {
                 if( !persons || persons.length == 0 ) {
                     return Person.bulkCreate([
                         {pesel: 88022708956, firstName: 'Jan', lastName: 'Kowalski', permissionCode: 1},
-                        {pesel: 134564569846, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1},
-                        {pesel: 847548518418, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1}
+                        {pesel: 13456456984, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1},
+                        {pesel: 84754851841, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1}
                     ])
                     .then( () => {
                         return Person.findAll();

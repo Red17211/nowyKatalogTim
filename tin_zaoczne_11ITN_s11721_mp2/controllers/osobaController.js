@@ -11,10 +11,12 @@ exports.showOsobaList = (req, res, next) => {
         });
 }
 exports.showDodajOsobe = (req, res, next) => {
+
+
     res.render('pagesLotnictwo/Osoba/form', {
         person: {},
         pageTitle: 'Nowa osoba',
-
+//        validationErrors: err.errors,
         formMode: 'createNew',
         btnLabel: 'Dodaj osobę',
         formAction: '/Osoba/add',
@@ -89,7 +91,15 @@ exports.addPerson = (req, res, next) => {
     PersonRepository.createPerson(personData)
         .then( result => {
             res.redirect('/Osoba');
+        })
+        .catch(err => {
+            err.errors.forEach(e => {
+                    if(e.path.includes('pesel') && e.type == 'unique violation') {
+                        e.message = "Podany Pesel juz istnieje w bazie danych !";
+                    }
         });
+        });
+
 }
 
 

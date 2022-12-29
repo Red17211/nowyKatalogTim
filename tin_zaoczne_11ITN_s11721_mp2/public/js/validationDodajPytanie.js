@@ -1,24 +1,24 @@
 function validateForm() {
 
-    const contentsInput = document.getElementById('contents');
-    const response1Input = document.getElementById('response1');
-    const response2Input = document.getElementById('response2');
-    const response3Input = document.getElementById('response3');
+    const contentsInput = document.getElementById('question');
+    const response1Input = document.getElementById('answer1');
+    const response2Input = document.getElementById('answer2');
+    const response3Input = document.getElementById('answer3');
     const correctAnswerInput = document.getElementById('correctAnswer');
-    const itemInput = document.getElementById('item');
+    const subjectInput = document.getElementById('subject');
 
     const errorContents = document.getElementById('cont');
     const errorResponse1 = document.getElementById('errorResponse1');
     const errorResponse2 = document.getElementById('errorResponse2');
     const errorResponse3 = document.getElementById('errorResponse3');
     const errorCorrectAnswer = document.getElementById('errorCorrectAnswer');
-    const errorItem = document.getElementById('errorItem');
+    const errorSubject = document.getElementById('errorSubject');
     
-    
+    const allForm = document.getElementById('allForm');
 
     resetErrors (
-        [contentsInput, response1Input, response2Input, response3Input, correctAnswerInput, itemInput]
-        , [errorContents,errorResponse1, errorResponse2, errorResponse3, errorCorrectAnswer, errorItem], allForm);
+        [contentsInput, response1Input, response2Input, response3Input, correctAnswerInput, subjectInput]
+        , [errorContents,errorResponse1, errorResponse2, errorResponse3, errorCorrectAnswer, errorSubject], allForm);
 
     let valid = true;
 
@@ -43,7 +43,6 @@ function validateForm() {
     else{
         errorContents.innerText = "";
     }
-
     
     if (!checkRequired(response1Input.value)) {
         valid = false;
@@ -101,23 +100,23 @@ function validateForm() {
         errorCorrectAnswer.classList.add("Errors");
     }
     
-    if (!checkRequired(itemInput.value)) {
+    if (!checkRequired(subjectInput.value)) {
         valid = false;
-        itemInput.classList.add("error-input");
-        errorItem.innerText = "Pole jest wymagane";
-        errorItem.style.display="block";
-        errorItem.classList.add("Errors");
-    } else if (!checkTextLengthRange(itemInput.value, 3, 60)) {
+        subjectInput.classList.add("error-input");
+        errorSubject.innerText = "Pole jest wymagane";
+        errorSubject.style.display="block";
+        errorSubject.classList.add("Errors");
+    } else if (!checkTextLengthRange(subjectInput.value, 3, 60)) {
         valid = false;
-        itemInput.classList.add("error-input");
-        errorItem.innerText = "Pole powinno zwiarać od 3 do 60 znaków";
-        errorItem.style.display="block";
-        errorItem.classList.add("Errors");
+        subjectInput.classList.add("error-input");
+        errorSubject.innerText = "Pole powinno zwiarać od 3 do 60 znaków";
+        errorSubject.style.display="block";
+        errorSubject.classList.add("Errors");
     }
     
     if (!valid) {
-        errorSummary.classList.add("Errors");
-        errorSummary.innerText = "Formularz zawiera błędy";
+        allForm.classList.add("Errors");
+        allForm.innerText = "Formularz zawiera błędy";
     }
     
     return valid;
