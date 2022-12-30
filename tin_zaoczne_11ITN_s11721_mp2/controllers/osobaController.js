@@ -16,7 +16,6 @@ exports.showDodajOsobe = (req, res, next) => {
     res.render('pagesLotnictwo/Osoba/form', {
         person: {},
         pageTitle: 'Nowa osoba',
-//        validationErrors: err.errors,
         formMode: 'createNew',
         btnLabel: 'Dodaj osobę',
         formAction: '/Osoba/add',
@@ -77,7 +76,7 @@ exports.showEditPage = (req, res, next) => {
                 person: person,
                 pageTitle: 'Edycja osoby',
                 formMode: 'edit',
-                btnLabel: 'Edytuj osobę',
+                btnLabel: 'Zapisz',
                 formAction: './',
                 navLocation: 'person',
                 validationErrors: []
@@ -117,12 +116,28 @@ exports.addPerson = (req, res, next) => {
 
 exports.updatePerson = (req, res, next) => {
     const personId = req.body.pesel;
-    const personData = { ...req.body };
-    console.log('id: ' + personId + ', data: ' + personData);
-    PersonRepository.updatePerson(personId, personData)
-        .then( result => {
-            res.redirect('../../Osoba/editedOsoba');
-        });
+        const personData = { ...req.body };
+            PersonRepository.updatePerson(personId, personData)
+                .then( result => {
+                    res.redirect('../../Osoba/editedOsoba');
+                })
+                .catch(err => {
+                    err.errors.forEach(e => {
+                        console.log("e.path: " + e.path + ", e.type: " + e.type);
+                        if(e.path.includes('PRIMARY') && e.type == 'unique violation') {
+                            e.message = "Podany pesel już istnieje";
+                        }
+                    })
+                    res.render('pagesLotnictwo/Osoba/form', {
+                        person: personData,
+                        pageTitle: 'Edycja osoby',
+                        formMode: 'edit',
+                        btnLabel: 'Zapisz',
+                        formAction: '/Osoba/edit',
+                        navLocation: 'person',
+                        validationErrors: err.errors
+                    });
+                });
 }
 exports.deletePerson = (req, res, next) => {
     const personId = req.params.personId;

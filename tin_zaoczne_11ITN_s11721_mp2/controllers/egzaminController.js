@@ -15,7 +15,6 @@ exports.showEgzaminDodajEgzamin = (req, res, next) => {
     res.render('pagesLotnictwo/Egzamin/form', {
             exam: {},
             pageTitle: 'Nowy egzamin',
-
             formMode: 'createNew',
             btnLabel: 'Dodaj egzamin',
             formAction: '/Egzamin/add',
@@ -58,7 +57,7 @@ exports.showEditPage = (req, res, next) => {
                     exam: exam,
                     pageTitle: 'Edycja egzaminu',
                     formMode: 'edit',
-                    btnLabel: 'Edytuj egzamin',
+                    btnLabel: 'Zapisz',
                     formAction: './',
                     navLocation: 'exam',
                     validationErrors: []
@@ -98,13 +97,31 @@ exports.addExam = (req, res, next) => {
 
 exports.updateExam = (req, res, next) => {
     const examId = req.body._id;
-    const examData = { ...req.body };
-    console.log('id: ' + examId + ', data: ' + examData);
-    ExamRepository.updateExam(examId, examData)
-        .then( result => {
-            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-            res.redirect('../../Egzamin/edited');
-        });
+
+
+   const examData = { ...req.body };
+       console.log('CON: ' + examData);
+       ExamRepository.updateExam(examId, examData)
+           .then( result => {
+                res.redirect('../../Egzamin/edited');
+           })
+           .catch(err => {
+               err.errors.forEach(e => {
+                   console.log("e.path: " + e.path + ", e.type: " + e.type);
+                   if(e.path.includes('subject') && e.type == 'unique violation') {
+                       e.message = "Egzamin z podanego przedmiotu już istnieje";
+                   }
+               })
+               res.render('pagesLotnictwo/Egzamin/form', {
+                   exam: examData,
+                   pageTitle: 'Edycja egzaminu',
+                   formMode: 'edit',
+                   btnLabel: 'Zapisz',
+                   formAction: '/Egzamin/edit',
+                   navLocation: 'exam',
+                   validationErrors: err.errors
+               });
+           });
 }
 
 exports.deleteExam = (req, res, next) => {

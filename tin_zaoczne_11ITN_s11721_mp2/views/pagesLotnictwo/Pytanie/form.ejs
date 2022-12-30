@@ -3,40 +3,64 @@
     <script type="application/javascript" src="/js/validationDodajPytanie.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <form class="form" method="post" action="<%=formAction%>" novalidate>
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= question._id %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
 
         <label for="question">Pytanie:<span class="symbol-required">*</span></label>
-        <input type="text" name="question" id="question" placeholder="5-60 znaków" value="<%= question.question %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('question')) ? 'error-input' : '' %>" name="question" id="question" placeholder="5-60 znaków" value="<%= question.question %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span class="contentsRequired Errors" id="cont"></span>
+        <span class="errors-text" id="cont">
+             <% if (validationErrors.find(e => e.path.includes('question'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('question')).message %>
+            <% } %>
+        </span>
 
         <label for="answer1">Odpowiedź 1:<span class="symbol-required">*</span></label>
-        <input type="text" name="answer1" id="answer1" placeholder="3-60 znaków" value="<%= question.answer1 %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer1')) ? 'error-input' : '' %>" name="answer1" id="answer1" placeholder="3-60 znaków" value="<%= question.answer1 %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span class="response1Required Errors" id="errorResponse1" ></span>
+        <span class="errors-text" id="errorResponse1" >
+             <% if (validationErrors.find(e => e.path.includes('answer1'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('answer1')).message %>
+             <% } %>
+        </span>
 
         <label for="answer2">Odpowiedź 2:<span class="symbol-required">*</span></label>
-        <input type="text" name="answer2" id="answer2" placeholder="3-60 znaków" value="<%= question.answer2 %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer2')) ? 'error-input' : '' %>" name="answer2" id="answer2" placeholder="3-60 znaków" value="<%= question.answer2 %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorResponse2" class="response2Required Errors"></span>
+        <span id="errorResponse2" class="errors-text">
+             <% if (validationErrors.find(e => e.path.includes('answer2'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('answer2')).message %>
+             <% } %>
+        </span>
 
         <label for="answer3">Odpowiedź 3:<span class="symbol-required">*</span></label>
-        <input type="text" name="answer3" id="answer3" placeholder="3-60 znaków" value="<%= question.answer3 %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer3')) ? 'error-input' : '' %>" name="answer3" id="answer3" placeholder="3-60 znaków" value="<%= question.answer3 %>"
         <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorResponse3" class="response3Required Errors"></span>
+        <span id="errorResponse3" class="errors-text">
+             <% if (validationErrors.find(e => e.path.includes('answer3'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('answer3')).message %>
+             <% } %>
+        </span>
 
         <label for="correctAnswer">Poprawna odpowiedź:<span class="symbol-required">*</span></label>
-        <input type="text" name="correctAnswer" id="correctAnswer" placeholder="3-60 znaków" value="<%= question.correctAnswer %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('correctAnswer')) ? 'error-input' : '' %>" name="correctAnswer" id="correctAnswer" placeholder="3-60 znaków" value="<%= question.correctAnswer %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorCorrectAnswer" class="correctAnswerRequired Errors"></span>
+        <span id="errorCorrectAnswer" class="errors-text">
+             <% if (validationErrors.find(e => e.path.includes('correctAnswer'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('correctAnswer')).message %>
+             <% } %>
+        </span>
 
         <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
-        <input type="text" name="subject" id="subject" placeholder="3-60 znaków" value="<%= question.subject %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="3-60 znaków" value="<%= question.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorSubject" class="itemRequired Errors"></span>
+        <span id="errorSubject" class="errors-text">
+             <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
+                  <%= validationErrors.find(e => e.path.includes('subject')).message %>
+             <% } %>
+        </span>
 
         <div id="allForm" class="allErrors Errors"></div>
 
@@ -46,7 +70,7 @@
         </div>
         <% } %>
 
-        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <% if (formMode == 'showDetails') { %>
         <h2>
             Lista udzielonych odpowiedzi na egzaminach
         </h2>

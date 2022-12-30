@@ -20,7 +20,8 @@ exports.showEgzaminDodajPytanie = (req, res, next) => {
                 formMode: 'createNew',
                 btnLabel: 'Dodaj pytanie',
                 formAction: '/Pytanie/add',
-                navLocation: 'question'
+                navLocation: 'question',
+                validationErrors: []
             });
 }
 exports.showQuestionDetails = (req, res, next) => {
@@ -34,6 +35,7 @@ exports.showQuestionDetails = (req, res, next) => {
                         formMode: 'showDetails',
                         formAction: '',
                         navLocation: 'question',
+                        validationErrors: []
                     });
                 });
 }
@@ -57,9 +59,10 @@ exports.showEditPage = (req, res, next) => {
                         question: question,
                         pageTitle: 'Edycja pytania',
                         formMode: 'edit',
-                        btnLabel: 'Edytuj pytanie',
+                        btnLabel: 'Zapisz',
                         formAction: './',
-                        navLocation: 'question'
+                        navLocation: 'question',
+                        validationErrors: []
                        });
                 });
 }
@@ -70,19 +73,53 @@ exports.addQuestion = (req, res, next) => {
     QuestionRepository.createQuestion(questionData)
         .then( result => {
             res.redirect('../../Pytanie/addedKom');
+        })
+        .catch(err => {
+            err.errors.forEach(e => {
+                console.log("e.path: " + e.path + ", e.type: " + e.type);
+                if(e.path.includes('PRIMARY') && e.type == 'unique violation') {
+                    e.message = "Podany pesel już istnieje";
+                    }
+            })
+            res.render('pagesLotnictwo/Pytanie/form', {
+                question: questionData,
+                pageTitle: 'Nowe pytanie',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj pytanie',
+                formAction: '/Pytanie/add',
+                navLocation: 'question',
+                validationErrors: err.errors
+            });
         });
 }
 
 
 exports.updateQuestion = (req, res, next) => {
     const questionId = req.body._id;
+
     const questionData = { ...req.body };
-    console.log('id: ' + questionId + ', data: ' + questionData);
-    QuestionRepository.updateQuestion(questionId, questionData)
-        .then( result => {
-            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-            res.redirect('../../Pytanie/editedPytanieKom');
-        });
+        console.log('CONs: ' + questionData);
+        QuestionRepository.updateQuestion(questionId, questionData)
+            .then( result => {
+                res.redirect('../../Pytanie/editedPytanieKom');
+            })
+            .catch(err => {
+                err.errors.forEach(e => {
+                    console.log("e.path: " + e.path + ", e.type: " + e.type);
+                    if(e.path.includes('PRIMARY') && e.type == 'unique violation') {
+                        e.message = "Podany pesel już istnieje";
+                        }
+                })
+                res.render('pagesLotnictwo/Pytanie/form', {
+                    question: questionData,
+                    pageTitle: 'Nowe pytanie',
+                    formMode: 'createNew',
+                    btnLabel: 'Dodaj pytanie',
+                    formAction: '/Pytanie/add',
+                    navLocation: 'question',
+                    validationErrors: err.errors
+                });
+            });
 }
 
 exports.deleteQuestion = (req, res, next) => {
