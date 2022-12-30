@@ -20,7 +20,8 @@ exports.showDodajOsobe = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj osobę',
         formAction: '/Osoba/add',
-        navLocation: 'person'
+        navLocation: 'person',
+        validationErrors: []
     });
 }
 
@@ -52,7 +53,8 @@ exports.showPersonDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 formAction: '',
                 navLocation: 'person',
-                qr: q
+                qr: q,
+                validationErrors: []
             });
         });
 }
@@ -77,7 +79,8 @@ exports.showEditPage = (req, res, next) => {
                 formMode: 'edit',
                 btnLabel: 'Edytuj osobę',
                 formAction: './',
-                navLocation: 'person'
+                navLocation: 'person',
+                validationErrors: []
                });
         });
 }
@@ -94,14 +97,24 @@ exports.addPerson = (req, res, next) => {
         })
         .catch(err => {
             err.errors.forEach(e => {
-                    if(e.path.includes('pesel') && e.type == 'unique violation') {
-                        e.message = "Podany Pesel juz istnieje w bazie danych !";
-                    }
-        });
+                console.log("e.path: " + e.path + ", e.type: " + e.type);
+                if(e.path.includes('PRIMARY') && e.type == 'unique violation') {
+                    e.message = "Podany pesel już istnieje";
+                    console.log("Jestem w if");
+                }
+            })
+            res.render('pagesLotnictwo/Osoba/form', {
+                person: personData,
+                pageTitle: 'Dodawanie osoby',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj osobę',
+                formAction: '/Osoba/add',
+                navLocation: 'person',
+                validationErrors: err.errors
+            });
         });
 
 }
-
 
 exports.updatePerson = (req, res, next) => {
     const personId = req.body.pesel;

@@ -33,7 +33,7 @@ exports.updateQuestionExam = (questionExamId, questionExamData) => {
     const questionId = questionExamData.answer1;
     const answer = questionExamData.answer2;
     const answerTime = questionExamData.answer3;
-    const candidatePesel = questionExamData.correctAnswer;
+    const candidatePesel = questionExamData.candidatePesel;
     return QuestionExam.update(questionExamData, {where: {_id: questionExamId}});
 };
 

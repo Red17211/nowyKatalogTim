@@ -7,7 +7,7 @@ router.get('/', anExamController.showListaPytanieEgzamin);
 router.get('/egzamin/:subject', anExamController.showPytanieRozpEgzamin);
 router.get('/wyborEgzaminu', anExamController.wyborTematu);
 router.get('/details/:questionExamId', anExamController.showQuestionExamDetails);
-router.get('/edit/:examId', anExamController.showEditPage);
+router.get('/edit/:questionExamId', anExamController.showEditPage);
 router.get('/KomunikatZakonczeniaEgzaminu', anExamController.showAddedConfirmation);
 router.get('/edited', anExamController.showEditedConfirmation);
 router.get('/deleted', anExamController.showDeletedConfirmation);

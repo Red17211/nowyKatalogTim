@@ -49,7 +49,7 @@ const Person = sequelize.define("Person", {
       allowNull: false,
       validate: {
           notEmpty: {
-          msg:"Pole jest wymagane"
+            msg:"Pole jest wymagane"
           },
           len: {
           args: [1,1],

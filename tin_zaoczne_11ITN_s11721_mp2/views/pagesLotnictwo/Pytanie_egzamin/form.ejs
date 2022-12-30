@@ -5,30 +5,44 @@
     <h2><%= pageTitle %></h2>
 
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <% console.log("QEEEE: " + questionExam._id); %>
+        <input type="hidden" name="_id" id="_id" placeholder="" value="<%= questionExam._id %>">
 
         <label for="examId">Id egzaminu:<span class="symbol-required">*</span></label>
         <input type="number" disabled name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>">
-
-
 
         <label for="question">Pytanie:<span class="symbol-required">*</span></label>
         <select id="question" name="questionId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
         <option value="" selected>--- Wybierz pytanie ---</option>
         <% for (let i=0; i<allQuestions.length; i++) { let question = allQuestions[i]; %>
 
-        <option value="<%= question._id %>" label="<%= question.question %>"
+        <option value="<%= question._id %>" label="<%= question.question + ' (1: ' + question.answer1 + ', 2: ' + question.answer2 + ', 3: ' + question.answer3 + ', 4: ' + question.correctAnswer + ')' %>"
         <% console.log("1: " + questionExam._id + ", 2: " +allQuestions[i]._id) %>
         <%= (questionExam._id == allQuestions[i]._id) ? 'selected' : ''%>></option>
         <% } %>
         </select>
 
         <label for="answer">Odpowiedz:<span class="symbol-required">*</span></label>
-        <input type="text" name="answer" id="answer" placeholder="" value="<%= questionExam.answer==1 ? allQuestions[questionExam.questionId].answer1  + ' (nieprawidłowa)' : questionExam.answer==2 ? allQuestions[questionExam.questionId].answer2  + ' (nieprawidłowa)' : questionExam.answer==3  ? allQuestions[questionExam.questionId].answer3 + ' (nieprawidłowa)' : allQuestions[questionExam.questionId].correctAnswer + ' (poprawna odpowiedz)' %>"
-        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <select id="answer" name="answer" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>
+        <option value="" selected>--- Wybierz numer odpowiedzi ---</option>
+
+        <% for (let i=0; i<4; i++) { %>
+        <option value="<%= i+1 %>" label="<%= i+1 %>"
+        <%= (questionExam.answer == (i+1)) ? 'selected' : ''%>></option>
+        <% } %>
+        </select>
+
+
 
         <label for="person">Kandydat:<span class="symbol-required">*</span></label>
-        <input type="text" name="person" id="person" placeholder="" value="<%= person.firstName+' '+person.lastName %>"
-        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <select id="person" name="candidatePesel" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+        <option value="" selected>--- Wybierz kandydata ---</option>
+        <% for (let i=0; i<allPersons.length; i++) { %>
+        <%     let person = allPersons[i]; %>
+        <option value="<%= person.pesel %>" label="<%= person.firstName + ' ' + person.lastName %>"
+        <%= (questionExam.candidatePesel == allPersons[i].pesel) ? 'selected' : ''%>></option>
+        <% } %>
+        </select>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
@@ -43,6 +57,7 @@
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
             <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+
             <a class="form-button-cancel" href="/Pytanie_egzamin">Anuluj</a>
             <% } else { %>
             <a class="form-button-cancel" href="/Pytanie_egzamin">Powrót</a>

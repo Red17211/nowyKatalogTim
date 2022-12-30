@@ -4,28 +4,45 @@
     <script type="application/javascript" src="/js/validationDodajOsobeForm.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <form class="form" method="post" action="<%=formAction%>" novalidate ">
 
 
         <label for="pesel">PESEL:<span class="symbol-required">*</span></label>
-        <input type="number" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
-        <span class="peselRequired" id="errorPesel"></span>
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')) ? 'error-input' : '' %>" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+
+        <span id=errorPesel" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel'))) { %>
+                <%= validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')).message %>
+            <% } %>
+        </span>
 
         <label for="firstName">Imię:<span class="symbol-required">*</span></label>
-        <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
-        <span class="ImieRequired" id="errorName"></span>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+        <span id=errorName" class="ImieRequired">
+            <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+            <% } %>
+        </span>
 
         <label for="lastName">Nazwisko:<span class="symbol-required">*</span></label>
-        <input type="text" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
-        <span class="surnameRequired" id="errorSurname"></span>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+        <span id=errorSurname" class="surnameRequired">
+            <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('lastName')).message %>
+            <% } %>
+        </span>
 
         <label for="permissionCode">Poziom dostępu:<span class="symbol-required">*</span></label>
-        <input type="number" name="permissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
-        <span class="permissionCodeRequired" id="errorPermissionCode"></span>
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('permissionCode')) ? 'error-input' : '' %>" name="permissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+        <span id=errorPermissionCode" class="permissionCodeRequired">
+            <% if (validationErrors.find(e => e.path.includes('permissionCode'))) { %>
+                <%= validationErrors.find(e => e.path.includes('permissionCode')).message %>
+            <% } %>
+        </span>
 
         <div id="allForm2" class="allErrors Errors"></div>
 

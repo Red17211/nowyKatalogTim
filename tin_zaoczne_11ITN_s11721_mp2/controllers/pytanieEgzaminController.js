@@ -32,6 +32,7 @@ exports.showListaPytanieEgzamin = (req, res, next) => {
 exports.showQuestionExamDetails = (req, res, next) => {
     let allQuestions;
     let questionExam;
+    let allPersons;
 
     const questionExamId = req.params.questionExamId;
 
@@ -44,19 +45,21 @@ exports.showQuestionExamDetails = (req, res, next) => {
 
                     PersonRepository.getPersonById(qe.candidatePesel)
                     .then(per =>{
-
+                        PersonRepository.getPersons()
+                        .then(persons => {
                         questionExam = qe;
-                        res.render('pagesLotnictwo/Pytanie_egzamin/form', {
+                            res.render('pagesLotnictwo/Pytanie_egzamin/form', {
 
-                               pageTitle: 'Szczegóły udzielonych odpowiedzi na egzaminach',
-                               formMode: 'showDetails',
-                               formAction: '',
-                               navLocation: 'anExam',
-                               allQuestions: allQuestions,
-                               questionExam: questionExam,
-                               person: per
-
-                           });
+                                   pageTitle: 'Szczegóły udzielonych odpowiedzi na egzaminach',
+                                   formMode: 'showDetails',
+                                   formAction: '',
+                                   navLocation: 'anExam',
+                                   allQuestions: allQuestions,
+                                   questionExam: questionExam,
+                                   person: per,
+                                    allPersons: persons
+                               });
+                        })
                     })
 
 
@@ -102,7 +105,38 @@ exports.showPytanieRozpEgzamin = (req, res, next) => {
 }
 
 exports.showEditPage = (req, res, next) => {
-    res.render('pagesLotnictwo/Pytanie_egzamin/edytujUdzieloneOdpowiedzi', {navLocation:'anExam'});
+    let allQuestions;
+    let questionExam;
+    let questionExamId = req.params.questionExamId;
+    let allPersons;
+
+
+    QuestionRepository.getQuestions()
+        .then(questions1 =>{
+            allQuestions = questions1;
+            QuestionExamRepository.getQuestionExamById(questionExamId)
+                .then(qe =>{
+                    PersonRepository.getPersonById(qe.candidatePesel)
+                    .then(per =>{
+                        questionExam = qe;
+                        PersonRepository.getPersons()
+                        .then(persons => {
+                            res.render('pagesLotnictwo/Pytanie_egzamin/form', {
+                               pageTitle: '(ADMIN) Edycja udzielonej odpowiedzi na egzaminie',
+                               formMode: 'edit',
+                               formAction: '/Pytanie_egzamin/edit',
+                               btnLabel: 'Zapisz',
+                               navLocation: 'anExam',
+                               allQuestions: allQuestions,
+                               questionExam: questionExam,
+                               person: per,
+                               allPersons: persons
+                           });
+                        })
+
+                    })
+                });
+        });
 }
 exports.showAddedConfirmation = (req, res, next) => {
     res.render('pagesLotnictwo/Pytanie_egzamin/KomunikatZakonczeniaEgzaminu', {navLocation:'anExam'});
@@ -123,10 +157,12 @@ exports.addQuestionExam = (req, res, next) => {
         });
 }
 
-
 exports.updateQuestionExam = (req, res, next) => {
-    const questionExamId = req.body.questionExamId;
+
+    const questionExamId = req.body._id;
     const questionExamData = { ...req.body };
+    console.log("Body: " + questionExamData._id);
+    console.log("QEID: " + questionExamId);
 
     QuestionExamRepository.updateQuestionExam(questionExamId, questionExamData)
         .then( result => {
