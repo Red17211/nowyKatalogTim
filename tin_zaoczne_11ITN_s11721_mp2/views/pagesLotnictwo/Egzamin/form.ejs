@@ -3,37 +3,56 @@
     <script type="application/javascript" src="/js/validation.DodajNowyEgzamin.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <form class="form" method="post" action="<%=formAction%>" novalidate >
 
 
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= exam._id %>"
 
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
-
+        <% console.log("EGZAMIN DATA: " + exam.examDate); %>
         <label for="examDate">Data egzaminu:<span class="symbol-required">*</span></label>
-        <input type="date" name="examDate" id="examDate" placeholder="2-30 znaków" value="<%= (exam.examDate != null) ? exam.examDate.toISOString().split('T')[0] : '' %>"
+        <input type="date" class="<%= validationErrors.find(e => e.path.includes('examDate')) ? 'error-input' : '' %>" name="examDate" id="examDate" placeholder="2-30 znaków" value="<%= (exam != null && exam.examDate != null) ? exam.examDate.toISOString().split('T')[0] : '' %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorMyDate" class="Errors myDateRequired"></span>
+        <span id="errorMyDate" class="Errors myDateRequired">
+             <% if (validationErrors.find(e => e.path.includes('examDate'))) { %>
+                 <%= validationErrors.find(e => e.path.includes('examDate')).message %>
+                 <% } %>
+        </span>
+
 
         <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
-        <input type="text" name="subject" id="subject" placeholder="2-30 znaków" value="<%= exam.subject %>"
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="2-30 znaków" value="<%= exam.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorItem" class="itemRequired Errors"></span>
+        <span id="errorItem" class="itemRequired Errors">
+             <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
+                 <%= validationErrors.find(e => e.path.includes('subject')).message %>
+             <% } %>
+        </span>
 
         <label for="startTime">Godzina rozpoczęcia:<span class="symbol-required">*</span></label>
-        <input type="time" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
+        <input type="time" class="<%= validationErrors.find(e => e.path.includes('startTime')) ? 'error-input' : '' %>" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorStartTime" class="startTimeRequired Errors"></span>
+        <span id="errorStartTime" class="startTimeRequired Errors">
+             <% if (validationErrors.find(e => e.path.includes('startTime'))) { %>
+                 <%= validationErrors.find(e => e.path.includes('startTime')).message %>
+             <% } %>
+        </span>
+
+
 
         <label for="endTime">Godzina zakońćzenia:<span class="symbol-required">*</span></label>
         <input type="time" name="endTime" id="endTime" placeholder="2-30 znaków" value="<%= exam.endTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
         <label for="points">Punkty do zdobycia:<span class="symbol-required">*</span></label>
-        <input type="number" name="points" id="points" placeholder="1-2 znak" value="<%= exam.points %>"
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('points')) ? 'error-input' : '' %>" name="points" id="points" placeholder="1-2 znak" value="<%= exam.points %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorPoints" class="itemRequired Errors"></span>
+        <span id="errorPoints" class="itemRequired Errors">
+             <% if (validationErrors.find(e => e.path.includes('points'))) { %>
+                 <%= validationErrors.find(e => e.path.includes('points')).message %>
+             <% } %>
+        </span>
 
         <div id="allForm2" class="allErrors Errors"></div>
 

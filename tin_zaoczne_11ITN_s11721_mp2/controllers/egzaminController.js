@@ -19,7 +19,8 @@ exports.showEgzaminDodajEgzamin = (req, res, next) => {
             formMode: 'createNew',
             btnLabel: 'Dodaj egzamin',
             formAction: '/Egzamin/add',
-            navLocation: 'exam'
+            navLocation: 'exam',
+            validationErrors: []
         });
 }
 exports.showExamDetails = (req, res, next) => {
@@ -33,7 +34,8 @@ exports.showExamDetails = (req, res, next) => {
                     pageTitle: 'Szczegóły egzaminu',
                     formMode: 'showDetails',
                     formAction: '',
-                    navLocation: 'exam'
+                    navLocation: 'exam',
+                    validationErrors: []
                 });
             });
 }
@@ -58,7 +60,8 @@ exports.showEditPage = (req, res, next) => {
                     formMode: 'edit',
                     btnLabel: 'Edytuj egzamin',
                     formAction: './',
-                    navLocation: 'exam'
+                    navLocation: 'exam',
+                    validationErrors: []
                    });
             });
 }
@@ -72,6 +75,23 @@ exports.addExam = (req, res, next) => {
     ExamRepository.createExam(examData)
         .then( result => {
             res.redirect('../../Egzamin/added');
+        })
+        .catch(err => {
+            err.errors.forEach(e => {
+                console.log("e.path: " + e.path + ", e.type: " + e.type);
+                if(e.path.includes('subject') && e.type == 'unique violation') {
+                    e.message = "Egzamin z podanego przedmiotu już istnieje";
+                }
+            })
+            res.render('pagesLotnictwo/Egzamin/form', {
+                exam: examData,
+                pageTitle: 'Nowy egzamin',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj Egzamin',
+                formAction: '/Egzamin/add',
+                navLocation: 'exam',
+                validationErrors: err.errors
+            });
         });
 }
 

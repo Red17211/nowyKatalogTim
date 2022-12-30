@@ -100,7 +100,6 @@ exports.addPerson = (req, res, next) => {
                 console.log("e.path: " + e.path + ", e.type: " + e.type);
                 if(e.path.includes('PRIMARY') && e.type == 'unique violation') {
                     e.message = "Podany pesel już istnieje";
-                    console.log("Jestem w if");
                 }
             })
             res.render('pagesLotnictwo/Osoba/form', {
