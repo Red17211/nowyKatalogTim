@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
 var indexRouter = require('./routes/index');
 const EgzaminRouter = require('./routes/EgzaminRoute');
 const pytanieEgzaminRouter = require('./routes/pytanieEgzaminRoute');
@@ -12,6 +14,13 @@ const usersRouter = require('./routes/OsobaRoute');
 
 
 var app = express();
+
+//linking date formatting function
+const fmt = require('./public/js/dateFormatting');
+app.use((req, res, next) => {
+    res.locals.fmt = fmt;
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
