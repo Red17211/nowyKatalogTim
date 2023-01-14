@@ -11,6 +11,6 @@ var xhttp = new XMLHttpRequest();
     };
     xhttp.open("POST", "../../api/questionexams", true); // LINK PRZYGOTOWANY NA POSTA I DODAJE W BAZIE ELEMENT
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(json); // WYWOŁUJE SIĘ METODA SET Z JESONEM Z TYM TEKSTEM Z EGAMINU 61
+    xhttp.send(json); // WYWOŁUJE SIĘ METODA SET Z JESONEM
 
 }
