@@ -5,27 +5,27 @@
     <form  id="formularz"  novalidate class="form">
         <h2>Egzamin z przedmiotu: <%=qts[0].subject%></h2>
         <h4>Kandydat: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
+        <h4>pesel: <%=candidate.pesel%></h4>
         <h4>Data: <%=new Date()%></h4>
 
         <%  %>
         <% let counter=0; %>
         <% let examObject; %>
         <% for (q of qts) { %>
-        <% console.log("ELO " + counter); %>
-        <hr>
-        <p><strong><%= q.question %></strong><p>
-        <input type="hidden"  id="examId<%=counter %>" value=<%= exam._id %> >
-        <input type="hidden" id="questionId<%=counter %>" value=<%= q._id %> >
+            <hr>
+            <p><strong><%= q.question %></strong><p>
+            <input type="hidden"  id="examId<%=counter %>" value=<%= exam._id %> >
+            <input type="hidden" id="questionId<%=counter %>" value=<%= q._id %> >
 
-        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=1><%= q.answer1 %></label>
-        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=2><%= q.answer2 %></label>
-        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=3><%= q.answer3 %></label>
-        <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=4><%= q.correctAnswer %></label>
+            <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=1><%= q.answer1 %></label>
+            <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=2><%= q.answer2 %></label>
+            <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=3><%= q.answer3 %></label>
+            <label style="margin-left: 10px;"><input type="radio" name="answer<%=counter%>" value=4><%= q.correctAnswer %></label>
 
-        <input type="hidden" name="questionId[<%=counter %>]" value="12:00">
-        <input type="hidden" name="candidatePesel<%=counter %>" value=78945612311>
+            <input type="hidden" name="questionId[<%=counter %>]" value="12:00">
+            <input type="hidden" name="candidatePesel<%=counter %>" value=13456456984>
 
-        <% counter = counter + 1; %>
+            <% counter = counter + 1; %>
         <% } %>
 
 
@@ -58,7 +58,7 @@
                 let today = new Date();
                 let time = today.getHours() + ":" + today.getMinutes() ;
 
-                let json = "{\"examId\": "+examId+",\"questionId\": "+questionId+",\"answer\": "+answer+",\"answerTime\": \""+time+"\",\"candidatePesel\": 88022708956}";
+                let json = "{\"examId\": "+examId+",\"questionId\": "+questionId+",\"answer\": "+answer+",\"answerTime\": \""+time+"\",\"candidatePesel\": 13456456984}";
 
                 insertIntoDatabase(json);
             }

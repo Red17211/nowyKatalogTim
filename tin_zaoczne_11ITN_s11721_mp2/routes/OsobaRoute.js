@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+// podłączamy żądania http do metod w kontrolerze
 const personController = require('../controllers/osobaController');
 
 router.get('/', personController.showOsobaList);
@@ -17,4 +17,4 @@ router.post('/edit', personController.updatePerson);
 router.get('/delete/:personId', personController.deletePerson);
 
 
-module.exports = router;
+module.exports = router; // eskport obiekt routera do użycia w innych częściach aplikacji

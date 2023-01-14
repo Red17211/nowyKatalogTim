@@ -37,7 +37,7 @@ exports.showQuestionExamDetails = (req, res, next) => {
     const questionExamId = req.params.questionExamId;
 
     QuestionRepository.getQuestions()
-        .then(questions1 =>{
+            .then(questions1 =>{
             allQuestions = questions1;
             console.log("Znaleziono questions: " + questions1.length);
             QuestionExamRepository.getQuestionExamById(questionExamId)
@@ -57,7 +57,8 @@ exports.showQuestionExamDetails = (req, res, next) => {
                                    allQuestions: allQuestions,
                                    questionExam: questionExam,
                                    person: per,
-                                    allPersons: persons
+                                    allPersons: persons,
+                                    validationErrors: []
                                });
                         })
                     })
@@ -130,7 +131,8 @@ exports.showEditPage = (req, res, next) => {
                                allQuestions: allQuestions,
                                questionExam: questionExam,
                                person: per,
-                               allPersons: persons
+                               allPersons: persons,
+                               validationErrors: []
                            });
                         })
 
@@ -167,7 +169,35 @@ exports.updateQuestionExam = (req, res, next) => {
     QuestionExamRepository.updateQuestionExam(questionExamId, questionExamData)
         .then( result => {
             res.redirect('../../Pytanie_egzamin/edited');
-        });
+        })
+        .catch(err => {
+             QuestionRepository.getQuestions()
+                .then(questions1 =>{
+                    allQuestions = questions1;
+                    QuestionExamRepository.getQuestionExamById(questionExamId)
+                        .then(qe =>{
+                            PersonRepository.getPersonById(qe.candidatePesel)
+                                .then(per =>{
+                                    questionExam = qe;
+                                    PersonRepository.getPersons()
+                                        .then(persons => {
+                                           res.render('pagesLotnictwo/Pytanie_egzamin/form', {
+                                               pageTitle: '(ADMIN) Edycja udzielonej odpowiedzi na egzaminie',
+                                               formMode: 'edit',
+                                               formAction: '/Pytanie_egzamin/edit',
+                                               btnLabel: 'Zapisz',
+                                               navLocation: 'anExam',
+                                               allQuestions: allQuestions,
+                                               questionExam: questionExam,
+                                               person: per,
+                                               allPersons: persons,
+                                               validationErrors: err.errors
+                                           });
+                                        })
+                                })
+                           });
+                   });
+                 });
 }
 
 exports.deleteQuestionExam = (req, res, next) => {

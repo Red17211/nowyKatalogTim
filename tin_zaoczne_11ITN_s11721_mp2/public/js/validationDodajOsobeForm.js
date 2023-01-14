@@ -25,7 +25,7 @@ function validateForm() {
         valid = false;
 
         peselInput.classList.add("error-input");
-        errorPesel.innerText = "Pole jest wymagane";
+        errorPesel.innerText = "Pole jest wymagane-walidacja front";
         errorPesel.style.display="block";
         errorPesel.classList.add("Errors");
     } else if (!checkTextLengthRange(peselInput.value, 11, 11)) {
@@ -62,7 +62,6 @@ function validateForm() {
 
         valid = false;
 
-        surnameInput.classList.add("error-input");
         errorSurname.innerText = "Pole jest wymagane";
         errorSurname.style.display="block";
         errorSurname.classList.add("Errors");

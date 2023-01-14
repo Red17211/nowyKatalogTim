@@ -1,9 +1,9 @@
 const ExamRepository = require('../repository/sequelize/ExamRepository');
-
+// wyświetlanie danego widoku będzie potrzebna definicja funkcji, ma 3 parametry, obiekt reprezentujący żądanie klienta, odpowiedź http i opcjonalny parametr pozwalający odwołać się do następnego obiektu
 exports.showEgzaminListaEgzaminow = (req, res, next) => {
     ExamRepository.getExams()
             .then(exams => {
-                res.render('pagesLotnictwo/Egzamin/listaEgzaminow', {
+                res.render('pagesLotnictwo/Egzamin/listaEgzaminow', { //wygeneruje widok na podstawie wybranego szablonu
                     exams: exams,
                     navLocation: 'exam'
                 });

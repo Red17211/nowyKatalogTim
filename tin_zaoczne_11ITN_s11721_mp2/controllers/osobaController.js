@@ -1,10 +1,10 @@
 const PersonRepository = require('../repository/sequelize/PersonRepository');
 const QuestionRepository = require('../repository/sequelize/QuestionRepository');
-
-exports.showOsobaList = (req, res, next) => {
+// kontrolery dla każdej tabeli bazodanowej
+exports.showOsobaList = (req, res, next) => { // lambdaprzyjmuje 3parametyobiet reprez żadanie klienta, odpowiedz http, opcjonalny parametr umoźliwijacy odniesienie sie do kolejnego obietku
     PersonRepository.getPersons()
         .then(persons => {
-            res.render('pagesLotnictwo/Osoba/listaOsobEgzaminowanych', {
+            res.render('pagesLotnictwo/Osoba/listaOsobEgzaminowanych', { //genreuje sie wdok na podstawie szablonu.
                 persons: persons,
                 navLocation: 'person'
             });
@@ -95,6 +95,7 @@ exports.addPerson = (req, res, next) => {
             res.redirect('/Osoba');
         })
         .catch(err => {
+            console.log(err);
             err.errors.forEach(e => {
                 console.log("e.path: " + e.path + ", e.type: " + e.type);
                 if(e.path.includes('PRIMARY') && e.type == 'unique violation') {

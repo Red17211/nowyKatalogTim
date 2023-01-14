@@ -1,10 +1,9 @@
 const sequelize = require('./sequelize');
-
 const Person = require('../../model/sequelize/Person');
 const Question = require('../../model/sequelize/Question');
 const Exam = require('../../model/sequelize/Exam');
 const Question_Exam = require('../../model/sequelize/Question_Exam');
-
+//Zdefiniujemy relacje pomiędzy tabelami,Zainicjalizujemy instancję mappera,Wymusimy synchronizację naszego modelu ze schematem bazy danych,Wstawimy przykładowe dane
 module.exports = () => {
 
     Person.hasMany(Question_Exam, {as: 'answers', foreignKey: {name: 'candidatePesel', allowNull: false}});
@@ -21,13 +20,12 @@ module.exports = () => {
         .sync({force: true})
             .then( () => {
                 let list = Person.findAll();
-                console.log('JOOOOO ' + list);
                 return list;
             })
             .then(persons => {
                 if( !persons || persons.length == 0 ) {
                     return Person.bulkCreate([
-                        {pesel: 88022708956, firstName: 'Jan', lastName: 'Kowalski', permissionCode: 1},
+                        {pesel: 88022708956, firstName: 'Janeczka', lastName: 'Kowalski', permissionCode: 1},
                         {pesel: 13456456984, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1},
                         {pesel: 84754851841, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1}
                     ])

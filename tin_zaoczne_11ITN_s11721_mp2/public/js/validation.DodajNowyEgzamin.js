@@ -1,11 +1,12 @@
-function validateForm() {
-    
+// kod wykorzystywany przy walidacji formularzy wywoływany przez class="form"  novalidate onsubmit="return validateForm();"
+function validateForm() { // funkcja sprawdzająca pola formularza
+    // pobieranie poszczególnych elementow pol na odpowiednie zmienne
     const myDateInput = document.getElementById('examDate');
     const itemInput = document.getElementById('subject');
     const startTimeInput = document.getElementById('startTime');
     const endTimeInput = document.getElementById('endTime');
     const pointsInput = document.getElementById('points');
-
+// pobieranie kounikatow błedow
     const errorMyDate = document.getElementById('errorMyDate');
     const errorItem = document.getElementById('errorItem');
     const errorStartTime = document.getElementById('errorStartTime');
@@ -13,7 +14,7 @@ function validateForm() {
 
     const errorSummary = document.getElementById('allForm2');
     
-    
+    // czyszczenie wczesniejszych komunikatow bledow
     resetErrors ([
     myDateInput,
     itemInput,
@@ -22,7 +23,7 @@ function validateForm() {
     pointsInput],
         [errorMyDate, errorItem, errorStartTime, errorPoints], errorSummary);
     
-    let valid = true;
+    let valid = true; // flaga ktora bedziez zmienna od wartosci formularza
     
     if (!checkRequired(myDateInput.value)) {
         valid = false;
@@ -38,13 +39,13 @@ function validateForm() {
         errorMyDate.classList.add("Errors");
     }
 
-    if (!checkRequired(itemInput.value)) {
+    if (!checkRequired(itemInput.value)) { // weryfikacja czy pole zostalo wypelnione + regóły walidacji
         valid = false;
         itemInput.classList.add("error-input");
         errorItem.innerText = "Pole jest wymagane";
         errorItem.style.display="block";
         errorItem.classList.add("Errors");
-    } else if (!checkTextLengthRange(itemInput.value, 3, 60)) {
+    } else if (!checkTextLengthRange(itemInput.value, 3, 60)) { // weryfikacja odpowiedniej długosci w polu
         valid = false;
         itemInput.classList.add("error-input");
         errorItem.innerText = "Pole powinno zwiarać od 3 do 60";
@@ -80,11 +81,11 @@ function validateForm() {
             errorPoints.classList.add("Errors");
         }
     
-    if (!valid) {
+    if (!valid) { // obsluga wyswietlania ogolnej informacji o bledach formularza
         errorSummary.innerText = "Formularz zawiera błędy";
         errorSummary.classList.add("Errors");
     }
     
-    return valid;
+    return valid; // Zwrot wartości flagi walidacyjnej w celu ustanowienia odpowieniego zachowania dla formularza w przypadku błędów (w przypadku false formularz nie zostanie wysłany):
 
 }

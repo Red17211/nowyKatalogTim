@@ -1,5 +1,5 @@
 
-function resetErrors(inputs, errorTexts, errorInfo) {
+function resetErrors(inputs, errorTexts, errorInfo) { //funkcja czyszczącą formatowanie błędnych pól oraz ich komunikatów
 
     for (let i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("error-input");
@@ -26,7 +26,7 @@ inputField.style.backgroundColor = '#fba';
     return isValid;
   }
 
-function checkRequired(value) {
+function checkRequired(value) { //funkcja sprawdzającą wymagalnośc pola
 
     if (!value) {
         return false;
@@ -39,7 +39,7 @@ function checkRequired(value) {
     return true;
 }
 
-function checkTextLengthRange(value, min, max) {
+function checkTextLengthRange(value, min, max) { //funkcję sprawdzającą długość pola
     
     if (!value) {
         

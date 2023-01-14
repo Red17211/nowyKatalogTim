@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
-
+//modele danych Sequelize. Zawierają one podstawowe kolumny z danymi
 const Exam = sequelize.define("Exam", {
     _id: {
         type: Sequelize.INTEGER,
@@ -68,3 +68,5 @@ const Exam = sequelize.define("Exam", {
 });
 
 module.exports = Exam;
+
+//Sequelize automatycznie dodaje kolumny createdAt i updatedAt do tworzonych tabel i aktualizuje je przy każdym zapisie / aktualizacji obiektu.

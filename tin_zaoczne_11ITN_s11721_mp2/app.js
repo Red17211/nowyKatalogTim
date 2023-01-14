@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 
 var indexRouter = require('./routes/index');
-const EgzaminRouter = require('./routes/EgzaminRoute');
+const EgzaminRouter = require('./routes/EgzaminRoute'); //zaimportujemy nasz nowy router
 const pytanieEgzaminRouter = require('./routes/pytanieEgzaminRoute');
 const PytanieRouter = require('./routes/pytanieRoute');
 const usersRouter = require('./routes/OsobaRoute');
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.use('/Egzamin', EgzaminRouter);
+app.use('/Egzamin', EgzaminRouter); //podłączymy go pod ścieżką
 app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
 app.use('/Pytanie', PytanieRouter);
 app.use('/Osoba', usersRouter);
