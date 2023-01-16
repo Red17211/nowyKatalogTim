@@ -56,6 +56,11 @@ const Person = sequelize.define("Person", {
           msg: "Pole powinno zawierać 1 znak"
           },
       }
+   },
+
+   password: {
+    type: Sequelize.STRING,
+    allowNull: false
    }
 });
 

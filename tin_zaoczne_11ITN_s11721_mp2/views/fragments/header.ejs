@@ -18,9 +18,34 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <% if (loggedUser) { %>
             <li><a href="/Egzamin"class="<%= navLocation == 'exam' ? 'active' : ''%>">Egzamin</a></li>
             <li><a href="/Pytanie_egzamin"class="<%= navLocation == 'anExam' ? 'active' : ''%>">Pytanie egzamin</a></li>
             <li><a href="/Pytanie"class="<%= navLocation == 'question' ? 'active' : ''%>">Pytanie</a></li>
             <li><a href="/Osoba"class="<%= navLocation == 'person' ? 'active' : ''%>">Osoba</a></li>
+            <% } %>
         </ul>
+
+        <% if(!loggedUser) { %>
+                 <div id="login">
+                      <h5>Logowanie</h5>
+                      <form method="post" action="/login" novalidate>
+                        <label for="loginPesel">Pesel:</label>
+                        <input type="number" id="loginPesel" name="pesel">
+
+                        <label for="loginPassword">Hasło:</label>
+                        <input type="password" id="loginPassword" name="password">
+
+                        <input type="submit" value="Zaloguj się">
+                        <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+                      </form>
+                 <div/>
+            <% } else { %>
+                 <span> Jesteś zalogowany jako: <%= loggedUser.firstName + " " + loggedUser.lastName %> </span>
+                 <a href="/logout"> Wyloguj się </a>
+            <% } %>
+
+
     </nav>
+
+

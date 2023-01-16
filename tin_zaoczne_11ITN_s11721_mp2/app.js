@@ -4,16 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
-
-var indexRouter = require('./routes/index');
-const EgzaminRouter = require('./routes/EgzaminRoute'); //zaimportujemy nasz nowy router
-const pytanieEgzaminRouter = require('./routes/pytanieEgzaminRoute');
-const PytanieRouter = require('./routes/pytanieRoute');
-const usersRouter = require('./routes/OsobaRoute');
-
-
 var app = express();
+
+const authUtils = require('./util/authUtils');
 
 //linking date formatting function
 const fmt = require('./public/js/dateFormatting');
@@ -32,12 +25,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require('express-session');
+app.use(session({
+    secret: 'my_secret_password',
+    resave: false
+}));
+
+app.use((req, res, next) => {
+    const loggedUser = req.session.loggedUser;
+    res.locals.loggedUser = loggedUser;
+    if(!res.locals.loginError) {
+        res.locals.loginError = undefined;
+    }
+    next();
+});
+
+var indexRouter = require('./routes/index');
+const EgzaminRouter = require('./routes/EgzaminRoute'); //zaimportujemy nasz nowy router
+const pytanieEgzaminRouter = require('./routes/pytanieEgzaminRoute');
+const PytanieRouter = require('./routes/pytanieRoute');
+const usersRouter = require('./routes/OsobaRoute');
+
 app.use('/', indexRouter);
 
-app.use('/Egzamin', EgzaminRouter); //podłączymy go pod ścieżką
-app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
-app.use('/Pytanie', PytanieRouter);
-app.use('/Osoba', usersRouter);
+app.use('/Egzamin', authUtils.permitAuthenticatedUser, EgzaminRouter); //podłączymy go pod ścieżką
+app.use('/Pytanie_egzamin', authUtils.permitAuthenticatedUser, pytanieEgzaminRouter);
+app.use('/Pytanie', authUtils.permitAuthenticatedUser, PytanieRouter);
+app.use('/Osoba', authUtils.permitAuthenticatedUser, usersRouter);
 
 const personApiRouter = require('./routes/api/PersonApiRoute');
 const questionApiRouter = require('./routes/api/QuestionApiRoute');

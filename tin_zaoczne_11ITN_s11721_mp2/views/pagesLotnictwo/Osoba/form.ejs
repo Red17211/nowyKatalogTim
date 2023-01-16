@@ -4,7 +4,8 @@
     <script type="application/javascript" src="/js/validationDodajOsobeForm.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate" >
+    <form class="form" method="post" action="<%=formAction%>" novalidate" onsubmit="return validateForm();"
+ >
 
 
         <label for="pesel">PESEL:<span class="symbol-required">*</span></label>

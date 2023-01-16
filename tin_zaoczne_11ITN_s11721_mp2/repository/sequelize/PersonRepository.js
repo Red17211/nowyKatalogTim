@@ -18,6 +18,12 @@ exports.getPersonById = (personId) => {
     );
 };
 
+exports.findByPesel = (pesel) => {
+    return Person.findOne({
+    where: {pesel: pesel}
+    });
+}
+
 
 exports.createPerson = (newPersondata) => {
     return Person.create({
