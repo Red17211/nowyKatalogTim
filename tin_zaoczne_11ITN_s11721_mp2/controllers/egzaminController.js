@@ -14,7 +14,7 @@ exports.showEgzaminListaEgzaminow = (req, res, next) => {
 exports.showEgzaminDodajEgzamin = (req, res, next) => {
     res.render('pagesLotnictwo/Egzamin/form', {
             exam: {},
-            pageTitle: 'Nowy egzamin',
+            pageTitle: req.__('exam.form.add.pageTitle'),
             formMode: 'createNew',
             btnLabel: 'Dodaj egzamin',
             formAction: '/Egzamin/add',

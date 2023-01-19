@@ -1,16 +1,16 @@
 <%- include('../../fragments/header.ejs') %>
 
         <main>
-            <h2>Lista egzaminów</h2>
+            <h2><%= __('exam.list.pageTitle') %></h2>
             <table id=tabelka" class="table-list">
                 <tr>
-                                    <th>Id</th>
-                                    <th>Data egzaminu</th>
-                                    <th>Przedmiot</th>
-                                    <th>Godzina rozpoczęcia</th>
-                                    <th>Godzina zakońćzenia</th>
-                                    <th>PKT do zdobycia</th>
-                                    <th>Akcje</th>
+                                    <th><%= __('exam.fields.id') %></th>
+                                    <th><%= __('exam.fields.date') %></th>
+                                    <th><%= __('exam.fields.subject') %></th>
+                                    <th><%= __('exam.fields.startTime') %></th>
+                                    <th><%= __('exam.fields.endTime') %></th>
+                                    <th><%= __('exam.fields.endTime') %></th>
+                                    <th><%= __('list.actions.title') %></th>
                                 </tr>
                 <tbody>
                             <% for (let exam of exams) { %>
@@ -22,14 +22,14 @@
                                     <td><%= exam.endTime %></td>
                                     <td><%= exam.points %></td>
                                     <td>
-                                        <a href="../Egzamin/details/<%=exam._id%>" class="list-actions-button-details">Szczegóły</a>
-                                        <a href="../Egzamin/edit/<%=exam._id%>" class="list-actions-button-edit">Edytuj</a>
-                                        <a href="../Egzamin/delete/<%=exam._id%>" class="list-actions-button-delete">Usuń</a>
+                                        <a href="../Egzamin/details/<%=exam._id%>"  class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                                        <a href="../Egzamin/edit/<%=exam._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                                        <a href="../Egzamin/delete/<%=exam._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                                     </td>
                                 </tr>
                                 <% } %>
                 </tbody>
             </table>
-            <p><a href="/Egzamin/dodajEgzamin" class="button-add">Dodaj nowy egzamin</a></p>
+            <p><a href="/Egzamin/dodajEgzamin" class="button-add"><%= __('exam.list.addNew') %></a></p>
         </main>
  <%- include('../../fragments/footer.ejs') %>

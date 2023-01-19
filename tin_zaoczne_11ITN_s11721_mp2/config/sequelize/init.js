@@ -4,7 +4,7 @@ const Question = require('../../model/sequelize/Question');
 const Exam = require('../../model/sequelize/Exam');
 const Question_Exam = require('../../model/sequelize/Question_Exam');
 const authUtil = require('../../util/authUtils');
-const passHash = authUtil.hashPassword('12345');
+const passHash = authUtil.hashPassword('');
 //Zdefiniujemy relacje pomiędzy tabelami,Zainicjalizujemy instancję mappera,Wymusimy synchronizację naszego modelu ze schematem bazy danych,Wstawimy przykładowe dane
 module.exports = () => {
 
@@ -29,7 +29,8 @@ module.exports = () => {
                     return Person.bulkCreate([
                         {pesel: 88022708956, firstName: 'Janeczka', lastName: 'Kowalski', permissionCode: 1, password: passHash},
                         {pesel: 13456456984, firstName: 'Adam', lastName: 'Pawlak', permissionCode: 1, password: passHash},
-                        {pesel: 84754851841, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1, password: passHash}
+                        {pesel: 84754851841, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1, password: passHash},
+                        {pesel: 1, firstName: 'Krzysztof', lastName: 'Sedziszewski', permissionCode: 1, password: passHash}
                     ])
                     .then( () => {
                         return Person.findAll();

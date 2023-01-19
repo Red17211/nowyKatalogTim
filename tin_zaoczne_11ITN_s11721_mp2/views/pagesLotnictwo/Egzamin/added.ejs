@@ -1,10 +1,10 @@
 <%- include('../../fragments/header.ejs') %>
         <main>
-            <h2>Nowy egzamin</h2>
-            Nowy egzamin został dodany
+            <h2><%= __('exam.form.add.confirm.header') %></h2>
+            <%= __('exam.form.add.confirm.text') %>
             <br><br>
 
-            <a href="/egzamin" class="form-button-cancel">Powrót</a>
+            <a href="/egzamin" class="form-button-cancel"><%= __('exam.form.add.confirm.btnReturn') %></a>
         </main>
  <%- include('../../fragments/footer.ejs') %>
 

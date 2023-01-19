@@ -1,9 +1,9 @@
 <%- include('../../fragments/header.ejs') %>
         <main>
-            <h2>Usunięcie egzaminu</h2>
-            Egzamin został usunięty
+            <h2><%= __('exam.form.delete.confirm.header') %></h2>
+            <%= __('exam.form.delete.confirm.text') %>
             <br><br>
             
-            <a href="/egzamin" class="form-button-cancel">Powrót</a>
+            <a href="/egzamin" class="form-button-cancel"><%= __('exam.form.delete.btnLabel') %></a>
         </main>
  <%- include('../../fragments/footer.ejs') %>

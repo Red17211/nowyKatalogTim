@@ -1,0 +1,102 @@
+{
+	"main-page": {
+		"content": "Main Page",
+		"title": "A system for examining potential candidates for pilots or flight crew members. The system checks the skills acquired while learning theoretical knowledge, and passing the exams is a prerequisite for obtaining a license."
+	},
+	"login": {
+		"login": "Login:",
+		"pesel": "Pesel:",
+		"pass": "Password:",
+		"loginBTN": "Log-in",
+		"loginBy": "You are logged in as:",
+		"logout": "Log out"
+	},
+	"nav": {
+		"header": "Examination system of the civil aviation office",
+		"main-page": "Main page",
+		"exam": "Exam",
+		"questionExam": "Question Exam",
+		"question": "Question",
+		"person": "Person"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		},
+		"examAdd": {
+			"add": {
+				"confirm": {
+					"btnReturn": "form.examAdd.add.confirm.btnReturn"
+				}
+			}
+		},
+		"details": {
+			"text": "form.details.text"
+		}
+	},
+	"exam": {
+		"fields": {
+			"id": "Id",
+			"date": "Exam date",
+			"subject": "Subject",
+			"subjectPlaceholder": "2-30 characters",
+			"startTime": "Start time",
+			"endTime": "End time",
+			"points": "Points to earn",
+			"pointsPlaceholder": "1-2 character"
+		},
+		"list": {
+			"title": "Exam",
+			"addNew": "Add a new exam",
+			"pageTitle": "List of exams"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "New exam",
+				"btnLabel": "Add exam",
+				"confirm": {
+					"header": "Confirmation of the new exam",
+					"text": "A new exam has been added",
+					"btnReturn": "Return"
+				}
+			},
+			"details": {
+				"pageTitle": "Exam details",
+				"btnLabel": "Edit",
+				"btnLabelP": "Return",
+				"text": "List of answers given in exams",
+				"table": {
+					"question": "Question",
+					"answer": "Answer",
+					"timeAnswer": "Time answer"
+				}
+			},
+			"edit": {
+				"pageTitle": "Exam editing",
+				"btnLabel": "Save",
+				"confirm": {
+					"header": "Save confirmation",
+					"text": "Changes have been saved",
+					"btnLabel": "exam.form.edit.confirm.btnLabel"
+				}
+			},
+			"delete": {
+				"btnLabel": "Return",
+				"confirm": {
+					"header": "Save confirmation",
+					"text": "Changes have been saved"
+				}
+			}
+		}
+	}
+}

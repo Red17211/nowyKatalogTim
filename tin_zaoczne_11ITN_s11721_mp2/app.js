@@ -15,6 +15,26 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(cookieParser('secret'));
+
+app.use((req, res, next) => {
+    if(!res.locals.lang) {
+        const currentLang = req.cookies['acme-hr-lang'];
+        res.locals.lang = currentLang;
+    }
+    next();
+});
+
+//konfiguracja wielojęzyczności
+const i18n = require('i18n');
+i18n.configure({
+    locales: ['pl', 'en'], // jezyki dostepne w aplikacji
+    directory: path.join(__dirname, 'locales'), // scieżka do katalogu w ktorym znajduje sie słownik
+    objectNotation: true,
+    cookie: 'acme-hr-lang', //nazwa cookies, które nasza aplikacja będzie wykorzystywać do przechowania informacji o języku aktualnie wybranym przez użytkownika
+});
+app.use(i18n.init);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -35,7 +55,7 @@ app.use((req, res, next) => {
     const loggedUser = req.session.loggedUser;
     res.locals.loggedUser = loggedUser;
     if(!res.locals.loginError) {
-        res.locals.loginError = undefined;
+      res.locals.loginError = undefined;
     }
     next();
 });
@@ -48,10 +68,17 @@ const usersRouter = require('./routes/OsobaRoute');
 
 app.use('/', indexRouter);
 
-app.use('/Egzamin', authUtils.permitAuthenticatedUser, EgzaminRouter); //podłączymy go pod ścieżką
-app.use('/Pytanie_egzamin', authUtils.permitAuthenticatedUser, pytanieEgzaminRouter);
-app.use('/Pytanie', authUtils.permitAuthenticatedUser, PytanieRouter);
-app.use('/Osoba', authUtils.permitAuthenticatedUser, usersRouter);
+app.use('/Egzamin', EgzaminRouter); //podłączymy go pod ścieżką
+app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
+app.use('/Pytanie', PytanieRouter);
+app.use('/Osoba', usersRouter);
+
+
+//app.use('/Egzamin', authUtils.permitAuthenticatedUser, EgzaminRouter); //podłączymy go pod ścieżką
+//app.use('/Pytanie_egzamin', authUtils.permitAuthenticatedUser, pytanieEgzaminRouter);
+//app.use('/Pytanie', authUtils.permitAuthenticatedUser, PytanieRouter);
+//app.use('/Osoba', authUtils.permitAuthenticatedUser, usersRouter);
+
 
 const personApiRouter = require('./routes/api/PersonApiRoute');
 const questionApiRouter = require('./routes/api/QuestionApiRoute');

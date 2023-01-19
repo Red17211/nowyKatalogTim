@@ -11,7 +11,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
         <% console.log("EGZAMIN DATA: " + exam.examDate); %>
-        <label for="examDate">Data egzaminu:<span class="symbol-required">*</span></label>
+        <label for="examDate"><%= __('exam.fields.date') %><span class="symbol-required">*</span></label>
 
 
         <input type="date" class="<%= validationErrors.find(e => e.path.includes('examDate')) ? 'error-input' : '' %>" name="examDate" id="examDate" value="<%= fmt.formatDate(exam.examDate) %>"
@@ -23,8 +23,8 @@
         </span>
 
 
-        <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="2-30 znaków" value="<%= exam.subject %>"
+        <label for="subject"><%= __('exam.fields.subject') %><span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="<%= __('exam.fields.subjectPlaceholder') %>" value="<%= exam.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorItem" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
@@ -32,7 +32,7 @@
              <% } %>
         </span>
 
-        <label for="startTime">Godzina rozpoczęcia:<span class="symbol-required">*</span></label>
+        <label for="startTime"><%= __('exam.fields.startTime') %><span class="symbol-required">*</span></label>
         <input type="time" class="<%= validationErrors.find(e => e.path.includes('startTime')) ? 'error-input' : '' %>" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorStartTime" class="errors-text">
@@ -43,14 +43,14 @@
 
 
 
-        <label for="endTime">Godzina zakońćzenia:</label>
+        <label for="endTime"><%= __('exam.fields.endTime') %></label>
         <input type="time" name="endTime" id="endTime" placeholder="2-30 znaków" value="<%= exam.endTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
 
 
-        <label for="points">Punkty do zdobycia:</label>
-        <input type="number" class="<%= validationErrors.find(e => e.path.includes('points')) ? 'error-input' : '' %>" name="points" id="points" placeholder="1-2 znak" value="<%= exam.points %>"
+        <label for="points"><%= __('exam.fields.points') %></label>
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('points')) ? 'error-input' : '' %>" name="points" id="points" placeholder="<%= __('exam.fields.pointsPlaceholder') %>" value="<%= exam.points %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorPoints" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('points'))) { %>
@@ -62,20 +62,20 @@
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
-            <a href="/Egzamin/edit/<%= exam._id %>" class="form-button-submit">Edytuj</a>
+            <a href="/Egzamin/edit/<%= exam._id %>" class="form-button-submit"><%= __('exam.form.details.btnLabel') %></a>
         </div>
         <% } %>
 
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
         <h2>
-            Lista udzielonych odpowiedzi na egzaminach
+            <%= __('exam.form.details.text') %>
         </h2>
         <table clss="table-list">
             <thead>
             <tr>
-                <th>Pytanie</th>
-                <th>Odpowiedz</th>
-                <th>Godzina odpowiedzi</th>
+                <th><%= __('exam.form.details.table.question') %></th>
+                <th><%= __('exam.form.details.table.answer') %></th>
+                <th><%= __('exam.form.details.table.timeAnswer') %></th>
             </tr>
             </thead>
             <tbody>
@@ -87,10 +87,10 @@
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                <a class="form-button-cancel" href="/Egzamin">Anuluj</a>
+                <input class="form-button-submit" type="submit" value="<%= __('exam.form.edit.btnLabel') %> "/>
+                <a class="form-button-cancel" href="/Egzamin"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-                <a class="form-button-cancel" href="/Egzamin">Powrót</a>
+                <a class="form-button-cancel" href="/Egzamin"><%= __('exam.form.details.btnLabelP') %></a>
             <% } %>
         </div>
         </form>

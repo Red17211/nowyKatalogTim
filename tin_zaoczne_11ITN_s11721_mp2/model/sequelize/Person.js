@@ -12,7 +12,7 @@ const Person = sequelize.define("Person", {
                  msg:"Pole jest wymagane"
             },
             len: {
-                args: [11,11],
+                args: [1,11],
                 msg: "Pole powinno zawierać 11 znaków"
             }
 
