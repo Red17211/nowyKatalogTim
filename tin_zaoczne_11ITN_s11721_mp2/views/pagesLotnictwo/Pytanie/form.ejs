@@ -8,8 +8,8 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
 
-        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('question')) ? 'error-input' : '' %>" name="question" id="question" placeholder="5-60 znaków" value="<%= question.question %>"
+        <label for="question"><%= __('question.fields.questionsContent') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('question')) ? 'error-input' : '' %>" name="question" id="question" placeholder="<%= __('question.fields.questionsPlaceholder5') %>" value="<%= question.question %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span class="errors-text" id="cont">
              <% if (validationErrors.find(e => e.path.includes('question'))) { %>
@@ -17,8 +17,8 @@
             <% } %>
         </span>
 
-        <label for="answer1">Odpowiedź 1:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer1')) ? 'error-input' : '' %>" name="answer1" id="answer1" placeholder="3-60 znaków" value="<%= question.answer1 %>"
+        <label for="answer1"><%= __('question.fields.answer1') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer1')) ? 'error-input' : '' %>" name="answer1" id="answer1" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer1 %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span class="errors-text" id="errorResponse1" >
              <% if (validationErrors.find(e => e.path.includes('answer1'))) { %>
@@ -26,8 +26,8 @@
              <% } %>
         </span>
 
-        <label for="answer2">Odpowiedź 2:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer2')) ? 'error-input' : '' %>" name="answer2" id="answer2" placeholder="3-60 znaków" value="<%= question.answer2 %>"
+        <label for="answer2"><%= __('question.fields.answer2') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer2')) ? 'error-input' : '' %>" name="answer2" id="answer2" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer2 %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorResponse2" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('answer2'))) { %>
@@ -35,8 +35,8 @@
              <% } %>
         </span>
 
-        <label for="answer3">Odpowiedź 3:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer3')) ? 'error-input' : '' %>" name="answer3" id="answer3" placeholder="3-60 znaków" value="<%= question.answer3 %>"
+        <label for="answer3"><%= __('question.fields.answer3') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer3')) ? 'error-input' : '' %>" name="answer3" id="answer3" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer3 %>"
         <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorResponse3" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('answer3'))) { %>
@@ -44,8 +44,8 @@
              <% } %>
         </span>
 
-        <label for="correctAnswer">Poprawna odpowiedź:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('correctAnswer')) ? 'error-input' : '' %>" name="correctAnswer" id="correctAnswer" placeholder="3-60 znaków" value="<%= question.correctAnswer %>"
+        <label for="correctAnswer"><%= __('question.fields.correctAnswer') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('correctAnswer')) ? 'error-input' : '' %>" name="correctAnswer" id="correctAnswer" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.correctAnswer %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCorrectAnswer" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('correctAnswer'))) { %>
@@ -53,8 +53,8 @@
              <% } %>
         </span>
 
-        <label for="subject">Przedmiot:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="3-60 znaków" value="<%= question.subject %>"
+        <label for="subject"><%= __('question.fields.subject') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorSubject" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
@@ -66,20 +66,20 @@
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
-            <a href="/Pytanie/edit/<%= question._id %>" class="form-button-submit">Edytuj</a>
+            <a href="/Pytanie/edit/<%= question._id %>" class="form-button-submit"><%= __('form.actions.edit') %></a>
         </div>
         <% } %>
 
         <% if (formMode == 'showDetails') { %>
         <h2>
-            Lista udzielonych odpowiedzi na egzaminach
+            <%= __('exam.form.details.text') %>
         </h2>
         <table clss="table-list">
             <thead>
             <tr>
-                <th>Pytanie</th>
-                <th>Odpowiedz</th>
-                <th>Godzina odpowiedzi</th>
+                <th><%= __('exam.form.details.table.question') %></th>
+                <th><%= __('exam.form.details.table.answer') %></th>
+                <th><%= __('exam.form.details.table.timeAnswer') %></th>
             </tr>
             </thead>
             <tbody>
@@ -91,10 +91,10 @@
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                <a class="form-button-cancel" href="/Pytanie">Anuluj</a>
+                <input class="form-button-submit" type="submit" value="<%= __('form.actions.save') %>" />
+                <a class="form-button-cancel" href="/Pytanie"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-                <a class="form-button-cancel" href="/Pytanie">Powrót</a>
+                <a class="form-button-cancel" href="/Pytanie"><%= __('form.actions.return') %></a>
             <% } %>
         </div>
         </form>

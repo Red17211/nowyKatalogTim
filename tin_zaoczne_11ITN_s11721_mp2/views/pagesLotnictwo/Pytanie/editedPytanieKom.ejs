@@ -1,11 +1,11 @@
 <%- include('../../fragments/header.ejs') %>
        
         <main>
-            <h2>Edycja wcześniej dodanego pytania</h2>
-            Pytanie zostało edytowane
+            <h2><%= __('question.form.edit.confirm.header') %></h2>
+            <%= __('question.form.edit.confirm.text') %>
             
             <br><br>
-            <a href="./" class="form-button-cancel">Powrót</a>
+            <a href="./" class="form-button-cancel"><%= __('form.actions.return') %></a>
         </main>
 <%- include('../../fragments/footer.ejs') %>
 

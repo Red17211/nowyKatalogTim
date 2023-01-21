@@ -31,7 +31,8 @@
 		"actions": {
 			"return": "Powrót",
 			"edit": "Edytuj",
-			"cancel": "Anuluj"
+			"cancel": "Anuluj",
+			"save": "Zapisz"
 		}
 	},
 	"exam": {
@@ -129,7 +130,7 @@
 				"btnLabelP": "Powrót"
 			},
 			"edit": {
-				"pageTitle": "Edycja udzielonej odpowiedzi na egzaminie",
+				"pageTitle": "(Admin)Edycja udzielonej odpowiedzi na egzaminie",
 				"btnLabel": "Zapisz",
 				"confirm": {
 					"header": "Edycja udzielonych wcześniej odpowiedzi",
@@ -146,25 +147,24 @@
 			}
 		}
 	},
-
 	"question": {
 		"fields": {
 			"id": "Id",
 			"questionsContent": "Treść pytania",
-			"questionsPlaceholder": "5-60 characters",
+			"questionsPlaceholder5": "5-60 znaków",
 			"answer1": "Odpowiedź 1",
-			"answerPlaceholder1": "3-60 characters",
+			"answerPlaceholder1": "3-60 znaków",
 			"answer2": "Odpowiedź 2",
-			"answerPlaceholder2": "3-60 characters",
+			"answerPlaceholder2": "3-60 znaków",
 			"answer3": "Odpowiedź 3",
-			"answerPlaceholder3": "3-60 characters",
+			"answerPlaceholder3": "3-60 znaków",
 			"correctAnswer": "Poprawna odpowiedź",
-			"correctPlaceholder": "3-60 characters",
+			"correctPlaceholder": "3-60 znaków",
 			"subject": "Przedmiot",
-			"subjectPlaceholder": "3-60 characters"
+			"subjectPlaceholder": "3-60 znaków"
 		},
 		"list": {
-			"title": "Egzamin",
+			"title": "Pytanie",
 			"addNew": "Dodaj nowe pytanie",
 			"pageTitle": "Lista pytań"
 		},
@@ -173,14 +173,12 @@
 				"pageTitle": "Nowy pytanie",
 				"btnLabel": "Dodaj pytanie",
 				"confirm": {
-					"header": "Potwierdzenie nowy egzamin",
-					"text": "Nowy egzamin został dodany"
+					"header": "Nowe pytanie",
+					"text": "Nowe pytanie zostało dodane"
 				}
 			},
 			"details": {
-				"pageTitle": "Szczegóły egzaminu",
-				"btnLabel": "Edit",
-				"btnLabelP": "Return",
+				"pageTitle": "Szczegóły pytania",
 				"text": "Lista udzielonych odpowiedzi na egzaminach",
 				"table": {
 					"question": "Pytanie",
@@ -189,18 +187,66 @@
 				}
 			},
 			"edit": {
-				"pageTitle": "Edycja egzaminu",
-				"btnLabel": "Zapisz",
+				"pageTitle": "Edycja pytania",
 				"confirm": {
-					"header": "Potwierdzenie zapisu",
-					"text": "Zmiany zostały zapisane"
+					"header": "Edycja wcześniej dodanego pytania",
+					"text": "Pytanie zostało edytowane"
 				}
 			},
 			"delete": {
-				"btnLabel": "Powrót",
 				"confirm": {
-					"header": "Potwierdzenie zapisu",
-					"text": "Zmiany zostały zapisane"
+					"header": "Usunięcie pytania",
+					"text": "Pytanie zostało usunięte"
+				}
+			}
+		}
+	},
+	"person": {
+		"fields": {
+			"pesel": "Pesel:",
+			"name": "Treść pytania",
+			"surname": "Odpowiedź 1",
+			"Access level": "Odpowiedź 2",
+
+			"personPlaceholder5": "11 znaków",
+			"personPlaceholder3": "2-30 znaków",
+			"personPlaceholder1": "1 znak"
+
+		},
+		"list": {
+			"title": "Osoba",
+			"addNew": "Dodaj nową osobe",
+			"pageTitle": "Lista osób egzaminowanych"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Nowy pytanie",
+				"btnLabel": "Dodaj pytanie",
+				"confirm": {
+					"header": "Nowe pytanie",
+					"text": "Nowe pytanie zostało dodane"
+				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły pytania",
+				"text": "Lista udzielonych odpowiedzi na egzaminach",
+				"table": {
+					"question": "Pytanie",
+					"answer": "Odpowiedź",
+					"timeAnswer": "Godzina odpowiedzi"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja pytania",
+				"confirm": {
+					"header": "Edycja wcześniej dodanego pytania",
+					"text": "Pytanie zostało edytowane"
+				}
+			},
+			"delete": {
+				"confirm": {
+					"header": "Usunięcie pytania",
+					"text": "Pytanie zostało usunięte"
 				}
 			}
 		}
