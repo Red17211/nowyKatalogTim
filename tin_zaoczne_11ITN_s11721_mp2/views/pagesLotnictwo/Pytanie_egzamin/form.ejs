@@ -8,10 +8,10 @@
         <% console.log("QEEEE: " + questionExam._id); %>
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= questionExam._id %>">
 
-        <label for="examId">Id egzaminu:<span class="symbol-required">*</span></label>
+        <label for="examId"><%= __('questionExam.fields.examId') %>:<span class="symbol-required">*</span></label>
         <input type="number" disabled name="examId" id="examId" placeholder="" value="<%= questionExam.examId %>">
 
-        <label for="question">Pytanie:<span class="symbol-required">*</span></label>
+        <label for="question"><%= __('questionExam.fields.question') %>:<span class="symbol-required">*</span></label>
         <select id="question"
                 class="<%= validationErrors.find(e => e.path.includes('question')) ? 'error-input' : '' %>"
                 name="questionId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
@@ -32,7 +32,7 @@
             <% } %>
             </span>
 
-            <label for="answer">Odpowiedz:<span class="symbol-required">*</span></label>
+            <label for="answer"><%= __('questionExam.fields.answer') %>:<span class="symbol-required">*</span></label>
             <select id="answer" name="answer" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>
             <option value="" selected>--- Wybierz numer odpowiedzi ---</option>
 
@@ -43,7 +43,7 @@
             </select>
 
 
-            <label for="person">Kandydat:<span class="symbol-required">*</span></label>
+            <label for="person"><%= __('questionExam.fields.candidate') %>:<span class="symbol-required">*</span></label>
             <select id="person" name="candidatePesel" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
             <option value="" selected>--- Wybierz kandydata ---</option>
             <% for (let i=0; i
@@ -57,7 +57,7 @@
 
                 <% if (formMode == 'showDetails') { %>
                 <div class="section-buttons">
-                    <a href="/Pytanie_egzamin/edit/<%= questionExam._id %>" class="form-button-submit"><%= __('questionExam.form.edit.btnLabel') %></a>
+                    <a href="/Pytanie_egzamin/edit/<%= questionExam._id %>" class="form-button-submit"><%= __('questionExam.form.details.btnLabel') %></a>
                 </div>
                 <% } %>
 
@@ -65,11 +65,11 @@
                 <div class="form-buttons">
                     <p id="errorsSummary" class="errors-text"></p>
                     <% if (formMode != 'showDetails') { %>
-                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <input class="form-button-submit" type="submit" value="<%= __('questionExam.form.edit.btnLabel') %>"/>
 
-                    <a class="form-button-cancel" href="/Pytanie_egzamin">Anuluj</a>
+                    <a class="form-button-cancel" href="/Pytanie_egzamin"><%= __('form.actions.cancel') %></a>
                     <% } else { %>
-                    <a class="form-button-cancel" href="/Pytanie_egzamin"><%= __('questionExam.form.edit.btnLabelP') %></a>
+                    <a class="form-button-cancel" href="/Pytanie_egzamin"><%= __('questionExam.form.details.btnLabelP') %></a>
                     <% } %>
                 </div>
     </form>

@@ -109,23 +109,23 @@
 				"btnLabelN": "Rozpocznij egzamin(Nawigacja)",
 				"btnLabelC": "Rozpocznij egzamin(Człowiek)",
 				"btnLabelP": "Rozpocznij egzamin(Prawo)",
-			"exam":{
-				"pageTitle": "Egzamin z przedmiotu",
-				"candidate": "Kandydat",
-				"pesel": "Pesel",
-				"date": "Data",
-				"btnReturn": "Powrót",
-				"btnEndExam" : "Zakończ egzamin"
-			},
-				"confirm": {
-								"header": "Egzamin zakończony",
-								"text": "Egzamin został zakończony. Twoje odpowiedzi zostały zapisane.",
-								"btnReturn": "Powrót"
-						}
+				"exam": {
+					"pageTitle": "Egzamin z przedmiotu",
+					"candidate": "Kandydat",
+					"pesel": "Pesel",
+					"date": "Data",
+					"btnReturn": "Powrót",
+					"btnEndExam": "Zakończ egzamin"
 				},
+				"confirm": {
+					"header": "Egzamin zakończony",
+					"text": "Egzamin został zakończony. Twoje odpowiedzi zostały zapisane.",
+					"btnReturn": "Powrót"
+				}
+			},
 			"details": {
 				"pageTitle": "Szczegóły udzielonych odpowiedzi na egzaminach",
-				"btnLabel": "Edit",
+				"btnLabel": "Edycja",
 				"btnLabelP": "Powrót"
 			},
 			"edit": {
@@ -135,6 +135,7 @@
 					"header": "Edycja udzielonych wcześniej odpowiedzi",
 					"text": "Odpowiedzi zostały edytowane"
 				}
+
 			},
 			"delete": {
 				"btnLabel": "Powrót",
@@ -144,6 +145,64 @@
 				}
 			}
 		}
+	},
 
+	"question": {
+		"fields": {
+			"id": "Id",
+			"questionsContent": "Treść pytania",
+			"questionsPlaceholder": "5-60 characters",
+			"answer1": "Odpowiedź 1",
+			"answerPlaceholder1": "3-60 characters",
+			"answer2": "Odpowiedź 2",
+			"answerPlaceholder2": "3-60 characters",
+			"answer3": "Odpowiedź 3",
+			"answerPlaceholder3": "3-60 characters",
+			"correctAnswer": "Poprawna odpowiedź",
+			"correctPlaceholder": "3-60 characters",
+			"subject": "Przedmiot",
+			"subjectPlaceholder": "3-60 characters"
+		},
+		"list": {
+			"title": "Egzamin",
+			"addNew": "Dodaj nowe pytanie",
+			"pageTitle": "Lista pytań"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Nowy pytanie",
+				"btnLabel": "Dodaj pytanie",
+				"confirm": {
+					"header": "Potwierdzenie nowy egzamin",
+					"text": "Nowy egzamin został dodany"
+				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły egzaminu",
+				"btnLabel": "Edit",
+				"btnLabelP": "Return",
+				"text": "Lista udzielonych odpowiedzi na egzaminach",
+				"table": {
+					"question": "Pytanie",
+					"answer": "Odpowiedź",
+					"timeAnswer": "Godzina odpowiedzi"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja egzaminu",
+				"btnLabel": "Zapisz",
+				"confirm": {
+					"header": "Potwierdzenie zapisu",
+					"text": "Zmiany zostały zapisane"
+				}
+			},
+			"delete": {
+				"btnLabel": "Powrót",
+				"confirm": {
+					"header": "Potwierdzenie zapisu",
+					"text": "Zmiany zostały zapisane"
+				}
+			}
+		}
 	}
 }

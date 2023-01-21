@@ -135,8 +135,7 @@
 				"confirm": {
 					"header": "Editing previously provided answers",
 					"text": "The answers have been edited"
-				},
-				"btnLabelP": "questionExam.form.edit.btnLabelP"
+				}
 			},
 			"delete": {
 				"btnLabel": "Return",
@@ -146,5 +145,6 @@
 				}
 			}
 		}
+
 	}
 }
