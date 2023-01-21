@@ -32,16 +32,6 @@
 			"return": "Return",
 			"edit": "Edit",
 			"cancel": "Cancel"
-		},
-		"examAdd": {
-			"add": {
-				"confirm": {
-					"btnReturn": "form.examAdd.add.confirm.btnReturn"
-				}
-			}
-		},
-		"details": {
-			"text": "form.details.text"
 		}
 	},
 	"exam": {
@@ -95,6 +85,64 @@
 				"confirm": {
 					"header": "Save confirmation",
 					"text": "Changes have been saved"
+				}
+			}
+		}
+	},
+	"questionExam": {
+		"fields": {
+			"id": "Id",
+			"examId": "Id exam",
+			"question": "Question",
+			"answer": "Answer",
+			"response time": "Response time",
+			"candidates pesel": "Candidates pesel",
+			"candidate": "Candidate"
+		},
+		"list": {
+			"title": "Exam question",
+			"addNew": "Start the exam",
+			"pageTitle": "List of answers given in the exam by persons"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Choosing an exam",
+				"btnLabelN": "Start the exam(Navigation)",
+				"btnLabelC": "Start the exam(Human)",
+				"btnLabelP": "Start the exam(Law)",
+				"exam": {
+					"pageTitle": "Subject exam",
+					"candidate": "Candidate",
+					"pesel": "Pesel",
+					"date": "Date",
+					"btnReturn": "Return",
+					"btnEndExam": "End the exam"
+				},
+				"confirm": {
+					"header": "The exam is over",
+					"text": "The exam has been completed. Your answers have been saved.",
+					"btnReturn": "Return"
+				}
+			},
+			"details": {
+				"pageTitle": "Details of the answers given in the exams",
+				"btnLabel": "Edit",
+				"btnLabelP": "Return"
+			},
+			"edit": {
+				"pageTitle": "Editing the answer given in the exam",
+				"btnLabel": "Save",
+				"confirm": {
+					"header": "Editing previously provided answers",
+					"text": "The answers have been edited"
+				},
+				"btnLabelP": "questionExam.form.edit.btnLabelP"
+			},
+			"delete": {
+				"btnLabel": "Return",
+				"confirm": {
+					"header": "Removal of answers",
+					"text": "The answer has been deleted"
 				}
 			}
 		}

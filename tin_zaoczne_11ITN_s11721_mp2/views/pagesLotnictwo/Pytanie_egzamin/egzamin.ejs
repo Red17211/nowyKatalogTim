@@ -3,10 +3,10 @@
 <main>
     <script type="application/javascript" src="/js/multiple.js"></script>
     <form  id="formularz"  novalidate class="form">
-        <h2>Egzamin z przedmiotu: <%=qts[0].subject%></h2>
-        <h4>Kandydat: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
-        <h4>pesel: <%=candidate.pesel%></h4>
-        <h4>Data: <%=new Date()%></h4>
+        <h2><%= __('questionExam.form.add.exam.pageTitle') %>: <%=qts[0].subject%></h2>
+        <h4><%= __('questionExam.form.add.exam.candidate') %>: <%=candidate.firstName + ' ' + candidate.lastName%></h4>
+        <h4><%= __('questionExam.form.add.exam.pesel') %>: <%=candidate.pesel%></h4>
+        <h4><%= __('questionExam.form.add.exam.date') %>: <%=new Date()%></h4>
 
         <%  %>
         <% let counter=0; %>
@@ -31,9 +31,9 @@
 
         <div class="form-buttons"> 
             <p id="errorSummary"></p>
-        <input type="button" onclick="insertIntoDatabaser(<%=counter%>)" value="Zakończ egzamin" class="form-button-submit">
+        <input type="button" onclick="insertIntoDatabaser(<%=counter%>)" value="<%= __('questionExam.form.add.exam.btnEndExam') %>" class="form-button-submit">
 
-        <a href="/../Pytanie_egzamin" class="form-button-cancel">Powrót</a>
+        <a href="/../Pytanie_egzamin" class="form-button-cancel"><%= __('questionExam.form.add.exam.btnReturn') %></a>
         </div>
 
     </form>

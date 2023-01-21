@@ -1,11 +1,12 @@
 <%- include('../../fragments/header.ejs') %>
         <main>
+            <h2><%= __('questionExam.form.add.pageTitle') %></h2>
             <form class="form" action="submit" novalidate>
 
 
-                <a href="/Pytanie_egzamin/egzamin/Nawigacja" class="form-button-submit">Rozpocznij egzamin (Nawigacja)</a>
-                <a href="/Pytanie_egzamin/egzamin/Człowiek" class="form-button-submit">Rozpocznij egzamin (Człowiek)</a>
-                <a href="/Pytanie_egzamin/egzamin/Prawo" class="form-button-submit">Rozpocznij egzamin (Prawo)</a>
+                <a href="/Pytanie_egzamin/egzamin/Nawigacja" class="form-button-submit"><%= __('questionExam.form.add.btnLabelN') %></a>
+                <a href="/Pytanie_egzamin/egzamin/Człowiek" class="form-button-submit"><%= __('questionExam.form.add.btnLabelC') %></a>
+                <a href="/Pytanie_egzamin/egzamin/Prawo" class="form-button-submit"><%= __('questionExam.form.add.btnLabelP') %></a>
             </form>
 
         </main>

@@ -1,16 +1,16 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
-                    <h2>Lista udzielonych odpowiedzi na egzaminie przez osoby</h2>
+                    <h2><%= __('questionExam.list.pageTitle') %></h2>
                     <table id=tabelka" class="table-list">
                         <tr>
-                                            <th>Id</th>
-                                            <th>Id egzaminu</th>
-                                            <th>Pytanie</th>
-                                            <th>Odpowiedź</th>
-                                            <th>Godzina odpowiedzi</th>
-                                            <th>Pesel kandydata</th>
-                                            <th>Kandydat</th>
-                                            <th>Akcje</th>
+                                            <th><%= __('questionExam.fields.id') %></th>
+                                            <th><%= __('questionExam.fields.examId') %></th>
+                                            <th><%= __('questionExam.fields.question') %></th>
+                                            <th><%= __('questionExam.fields.answer') %></th>
+                                            <th><%= __('questionExam.fields.response time') %></th>
+                                            <th><%= __('questionExam.fields.candidates pesel') %></th>
+                                            <th><%= __('questionExam.fields.candidate') %></th>
+                                            <th><%= __('list.actions.title') %></th>
                                         </tr>
 
                         <tbody>
@@ -53,15 +53,15 @@
                                             <td><%= person %></td>
 
                                             <td>
-                                                <a href="../Pytanie_egzamin/details/<%=questionExam._id%>" class="list-actions-button-details">Szczegóły</a>
-                                                <a href="../Pytanie_egzamin/edit/<%=questionExam._id%>" class="list-actions-button-edit">Edytuj</a>
-                                                <a href="../Pytanie_egzamin/delete/<%=questionExam._id%>" class="list-actions-button-delete">Usuń</a>
+                                                <a href="../Pytanie_egzamin/details/<%=questionExam._id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                                                <a href="../Pytanie_egzamin/edit/<%=questionExam._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                                                <a href="../Pytanie_egzamin/delete/<%=questionExam._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                                             </td>
                                         </tr>
                                         <% } %>
                         </tbody>
                     </table>
-                    <p><a href="/Pytanie_egzamin/wyborEgzaminu" class="button-add">Rozpocznij egzamin</a></p>
+                    <p><a href="/Pytanie_egzamin/wyborEgzaminu" class="button-add"><%= __('questionExam.list.addNew') %></a></p>
                 </main>
 <%- include('../../fragments/footer.ejs') %>
 

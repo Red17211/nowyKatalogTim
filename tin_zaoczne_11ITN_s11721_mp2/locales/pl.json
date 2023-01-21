@@ -39,7 +39,7 @@
 			"id": "Id",
 			"date": "Data egzaminu",
 			"subject": "Przedmiot",
-			"subjectPlaceholder": "2-30 characters",
+			"subjectPlaceholder": "2-60 characters",
 			"startTime": "Godzina ropzoczęcia",
 			"endTime": "Godzina zakończenia",
 			"points": "Punkty do zdobycia",
@@ -61,7 +61,7 @@
 				}
 			},
 			"details": {
-				"pageTitle": "Exam details",
+				"pageTitle": "Szczegóły egzaminu",
 				"btnLabel": "Edit",
 				"btnLabelP": "Return",
 				"text": "Lista udzielonych odpowiedzi na egzaminach",
@@ -85,8 +85,65 @@
 					"header": "Potwierdzenie zapisu",
 					"text": "Zmiany zostały zapisane"
 				}
-
 			}
 		}
+	},
+	"questionExam": {
+		"fields": {
+			"id": "Id",
+			"examId": "Id egzaminu",
+			"question": "Pytanie",
+			"answer": "Odpowiedź",
+			"response time": "Godzina odpowiedzi",
+			"candidates pesel": "Pesel kandydata",
+			"candidate": "Kandydat"
+		},
+		"list": {
+			"title": "Pytanie egzamin",
+			"addNew": "Rozpocznij egzamin",
+			"pageTitle": "Lista udzielonych odpowiedzi na egzaminie przez osoby"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Wybór egzaminu",
+				"btnLabelN": "Rozpocznij egzamin(Nawigacja)",
+				"btnLabelC": "Rozpocznij egzamin(Człowiek)",
+				"btnLabelP": "Rozpocznij egzamin(Prawo)",
+			"exam":{
+				"pageTitle": "Egzamin z przedmiotu",
+				"candidate": "Kandydat",
+				"pesel": "Pesel",
+				"date": "Data",
+				"btnReturn": "Powrót",
+				"btnEndExam" : "Zakończ egzamin"
+			},
+				"confirm": {
+								"header": "Egzamin zakończony",
+								"text": "Egzamin został zakończony. Twoje odpowiedzi zostały zapisane.",
+								"btnReturn": "Powrót"
+						}
+				},
+			"details": {
+				"pageTitle": "Szczegóły udzielonych odpowiedzi na egzaminach",
+				"btnLabel": "Edit",
+				"btnLabelP": "Powrót"
+			},
+			"edit": {
+				"pageTitle": "Edycja udzielonej odpowiedzi na egzaminie",
+				"btnLabel": "Zapisz",
+				"confirm": {
+					"header": "Edycja udzielonych wcześniej odpowiedzi",
+					"text": "Odpowiedzi zostały edytowane"
+				}
+			},
+			"delete": {
+				"btnLabel": "Powrót",
+				"confirm": {
+					"header": "Usunięcie udzielonych odpowiedzi",
+					"text": "Odpowiedź została usunieta"
+				}
+			}
+		}
+
 	}
 }

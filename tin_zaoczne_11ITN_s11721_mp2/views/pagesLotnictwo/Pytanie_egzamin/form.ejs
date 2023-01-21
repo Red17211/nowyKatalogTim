@@ -57,7 +57,7 @@
 
                 <% if (formMode == 'showDetails') { %>
                 <div class="section-buttons">
-                    <a href="/Pytanie_egzamin/edit/<%= questionExam._id %>" class="form-button-submit">Edytuj</a>
+                    <a href="/Pytanie_egzamin/edit/<%= questionExam._id %>" class="form-button-submit"><%= __('questionExam.form.edit.btnLabel') %></a>
                 </div>
                 <% } %>
 
@@ -69,7 +69,7 @@
 
                     <a class="form-button-cancel" href="/Pytanie_egzamin">Anuluj</a>
                     <% } else { %>
-                    <a class="form-button-cancel" href="/Pytanie_egzamin">Powrót</a>
+                    <a class="form-button-cancel" href="/Pytanie_egzamin"><%= __('questionExam.form.edit.btnLabelP') %></a>
                     <% } %>
                 </div>
     </form>
