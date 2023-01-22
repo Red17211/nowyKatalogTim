@@ -220,15 +220,15 @@
 		},
 		"form": {
 			"add": {
-				"pageTitle": "Nowy pytanie",
-				"btnLabel": "Dodaj pytanie",
+				"pageTitle": "Dodaj nową osoba",
+				"btnLabel": "Dodaj osobę",
 				"confirm": {
-					"header": "Nowe pytanie",
-					"text": "Nowe pytanie zostało dodane"
+					"header": "Dodanie nowej osoby",
+					"text": "Nowa osoba została dodana"
 				}
 			},
 			"details": {
-				"pageTitle": "Szczegóły pytania",
+				"pageTitle": "Szczegóły osoby",
 				"text": "Lista udzielonych odpowiedzi na egzaminach",
 				"table": {
 					"question": "Pytanie",
@@ -239,8 +239,8 @@
 			"edit": {
 				"pageTitle": "Edycja pytania",
 				"confirm": {
-					"header": "Edycja wcześniej dodanego pytania",
-					"text": "Pytanie zostało edytowane"
+					"header": "Edycja wcześniej dodanej osoby",
+					"text": "Osoba została edytowana"
 				}
 			},
 			"delete": {

@@ -204,7 +204,7 @@ exports.deleteQuestionExam = (req, res, next) => {
     const questionExamId = req.params.questionExamId;
     QuestionExamRepository.deleteQuestionExam(questionExamId)
         .then( () => {
-            res.redirect('/Pytanie_egzamin')
+            res.redirect('../../Pytanie_egzamin/deleted')
         });
 }
 

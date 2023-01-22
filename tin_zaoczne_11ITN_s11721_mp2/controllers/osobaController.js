@@ -144,6 +144,6 @@ exports.deletePerson = (req, res, next) => {
     const personId = req.params.personId;
     PersonRepository.deletePerson(personId)
         .then( () => {
-            res.redirect('/Osoba')
+            res.redirect('../../Osoba/deleted')
         });
 }
