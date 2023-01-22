@@ -11,7 +11,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
         <% console.log("EGZAMIN DATA: " + exam.examDate); %>
-        <label for="examDate"><%= __('exam.fields.date') %><span class="symbol-required">*</span></label>
+        <label for="examDate"><%= __('exam.fields.date') %>:<span class="symbol-required">*</span></label>
 
 
         <input type="date" class="<%= validationErrors.find(e => e.path.includes('examDate')) ? 'error-input' : '' %>" name="examDate" id="examDate" value="<%= fmt.formatDate(exam.examDate) %>"
@@ -23,7 +23,7 @@
         </span>
 
 
-        <label for="subject"><%= __('exam.fields.subject') %><span class="symbol-required">*</span></label>
+        <label for="subject"><%= __('exam.fields.subject') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="<%= __('exam.fields.subjectPlaceholder') %>" value="<%= exam.subject %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorItem" class="errors-text">
@@ -32,7 +32,7 @@
              <% } %>
         </span>
 
-        <label for="startTime"><%= __('exam.fields.startTime') %><span class="symbol-required">*</span></label>
+        <label for="startTime"><%= __('exam.fields.startTime') %>:<span class="symbol-required">*</span></label>
         <input type="time" class="<%= validationErrors.find(e => e.path.includes('startTime')) ? 'error-input' : '' %>" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorStartTime" class="errors-text">
@@ -43,13 +43,13 @@
 
 
 
-        <label for="endTime"><%= __('exam.fields.endTime') %></label>
+        <label for="endTime"><%= __('exam.fields.endTime') %>:</label>
         <input type="time" name="endTime" id="endTime" placeholder="2-30 znaków" value="<%= exam.endTime %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
 
 
-        <label for="points"><%= __('exam.fields.points') %></label>
+        <label for="points"><%= __('exam.fields.points') %>:</label>
         <input type="number" class="<%= validationErrors.find(e => e.path.includes('points')) ? 'error-input' : '' %>" name="points" id="points" placeholder="<%= __('exam.fields.pointsPlaceholder') %>" value="<%= exam.points %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorPoints" class="errors-text">

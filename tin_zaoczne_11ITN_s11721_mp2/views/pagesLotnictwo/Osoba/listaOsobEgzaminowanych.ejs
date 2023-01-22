@@ -1,14 +1,14 @@
 <%- include('../../fragments/header.ejs') %>
 
         <main>
-            <h2>Lista osób egzaminowanych</h2>
+            <h2><%= __('person.list.pageTitle') %></h2>
             <table id=tabelka" class="table-list">
             <tr>
-                                <th>Pesel</th>
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                                <th>Kod uprawnienia</th>
-                                <th>Akcje</th>
+                                <th><%= __('person.fields.pesel') %></th>
+                                <th><%= __('person.fields.name') %></th>
+                                <th><%= __('person.fields.surname') %></th>
+                                <th><%= __('person.fields.Access level') %></th>
+                                <th><%= __('list.actions.title') %></th>
                             </tr>
             <tbody>
                         <% for (let person of persons) { %>
@@ -18,15 +18,15 @@
                                 <td><%= person.lastName %></td>
                                 <td><%= person.permissionCode %></td>
                                 <td>
-                                    <a href="../Osoba/details/<%=person.pesel%>" class="list-actions-button-details">Szczegóły</a>
-                                    <a href="../Osoba/edit/<%=person.pesel%>" class="list-actions-button-edit">Edytuj</a>
-                                    <a href="../Osoba/delete/<%=person.pesel%>" class="list-actions-button-delete">Usuń</a>
+                                    <a href="../Osoba/details/<%=person.pesel%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                                    <a href="../Osoba/edit/<%=person.pesel%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                                    <a href="../Osoba/delete/<%=person.pesel%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                                 </td>
                             </tr>
                             <% } %>
             </tbody>
             </table>
-            <p><a href="/Osoba/add" class="button-add">Dodaj nową osobę</a></p>
+            <p><a href="/Osoba/add" class="button-add"><%= __('person.list.addNew') %></a></p>
         
         </main>
 <%- include('../../fragments/footer.ejs') %>

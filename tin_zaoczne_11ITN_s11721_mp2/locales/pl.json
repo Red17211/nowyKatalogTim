@@ -17,7 +17,9 @@
 		"exam": "Egzamin",
 		"questionExam": "Pytanie egzamin",
 		"question": "Pytanie",
-		"person": "Osoba"
+		"person": "Osoba",
+		"valField": "Pole jest wymagane",
+		"valForm": "Formularz zawiera błędy"
 	},
 	"list": {
 		"actions": {
@@ -203,13 +205,13 @@
 	},
 	"person": {
 		"fields": {
-			"pesel": "Pesel:",
-			"name": "Treść pytania",
-			"surname": "Odpowiedź 1",
-			"Access level": "Odpowiedź 2",
+			"pesel": "Pesel",
+			"name": "Imię",
+			"surname": "Nazwisko",
+			"Access level": "Poziom dostępu",
 
-			"personPlaceholder5": "11 znaków",
-			"personPlaceholder3": "2-30 znaków",
+			"personPlaceholder11": "11 znaków",
+			"personPlaceholder2": "3-60 znaków",
 			"personPlaceholder1": "1 znak"
 
 		},
@@ -237,7 +239,7 @@
 				}
 			},
 			"edit": {
-				"pageTitle": "Edycja pytania",
+				"pageTitle": "Edycja osoby",
 				"confirm": {
 					"header": "Edycja wcześniej dodanej osoby",
 					"text": "Osoba została edytowana"
@@ -245,8 +247,8 @@
 			},
 			"delete": {
 				"confirm": {
-					"header": "Usunięcie pytania",
-					"text": "Pytanie zostało usunięte"
+					"header": "Usunięcie osoby",
+					"text": "Osoba została usunięta"
 				}
 			}
 		}

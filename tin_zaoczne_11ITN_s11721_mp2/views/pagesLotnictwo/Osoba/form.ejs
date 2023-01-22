@@ -8,8 +8,8 @@
  >
 
 
-        <label for="pesel">PESEL:<span class="symbol-required">*</span></label>
-        <input type="number" class="<%= validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')) ? 'error-input' : '' %>" name="pesel" id="pesel" placeholder="11 znaków" value="<%= person.pesel %>"
+        <label for="pesel"><%= __('person.fields.pesel') %>:<span class="symbol-required">*</span></label>
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')) ? 'error-input' : '' %>" name="pesel" id="pesel" placeholder="<%= __('person.fields.personPlaceholder11') %>" value="<%= person.pesel %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
         <span id="errorPesel" class="errors-text">
@@ -18,8 +18,8 @@
             <% } %>
         </span>
 
-        <label for="firstName">Imię:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" name="firstName" id="firstName" placeholder="2-30 znaków" value="<%= person.firstName %>"
+        <label for="firstName"><%= __('person.fields.name') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" name="firstName" id="firstName" placeholder="<%= __('person.fields.personPlaceholder2') %>" value="<%= person.firstName %>"
         <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
 
 
@@ -29,8 +29,8 @@
                      <% } %>
                 </span>
 
-        <label for="lastName">Nazwisko:<span class="symbol-required">*</span></label>
-        <input type="text" class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>" name="lastName" id="lastName" placeholder="2-30 znaków" value="<%= person.lastName %>"
+        <label for="lastName"><%= __('person.fields.surname') %>:<span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>" name="lastName" id="lastName" placeholder="<%= __('person.fields.personPlaceholder2') %>" value="<%= person.lastName %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
         <span id="errorSurname" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
@@ -38,8 +38,8 @@
             <% } %>
         </span>
 
-        <label for="permissionCode">Poziom dostępu:<span class="symbol-required">*</span></label>
-        <input type="number" class="<%= validationErrors.find(e => e.path.includes('permissionCode')) ? 'error-input' : '' %>" name="permissionCode" id="permissionCode" placeholder="1 znak" value="<%= person.permissionCode %>"
+        <label for="permissionCode"><%= __('person.fields.Access level') %>:<span class="symbol-required">*</span></label>
+        <input type="number" class="<%= validationErrors.find(e => e.path.includes('permissionCode')) ? 'error-input' : '' %>" name="permissionCode" id="permissionCode" placeholder="<%= __('person.fields.personPlaceholder1') %>" value="<%= person.permissionCode %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
         <span id="errorPermissionCode" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('permissionCode'))) { %>
@@ -51,20 +51,20 @@
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
-            <a href="/Osoba/edit/<%= person.pesel %>" class="form-button-submit">Edytuj</a>
+            <a href="/Osoba/edit/<%= person.pesel %>" class="form-button-submit"><%= __('form.actions.edit') %></a>
         </div>
         <% } %>
 
         <% if (formMode == 'showDetails') { %>
         <h2>
-            Lista udzielonych odpowiedzi na egzaminach
+            <%= __('person.form.details.text') %>
         </h2>
         <table class="table-list">
             <thead>
             <tr>
-                <th>Pytanie</th>
-                <th>Odpowiedz</th>
-                <th>Godzina odpowiedzi</th>
+                <th><%= __('exam.form.details.table.question') %></th>
+                <th><%= __('exam.form.details.table.answer') %></th>
+                <th><%= __('exam.form.details.table.timeAnswer') %></th>
             </tr>
             </thead>
             <tbody>
@@ -88,10 +88,10 @@
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                <a class="form-button-cancel" href="/Osoba">Anuluj</a>
+                <input class="form-button-submit" type="submit" value="<%= __('form.actions.save') %>" />
+                <a class="form-button-cancel" href="/Osoba"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-                <a class="form-button-cancel" href="/Osoba">Powrót</a>
+                <a class="form-button-cancel" href="/Osoba"><%= __('form.actions.return') %></a>
             <% } %>
         </div>
         </form>

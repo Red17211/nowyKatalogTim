@@ -1,10 +1,10 @@
  <%- include('../../fragments/header.ejs') %>
         <main>
-            <h2>Edycja wcześniej dodanej osoby</h2>
-            Osoba została edytowana
+            <h2><%= __('person.form.edit.confirm.header') %></h2>
+            <%= __('person.form.edit.confirm.text') %>
             
             <br><br>
-            <a href="./" class="form-button-cancel">Powrót</a>
+            <a href="./" class="form-button-cancel"><%= __('form.actions.return') %></a>
         </main>
  <%- include('../../fragments/footer.ejs') %>
 

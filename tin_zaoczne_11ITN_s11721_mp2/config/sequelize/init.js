@@ -4,7 +4,7 @@ const Question = require('../../model/sequelize/Question');
 const Exam = require('../../model/sequelize/Exam');
 const Question_Exam = require('../../model/sequelize/Question_Exam');
 const authUtil = require('../../util/authUtils');
-const passHash = authUtil.hashPassword('');
+const passHash = authUtil.hashPassword('123456');
 //Zdefiniujemy relacje pomiędzy tabelami,Zainicjalizujemy instancję mappera,Wymusimy synchronizację naszego modelu ze schematem bazy danych,Wstawimy przykładowe dane
 module.exports = () => {
 

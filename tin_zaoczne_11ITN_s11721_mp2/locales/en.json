@@ -17,7 +17,9 @@
 		"exam": "Exam",
 		"questionExam": "Question Exam",
 		"question": "Question",
-		"person": "Person"
+		"person": "Person",
+		"valField": "The field is required",
+		"valForm": "The form contains errors"
 	},
 	"list": {
 		"actions": {
@@ -200,7 +202,54 @@
 					"text": "The question has been deleted"
 				}
 			}
-
+		}
+	},
+	"person": {
+		"fields": {
+			"pesel": "Pesel",
+			"name": "Name",
+			"surname": "Surname",
+			"Access level": "Access level",
+			"personPlaceholder11": "11 characters",
+			"personPlaceholder2": "3-60 characters",
+			"personPlaceholder1": "1 character"
+		},
+		"list": {
+			"title": "Person",
+			"addNew": "Add a new person",
+			"pageTitle": "List of examinees"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add a new person",
+				"btnLabel": "Add person",
+				"confirm": {
+					"header": "Adding a new person",
+					"text": "A new person has been added"
+				}
+			},
+			"details": {
+				"pageTitle": "Person details",
+				"text": "List of answers given in exams",
+				"table": {
+					"question": "Question",
+					"answer": "Answer",
+					"timeAnswer": "Time answer"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing a person",
+				"confirm": {
+					"header": "Editing a previously added person",
+					"text": "The person has been edited"
+				}
+			},
+			"delete": {
+				"confirm": {
+					"header": "Delete a person",
+					"text": "The person has been removed"
+				}
+			}
 		}
 	}
 }
