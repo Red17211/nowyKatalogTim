@@ -251,6 +251,7 @@ textarea {
 .form input[type="text"],
 .form input[type="date"],
 .form input[type="time"],
+.form input[type="password"],
 .form input[type="number"] {
     border: 1px solid #5b7f82;
     color: #2c3e50;
@@ -403,6 +404,7 @@ display: block;
 .myForm input[type="text"],
 .myForm input[type="date"],
 .myForm input[type="time"],
+.form input[type="password"],
 .myForm input[type="number"] {
     border: 1px solid #7f8c8d;
     color: #2c3e50;

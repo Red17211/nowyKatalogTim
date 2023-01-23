@@ -6,7 +6,7 @@
 	"login": {
 		"login": "Logowanie:",
 		"pesel": "Pesel:",
-		"pass": "Hasło:",
+		"pass": "Hasło",
 		"loginBTN": "Zaloguj się",
 		"loginBy": "Zalogowany jesteś jako:",
 		"logout": "Wyloguj się"
@@ -220,7 +220,8 @@
 
 			"personPlaceholder11": "11 znaków",
 			"personPlaceholder2": "3-60 znaków",
-			"personPlaceholder1": "1 znak"
+			"personPlaceholder1": "1 znak",
+			"passPlaceholder": "minimum 6 znaków"
 
 		},
 		"list": {

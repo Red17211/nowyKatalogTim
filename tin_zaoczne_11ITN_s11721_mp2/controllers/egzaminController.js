@@ -55,7 +55,7 @@ exports.showEditPage = (req, res, next) => {
                 console.log('examController: ' + exam);
                 res.render('pagesLotnictwo/Egzamin/form',{
                     exam: exam,
-                    pageTitle: 'Edycja egzaminu',
+                    pageTitle: req.__('exam.form.details.pageTitle'),
                     formMode: 'edit',
                     btnLabel: req.__('form.actions.edit'),
                     formAction: './',

@@ -30,7 +30,8 @@ exports.createPerson = (newPersondata) => {
         firstName: newPersondata.firstName,
         lastName: newPersondata.lastName,
         pesel: newPersondata.pesel,
-        permissionCode: newPersondata.permissionCode
+        permissionCode: newPersondata.permissionCode,
+        password: newPersondata.password
     });
 };
 
@@ -39,6 +40,7 @@ exports.updatePerson = (personId, personData) => {
     const lastName = personData.lastName;
     const pesel = personData.pesel;
     const permissionCode = personData.permissionCode;
+    const password = personData.password;
     return Person.update(personData, {where: {pesel: personId}});
 };
 

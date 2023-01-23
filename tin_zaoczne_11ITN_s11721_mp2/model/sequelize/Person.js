@@ -60,7 +60,16 @@ const Person = sequelize.define("Person", {
 
    password: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+              notEmpty: {
+                msg:"errors.noValue"
+              },
+              len: {
+                 args: [6,100],
+                 msg: "errors.perror"
+              }
+          }
    }
 });
 
