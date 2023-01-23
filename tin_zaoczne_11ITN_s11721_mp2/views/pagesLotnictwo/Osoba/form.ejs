@@ -4,7 +4,7 @@
     <script type="application/javascript" src="/js/validationDodajOsobeForm.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate" onsubmit="return validateForm();"
+    <form class="form" method="post" action="<%=formAction%>" novalidate " onsubmit="return validateForm();"
  >
 
 
@@ -14,9 +14,13 @@
 
         <span id="errorPesel" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel'))) { %>
-                <%= validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')).message %>
+                <%= __(validationErrors.find(e => e.path.includes('PRIMARY') || e.path.includes('pesel')).message) %>
             <% } %>
         </span>
+
+        <div style="display: none">
+           <span id="errorMessage-required"><%= __('errors.noValue') %></span>
+        </div>
 
         <label for="firstName"><%= __('person.fields.name') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" name="firstName" id="firstName" placeholder="<%= __('person.fields.personPlaceholder2') %>" value="<%= person.firstName %>"
@@ -25,7 +29,7 @@
 
          <span id="errorName" class="errors-text">
                      <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
-                         <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+                         <%= __(validationErrors.find(e => e.path.includes('firstName')).message) %>
                      <% } %>
                 </span>
 
@@ -34,7 +38,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
         <span id="errorSurname" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
-                <%= validationErrors.find(e => e.path.includes('lastName')).message %>
+                <%= __(validationErrors.find(e => e.path.includes('lastName')).message) %>
             <% } %>
         </span>
 
@@ -43,11 +47,15 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
         <span id="errorPermissionCode" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('permissionCode'))) { %>
-                <%= validationErrors.find(e => e.path.includes('permissionCode')).message %>
+                <%= __(validationErrors.find(e => e.path.includes('permissionCode')).message) %>
             <% } %>
         </span>
 
-        <div id="allForm2" class="allErrors Errors"></div>
+        <div id="allForm2" class="allErrors Errors">  </div>
+
+        <div style="display: none">
+            <span id="general-required"><%= __('errors.gerror') %></span>
+        </div>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">

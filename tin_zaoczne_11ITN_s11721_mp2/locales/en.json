@@ -34,9 +34,17 @@
 			"return": "Return",
 			"edit": "Edit",
 			"cancel": "Cancel",
-			"save": "Save"
+			"save": "Save",
+			"add": "Add"
 		}
 	},
+	"errors": {
+		"noValue": "The field is required",
+		"gerror": "The form contains errors",
+		"perror": "The field should contain 11 characters"
+
+	},
+
 	"exam": {
 		"fields": {
 			"id": "Id",

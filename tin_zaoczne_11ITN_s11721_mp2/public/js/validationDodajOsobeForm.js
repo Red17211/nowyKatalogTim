@@ -20,19 +20,27 @@ function validateForm() {
 
     // walidacja peselu
 
+    const reqMessage = document.getElementById('errorMessage-required').innerText;
+
+
+    const generalMessage = document.getElementById('general-required').innerText;
+
     if (!checkRequired(peselInput.value)) {
 
         valid = false;
 
         peselInput.classList.add("error-input");
-        errorPesel.innerText = "Pole jest wymagane-walidacja front";
+
         errorPesel.style.display="block";
         errorPesel.classList.add("Errors");
+
+        errorPesel.innerText = reqMessage;
+
     } else if (!checkTextLengthRange(peselInput.value, 11, 11)) {
 
         valid = false;
         peselInput.classList.add("error-input");
-        errorPesel.innerText = "Pole powinno zwiarać 11 znaków";
+        errorPesel.innerText = "errors.perror";
         errorPesel.style.display="block";
         errorPesel.classList.add("Errors");
     }   
@@ -71,7 +79,7 @@ function validateForm() {
         valid = false;
         
         surnameInput.classList.add("error-input");
-        errorSurname.innerText = "Pole powinno zwiarać od 3 do 60";
+        errorSurname.innerText = generalMessage;
         errorSurname.style.display="block";
         errorSurname.classList.add("Errors");
     }
@@ -95,7 +103,9 @@ function validateForm() {
         errorPermissionCode.classList.add("Errors");
     }
     if (!valid) {
-        errorSummary.innerText = "Formularz zawiera błędy";
+        errorSummary.classList.add("error-input");
+        errorSummary.style.display="block";
+        errorSummary.innerText = <%__('errors.gerror')%>;
     }
 
     return valid;

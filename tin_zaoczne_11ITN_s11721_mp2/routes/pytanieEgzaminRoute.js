@@ -16,6 +16,6 @@ router.get('/deleted', anExamController.showDeletedConfirmation);
 router.post('/egzamin', anExamController.addQuestionExam);
 router.post('/add', anExamController.addQuestionExam);
 router.post('/edit', anExamController.updateQuestionExam);
-router.get('/delete/:personId', anExamController.deleteQuestionExam);
+router.get('/delete/:questionExamId', anExamController.deleteQuestionExam);
 
 module.exports = router;

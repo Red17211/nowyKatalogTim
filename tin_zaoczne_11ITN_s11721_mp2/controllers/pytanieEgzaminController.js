@@ -201,7 +201,9 @@ exports.updateQuestionExam = (req, res, next) => {
 }
 
 exports.deleteQuestionExam = (req, res, next) => {
+
     const questionExamId = req.params.questionExamId;
+    console.log('id question exam: ' + req.params);
     QuestionExamRepository.deleteQuestionExam(questionExamId)
         .then( () => {
             res.redirect('../../Pytanie_egzamin/deleted')

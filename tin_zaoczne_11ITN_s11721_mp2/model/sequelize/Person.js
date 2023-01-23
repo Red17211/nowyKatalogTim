@@ -9,11 +9,11 @@ const Person = sequelize.define("Person", {
         unique: true,
         validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg: "errors.noValue"
             },
             len: {
                 args: [1,11],
-                msg: "Pole powinno zawierać 11 znaków"
+                msg: "errors.perror"
             }
 
         }
@@ -23,7 +23,7 @@ const Person = sequelize.define("Person", {
         allowNull: false,
         validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [2,30],
@@ -36,7 +36,7 @@ const Person = sequelize.define("Person", {
        allowNull: false,
        validate: {
            notEmpty: {
-                msg:"Pole jest wymagane"
+                msg:"errors.noValue"
            },
            len: {
                 args: [2,30],
@@ -49,7 +49,7 @@ const Person = sequelize.define("Person", {
       allowNull: false,
       validate: {
           notEmpty: {
-            msg:"Pole jest wymagane"
+            msg:"errors.noValue"
           },
           len: {
           args: [1,1],

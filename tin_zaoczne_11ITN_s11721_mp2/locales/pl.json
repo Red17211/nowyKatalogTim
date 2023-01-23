@@ -34,9 +34,17 @@
 			"return": "Powrót",
 			"edit": "Edytuj",
 			"cancel": "Anuluj",
-			"save": "Zapisz"
+			"save": "Zapisz",
+			"add": "Dodaj"
 		}
 	},
+
+	"errors": {
+		"noValue": "Pole jest wymagane",
+		"gerror": "Formularz zawiera błędy",
+		"perror": "Pole powinno zawierać 11 znaków"
+	},
+
 	"exam": {
 		"fields": {
 			"id": "Id",

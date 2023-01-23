@@ -16,7 +16,7 @@ exports.showEgzaminDodajEgzamin = (req, res, next) => {
             exam: {},
             pageTitle: req.__('exam.form.add.pageTitle'),
             formMode: 'createNew',
-            btnLabel: 'Dodaj egzamin',
+            btnLabel: req.__('form.actions.add'),
             formAction: '/Egzamin/add',
             navLocation: 'exam',
             validationErrors: []
@@ -30,7 +30,7 @@ exports.showExamDetails = (req, res, next) => {
             .then(exam =>{
                 res.render('pagesLotnictwo/Egzamin/form', {
                     exam: exam,
-                    pageTitle: 'Szczegóły egzaminu',
+                    pageTitle: req.__('exam.form.details.pageTitle'),
                     formMode: 'showDetails',
                     formAction: '',
                     navLocation: 'exam',
@@ -57,7 +57,7 @@ exports.showEditPage = (req, res, next) => {
                     exam: exam,
                     pageTitle: 'Edycja egzaminu',
                     formMode: 'edit',
-                    btnLabel: 'Zapisz',
+                    btnLabel: req.__('form.actions.edit'),
                     formAction: './',
                     navLocation: 'exam',
                     validationErrors: []
@@ -86,7 +86,7 @@ exports.addExam = (req, res, next) => {
                 exam: examData,
                 pageTitle: 'Nowy egzamin',
                 formMode: 'createNew',
-                btnLabel: 'Dodaj Egzamin',
+                btnLabel: req.__('form.actions.add'),
                 formAction: '/Egzamin/add',
                 navLocation: 'exam',
                 validationErrors: err.errors
@@ -116,7 +116,7 @@ exports.updateExam = (req, res, next) => {
                    exam: examData,
                    pageTitle: 'Edycja egzaminu',
                    formMode: 'edit',
-                   btnLabel: 'Zapisz',
+                   btnLabel: req.__('form.actions.add'),
                    formAction: '/Egzamin/edit',
                    navLocation: 'exam',
                    validationErrors: err.errors

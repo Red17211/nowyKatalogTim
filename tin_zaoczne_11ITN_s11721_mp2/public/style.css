@@ -275,7 +275,8 @@ textarea {
 
 .form input.error-input,
 .form select.error-input {
-    border: 3px solid #e15c4d
+    border: 3px solid #e15c4d;
+    diplay: block;
 }
 
 
@@ -426,7 +427,8 @@ display: block;
 
 .form input.error-input,
 .form select.error-input {
-    border: 3px solid #e74c3c
+    border: 3px solid #e74c3c;
+    display: block;
 }
 
 
