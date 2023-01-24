@@ -42,7 +42,13 @@
 	"errors": {
 		"noValue": "Pole jest wymagane",
 		"gerror": "Formularz zawiera błędy",
-		"perror": "Pole powinno zawierać 11 znaków"
+		"perror": "Pole powinno zawierać 11 znaków",
+		"pass": "Pole powinno zawierać 6-100 znaków",
+		"date": "Wymagany format to dd/mm/rr",
+		"field3-60" : "Pole powinno zawierać od 3 do 60 znaków",
+		"field5-60" : "Pole powinno zawierać od 5 do 60 znaków",
+		"field5" : "Pole powinno zawierać 5 znaków",
+		"field2" : "Pole powinno zawierać od 1 do 2 znaków"
 	},
 
 	"exam": {
@@ -50,7 +56,7 @@
 			"id": "Id",
 			"date": "Data egzaminu",
 			"subject": "Przedmiot",
-			"subjectPlaceholder": "2-60 characters",
+			"subjectPlaceholder": "3-60 characters",
 			"startTime": "Godzina ropzoczęcia",
 			"endTime": "Godzina zakończenia",
 			"points": "Punkty do zdobycia",
@@ -220,7 +226,7 @@
 
 			"personPlaceholder11": "11 znaków",
 			"personPlaceholder2": "3-60 znaków",
-			"personPlaceholder1": "1 znak",
+			"personPlaceholder1": "1 do 2 znaków",
 			"passPlaceholder": "minimum 6 znaków"
 
 		},

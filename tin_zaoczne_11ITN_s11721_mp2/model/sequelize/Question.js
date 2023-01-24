@@ -13,11 +13,11 @@ const Question = sequelize.define("Question", {
         allowNull: false,
         validate: {
              notEmpty: {
-                  msg:"Pole jest wymagane"
+                  msg:"errors.noValue"
              },
              len: {
                  args: [5,60],
-                 msg: "Pole powinno zawierać od 5 do 60 znaków"
+                 msg: "errors.field5-60"
              },
         }
     },
@@ -26,11 +26,11 @@ const Question = sequelize.define("Question", {
        allowNull: false,
        validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [3,60],
-                msg: "Pole powinno zawierać od 5 do 60 znaków"
+                msg: "errors.field3-60"
             },
        }
    },
@@ -39,11 +39,11 @@ const Question = sequelize.define("Question", {
        allowNull: false,
        validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [3,60],
-                msg: "Pole powinno zawierać od 3 do 60 znaków"
+                msg: "errors.field3-60"
             },
        }
    },
@@ -52,11 +52,11 @@ const Question = sequelize.define("Question", {
        allowNull: false,
        validate: {
            notEmpty: {
-                msg:"Pole jest wymagane"
+                msg:"errors.noValue"
            },
            len: {
                args: [3,60],
-               msg: "Pole powinno zawierać od 3 do 60 znaków"
+               msg: "errors.field3-60"
            },
        }
    },
@@ -65,11 +65,11 @@ const Question = sequelize.define("Question", {
        allowNull: false,
        validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [3,60],
-                msg: "Pole powinno zawierać od 3 do 60 znaków"
+                msg: "errors.field3-60"
             },
        }
    },
@@ -78,11 +78,11 @@ const Question = sequelize.define("Question", {
        allowNull: false,
        validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [3,60],
-                msg: "Pole powinno zawierać od 3 do 60 znaków"
+                msg: "errors.field3-60"
             },
        }
    }

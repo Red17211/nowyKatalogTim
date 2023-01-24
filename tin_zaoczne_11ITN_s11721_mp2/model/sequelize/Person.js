@@ -26,8 +26,8 @@ const Person = sequelize.define("Person", {
                  msg:"errors.noValue"
             },
             len: {
-                args: [2,30],
-                msg: "Pole powinno zawierać od 2 do 30 znaków"
+                args: [3,60],
+                msg: "errors.field3-60"
             },
         }
     },
@@ -39,8 +39,8 @@ const Person = sequelize.define("Person", {
                 msg:"errors.noValue"
            },
            len: {
-                args: [2,30],
-                msg: "Pole powinno zawierać od 2 do 30 znaków"
+                args: [3,60],
+                msg: "errors.field3-60"
            },
        }
    },
@@ -52,8 +52,8 @@ const Person = sequelize.define("Person", {
             msg:"errors.noValue"
           },
           len: {
-          args: [1,1],
-          msg: "Pole powinno zawierać 1 znak"
+          args: [1,2],
+          msg: "errors.field2"
           },
       }
    },
@@ -67,7 +67,7 @@ const Person = sequelize.define("Person", {
               },
               len: {
                  args: [6,100],
-                 msg: "errors.perror"
+                 msg: "errors.pass"
               }
           }
    }

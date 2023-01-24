@@ -41,14 +41,20 @@
 	"errors": {
 		"noValue": "The field is required",
 		"gerror": "The form contains errors",
-		"perror": "The field should contain 11 characters"
+		"perror": "The field should contain 11 characters",
+		"pass": "The field should contain 6-100 characters",
+		"date": "The required format is dd/mm/yy",
+		"field3-60": "The field should contain from 3 to 60 characters",
+		"field5-60": "The field should contain from 5 to 60 characters",
+		"field5": "The field should contain 5 characters",
+		"field2": "The field should contain 1 to 2 characters"
 	},
 	"exam": {
 		"fields": {
 			"id": "Id",
 			"date": "Exam date",
 			"subject": "Subject",
-			"subjectPlaceholder": "2-30 characters",
+			"subjectPlaceholder": "3-60 characters",
 			"startTime": "Start time",
 			"endTime": "End time",
 			"points": "Points to earn",
@@ -218,7 +224,7 @@
 			"Access level": "Access level",
 			"personPlaceholder11": "11 characters",
 			"personPlaceholder2": "3-60 characters",
-			"personPlaceholder1": "1 character",
+			"personPlaceholder1": "1 to 2 character",
 			"passPlaceholder": "minimum 6 characters",
 			"pass": "person.fields.pass"
 		},
@@ -260,6 +266,6 @@
 			}
 		}
 	},
-	"Pole powinno zawierać min znak": "Pole powinno zawierać min znak",
-	"Pole powinno zawierać od 2 do 30 znaków": "Pole powinno zawierać od 2 do 30 znaków"
+	"Pole powinno zawierać od 2 do 30 znaków": "Pole powinno zawierać od 2 do 30 znaków",
+	"Pole powinno zawierać 1 znak": "Pole powinno zawierać 1 znak"
 }

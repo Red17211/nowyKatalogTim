@@ -130,7 +130,7 @@
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%= __('form.actions.save') %>" />
+                <input class="form-button-submit" type="submit" value='<%=btnLabel%>' />
                 <a class="form-button-cancel" href="/Osoba"><%= __('form.actions.cancel') %></a>
             <% } else { %>
                 <a class="form-button-cancel" href="/Osoba"><%= __('form.actions.return') %></a>

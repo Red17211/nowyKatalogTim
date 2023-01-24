@@ -13,11 +13,11 @@ const Exam = sequelize.define("Exam", {
         allowNull: false,
         validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
                 args: [14/12/2022],
-                msg: "Wymagany format to dd/mm/rr"
+                msg: "errors.date"
             },
         }
     },
@@ -26,11 +26,11 @@ const Exam = sequelize.define("Exam", {
         allowNull: false,
         validate: {
             notEmpty: {
-                 msg:"Pole jest wymagane"
+                 msg:"errors.noValue"
             },
             len: {
-                args: [2,60],
-                msg: "Pole powinno zawierać od 2 do 60 znaków"
+                args: [3,60],
+                msg: "errors.field2-60"
             }
         }
     },
@@ -39,11 +39,11 @@ const Exam = sequelize.define("Exam", {
        allowNull: false,
        validate: {
            notEmpty: {
-                msg:"Pole jest wymagane"
+                msg:"errors.noValue"
            },
            len: {
                args: [5],
-               msg: "Pole jest wymagane"
+               msg: "errors.field5"
            },
        }
    },
@@ -57,11 +57,11 @@ const Exam = sequelize.define("Exam", {
 
         validate: {
                    notEmpty: {
-                        msg:"Pole jest wymagane"
+                        msg:"errors.noValue"
                    },
                    len: {
-                       args: [2],
-                       msg: "Pole jest wymagane"
+                       args: [1,2],
+                       msg: "errors.field2"
                    },
                }
     }

@@ -15,11 +15,11 @@
 
 
         <input type="date" class="<%= validationErrors.find(e => e.path.includes('examDate')) ? 'error-input' : '' %>" name="examDate" id="examDate" value="<%= fmt.formatDate(exam.examDate) %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorMyDate" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('examDate'))) { %>
-                 <%= validationErrors.find(e => e.path.includes('examDate')).message %>
-                 <% } %>
+                 <%= __(validationErrors.find(e => e.path.includes('examDate')).message) %>
+             <% } %>
         </span>
 
 
@@ -28,7 +28,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorItem" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
-                 <%= validationErrors.find(e => e.path.includes('subject')).message %>
+                 <%= __(validationErrors.find(e => e.path.includes('subject')).message) %>
              <% } %>
         </span>
 
@@ -37,7 +37,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorStartTime" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('startTime'))) { %>
-                 <%= validationErrors.find(e => e.path.includes('startTime')).message %>
+                 <%= __(validationErrors.find(e => e.path.includes('startTime')).message) %>
              <% } %>
         </span>
 
@@ -54,7 +54,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorPoints" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('points'))) { %>
-                 <%= validationErrors.find(e => e.path.includes('points')).message %>
+                 <%= __(validationErrors.find(e => e.path.includes('points')).message) %>
              <% } %>
         </span>
 

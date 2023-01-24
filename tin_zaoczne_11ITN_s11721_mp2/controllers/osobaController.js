@@ -15,9 +15,9 @@ exports.showDodajOsobe = (req, res, next) => {
 
     res.render('pagesLotnictwo/Osoba/form', {
         person: {},
-        pageTitle: 'Nowa osoba',
+        pageTitle: req.__('person.form.add.pageTitle'),
         formMode: 'createNew',
-        btnLabel: 'Dodaj osobę',
+        btnLabel: req.__('form.actions.add'),
         formAction: '/Osoba/add',
         navLocation: 'person',
         validationErrors: []
@@ -74,9 +74,9 @@ exports.showEditPage = (req, res, next) => {
             console.log('osobaController: ' + person);
             res.render('pagesLotnictwo/Osoba/form',{
                 person: person,
-                pageTitle: 'Edycja osoby',
+                pageTitle: req.__('person.form.edit.pageTitle'),
                 formMode: 'edit',
-                btnLabel: 'Zapisz',
+                btnLabel: req.__('form.actions.save'),
                 formAction: './',
                 navLocation: 'person',
                 validationErrors: []
@@ -104,9 +104,9 @@ exports.addPerson = (req, res, next) => {
             })
             res.render('pagesLotnictwo/Osoba/form', {
                 person: personData,
-                pageTitle: 'Dodawanie osoby',
+                pageTitle: req.__('person.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj osobę',
+                btnLabel: req.__('form.actions.add'),
                 formAction: '/Osoba/add',
                 navLocation: 'person',
                 validationErrors: err.errors
@@ -131,9 +131,9 @@ exports.updatePerson = (req, res, next) => {
                     })
                     res.render('pagesLotnictwo/Osoba/form', {
                         person: personData,
-                        pageTitle: 'Edycja osoby',
+                        pageTitle: req.__('person.form.edit.pageTitle'),
                         formMode: 'edit',
-                        btnLabel: 'Zapisz',
+                        btnLabel: req.__('form.actions.save'),
                         formAction: '/Osoba/edit',
                         navLocation: 'person',
                         validationErrors: err.errors

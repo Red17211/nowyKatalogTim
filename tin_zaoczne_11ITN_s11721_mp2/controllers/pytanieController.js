@@ -15,10 +15,9 @@ exports.showEgzaminDodajPytanie = (req, res, next) => {
 
      res.render('pagesLotnictwo/Pytanie/form', {
                 question: {},
-                pageTitle: 'Nowe pytanie',
-
+                pageTitle: req.__('question.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj pytanie',
+                btnLabel: req.__('form.actions.add'),
                 formAction: '/Pytanie/add',
                 navLocation: 'question',
                 validationErrors: []
@@ -31,7 +30,7 @@ exports.showQuestionDetails = (req, res, next) => {
                 .then(question =>{
                     res.render('pagesLotnictwo/Pytanie/form', {
                         question: question,
-                        pageTitle: 'Szczegóły pytania',
+                        pageTitle: req.__('exam.form.details.pageTitle'),
                         formMode: 'showDetails',
                         formAction: '',
                         navLocation: 'question',
@@ -57,9 +56,9 @@ exports.showEditPage = (req, res, next) => {
                     console.log('questionController: ' + question);
                     res.render('pagesLotnictwo/Pytanie/form',{
                         question: question,
-                        pageTitle: 'Edycja pytania',
+                        pageTitle: req.__('question.form.edit.pageTitle'),
                         formMode: 'edit',
-                        btnLabel: 'Zapisz',
+                        btnLabel: req.__('form.actions.save'),
                         formAction: './',
                         navLocation: 'question',
                         validationErrors: []
@@ -83,9 +82,9 @@ exports.addQuestion = (req, res, next) => {
             })
             res.render('pagesLotnictwo/Pytanie/form', {
                 question: questionData,
-                pageTitle: 'Nowe pytanie',
+                pageTitle: req.__('question.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj pytanie',
+                btnLabel: req.__('form.actions.add'),
                 formAction: '/Pytanie/add',
                 navLocation: 'question',
                 validationErrors: err.errors
@@ -112,9 +111,9 @@ exports.updateQuestion = (req, res, next) => {
                 })
                 res.render('pagesLotnictwo/Pytanie/form', {
                     question: questionData,
-                    pageTitle: 'Nowe pytanie',
+                    pageTitle: req.__('question.form.edit.pageTitle'),
                     formMode: 'createNew',
-                    btnLabel: 'Dodaj pytanie',
+                    btnLabel: req.__('form.actions.save'),
                     formAction: '/Pytanie/add',
                     navLocation: 'question',
                     validationErrors: err.errors

@@ -13,7 +13,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span class="errors-text" id="cont">
              <% if (validationErrors.find(e => e.path.includes('question'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('question')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('question')).message) %>
             <% } %>
         </span>
 
@@ -22,7 +22,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span class="errors-text" id="errorResponse1" >
              <% if (validationErrors.find(e => e.path.includes('answer1'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('answer1')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('answer1')).message) %>
              <% } %>
         </span>
 
@@ -31,7 +31,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorResponse2" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('answer2'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('answer2')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('answer2')).message) %>
              <% } %>
         </span>
 
@@ -40,7 +40,7 @@
         <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorResponse3" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('answer3'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('answer3')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('answer3')).message) %>
              <% } %>
         </span>
 
@@ -49,7 +49,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCorrectAnswer" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('correctAnswer'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('correctAnswer')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('correctAnswer')).message) %>
              <% } %>
         </span>
 
@@ -58,7 +58,7 @@
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorSubject" class="errors-text">
              <% if (validationErrors.find(e => e.path.includes('subject'))) { %>
-                  <%= validationErrors.find(e => e.path.includes('subject')).message %>
+                  <%= __(validationErrors.find(e => e.path.includes('subject')).message) %>
              <% } %>
         </span>
 
@@ -91,7 +91,7 @@
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%= __('form.actions.save') %>" />
+                <input class="form-button-submit" type="submit" value='<%=btnLabel%>' />
                 <a class="form-button-cancel" href="/Pytanie"><%= __('form.actions.cancel') %></a>
             <% } else { %>
                 <a class="form-button-cancel" href="/Pytanie"><%= __('form.actions.return') %></a>

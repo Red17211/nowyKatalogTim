@@ -55,9 +55,9 @@ exports.showEditPage = (req, res, next) => {
                 console.log('examController: ' + exam);
                 res.render('pagesLotnictwo/Egzamin/form',{
                     exam: exam,
-                    pageTitle: req.__('exam.form.details.pageTitle'),
+                    pageTitle: req.__('exam.form.edit.pageTitle'),
                     formMode: 'edit',
-                    btnLabel: req.__('form.actions.edit'),
+                    btnLabel: req.__('form.actions.save'),
                     formAction: './',
                     navLocation: 'exam',
                     validationErrors: []
@@ -84,7 +84,7 @@ exports.addExam = (req, res, next) => {
             })
             res.render('pagesLotnictwo/Egzamin/form', {
                 exam: examData,
-                pageTitle: 'Nowy egzamin',
+                pageTitle: req.__('exam.form.add.pageTitle'),
                 formMode: 'createNew',
                 btnLabel: req.__('form.actions.add'),
                 formAction: '/Egzamin/add',
@@ -114,7 +114,7 @@ exports.updateExam = (req, res, next) => {
                })
                res.render('pagesLotnictwo/Egzamin/form', {
                    exam: examData,
-                   pageTitle: 'Edycja egzaminu',
+                   pageTitle: req.__('exam.form.edit.pageTitle'),
                    formMode: 'edit',
                    btnLabel: req.__('form.actions.add'),
                    formAction: '/Egzamin/edit',

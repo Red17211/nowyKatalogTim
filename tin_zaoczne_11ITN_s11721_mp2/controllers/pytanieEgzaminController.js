@@ -50,7 +50,7 @@ exports.showQuestionExamDetails = (req, res, next) => {
                         questionExam = qe;
                             res.render('pagesLotnictwo/Pytanie_egzamin/form', {
 
-                                   pageTitle: 'Szczegóły udzielonych odpowiedzi na egzaminach',
+                                   pageTitle: req.__('questionExam.form.details.pageTitle'),
                                    formMode: 'showDetails',
                                    formAction: '',
                                    navLocation: 'anExam',
@@ -123,7 +123,7 @@ exports.showEditPage = (req, res, next) => {
                         PersonRepository.getPersons()
                         .then(persons => {
                             res.render('pagesLotnictwo/Pytanie_egzamin/form', {
-                               pageTitle: '(ADMIN) Edycja udzielonej odpowiedzi na egzaminie',
+                               pageTitle: req.__('questionExam.form.edit.pageTitle'),
                                formMode: 'edit',
                                formAction: '/Pytanie_egzamin/edit',
                                btnLabel: 'Zapisz',
