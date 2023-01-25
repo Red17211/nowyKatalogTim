@@ -18,14 +18,14 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
-            <li><a href="/Egzamin"class="<%= navLocation == 'exam' ? 'active' : ''%>"><%= __('nav.exam') %></a></li>
-            <li><a href="/Pytanie_egzamin"class="<%= navLocation == 'anExam' ? 'active' : ''%>"><%= __('nav.questionExam') %></a></li>
-            <li><a href="/Pytanie"class="<%= navLocation == 'question' ? 'active' : ''%>"><%= __('nav.question') %></a></li>
-            <li><a href="/Osoba"class="<%= navLocation == 'person' ? 'active' : ''%>"><%= __('nav.person') %></a></li>
-            <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
-            <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
-            <% if (loggedUser) { %>
 
+            <% if (loggedUser) { %>
+                <li><a href="/Egzamin"class="<%= navLocation == 'exam' ? 'active' : ''%>"><%= __('nav.exam') %></a></li>
+                <li><a href="/Pytanie_egzamin"class="<%= navLocation == 'anExam' ? 'active' : ''%>"><%= __('nav.questionExam') %></a></li>
+                <li><a href="/Pytanie"class="<%= navLocation == 'question' ? 'active' : ''%>"><%= __('nav.question') %></a></li>
+                <li><a href="/Osoba"class="<%= navLocation == 'person' ? 'active' : ''%>"><%= __('nav.person') %></a></li>
+                <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+                <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
             <% } %>
         </ul>
 

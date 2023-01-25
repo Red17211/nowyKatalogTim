@@ -6,11 +6,11 @@ function validateForm() {
     const permissionCodeInput = document.getElementById('permissionCode');
     const passwordInput = document.getElementById('password');
 
-    const errorPesel = document.getElementById('LerrorPesel');
-    const errorName = document.getElementById('LerrorName');
-    const errorSurname = document.getElementById('LerrorSurname');
-    const errorPermissionCode = document.getElementById('LerrorPermissionCode');
-    const errorPassword = document.getElementById('LerrorPassword');
+    const errorPesel = document.getElementById('errorPesel');
+    const errorName = document.getElementById('errorName');
+    const errorSurname = document.getElementById('errorSurname');
+    const errorPermissionCode = document.getElementById('errorPermissionCode');
+    const errorPassword = document.getElementById('errorPassword');
 
     const errorSummary = document.getElementById('allForm2');
 
@@ -28,10 +28,10 @@ function validateForm() {
     const accessLevelMessage = document.getElementById('accessLevel-required').innerText;
     const passwordMessage = document.getElementById('password-required').innerText;
 
-    const peselLengthMessage = document.getElementById('pesel-required').innerText;
-    const nameLengthMessage = document.getElementById('name-required').innerText;
-    const surnameLengthMessage = document.getElementById('surname-required').innerText;
-    const accessLevelLengthMessage = document.getElementById('accessLevel-required').innerText;
+    const peselLengthMessage = document.getElementById('Lpesel-required').innerText;
+    const nameLengthMessage = document.getElementById('Lname-required').innerText;
+    const surnameLengthMessage = document.getElementById('Lsurname-required').innerText;
+    const accessLevelLengthMessage = document.getElementById('LaccessLevel-required').innerText;
     const passwordLengthMessage = document.getElementById('Lpassword-required').innerText;
 
 
@@ -63,6 +63,7 @@ function validateForm() {
         errorName.style.display="block";
         errorName.classList.add("Errors");
         errorName.innerText = nameMessage;
+
     } else if (!checkTextLengthRange(nameInput.value, 3, 60)) {
         valid = false;
         nameInput.classList.add("error-input");

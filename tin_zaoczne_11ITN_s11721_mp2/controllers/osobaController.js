@@ -90,6 +90,12 @@ exports.showConfirmPage = (req, res, next) => {
 exports.addPerson = (req, res, next) => {
     const personData = { ...req.body };
     console.log('CON: ' + personData);
+    console.log("aktualnie haslo to: " + personData.password);
+
+    const authUtil = require('../util/authUtils');
+    const passHash = authUtil.hashPassword(personData.password);
+    personData.password = passHash;
+
     PersonRepository.createPerson(personData)
         .then( result => {
             res.redirect('/Osoba');

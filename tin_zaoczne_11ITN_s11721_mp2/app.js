@@ -68,16 +68,16 @@ const usersRouter = require('./routes/OsobaRoute');
 
 app.use('/', indexRouter);
 
-app.use('/Egzamin', EgzaminRouter); //podłączymy go pod ścieżką
-app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
-app.use('/Pytanie', PytanieRouter);
-app.use('/Osoba', usersRouter);
+//app.use('/Egzamin', EgzaminRouter); //podłączymy go pod ścieżką
+//app.use('/Pytanie_egzamin', pytanieEgzaminRouter);
+//app.use('/Pytanie', PytanieRouter);
+//app.use('/Osoba', usersRouter);
 
 
-//app.use('/Egzamin', authUtils.permitAuthenticatedUser, EgzaminRouter); //podłączymy go pod ścieżką
-//app.use('/Pytanie_egzamin', authUtils.permitAuthenticatedUser, pytanieEgzaminRouter);
-//app.use('/Pytanie', authUtils.permitAuthenticatedUser, PytanieRouter);
-//app.use('/Osoba', authUtils.permitAuthenticatedUser, usersRouter);
+app.use('/Egzamin', authUtils.permitAuthenticatedUser, EgzaminRouter); //podłączymy go pod ścieżką
+app.use('/Pytanie_egzamin', authUtils.permitAuthenticatedUser, pytanieEgzaminRouter);
+app.use('/Pytanie', authUtils.permitAuthenticatedUser, PytanieRouter);
+app.use('/Osoba', authUtils.permitAuthenticatedUser, usersRouter);
 
 
 const personApiRouter = require('./routes/api/PersonApiRoute');

@@ -3,7 +3,7 @@
     <script type="application/javascript" src="/js/validation.DodajNowyEgzamin.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate >
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();" >
 
 
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= exam._id %>"
@@ -21,6 +21,12 @@
                  <%= __(validationErrors.find(e => e.path.includes('examDate')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+           <span id="myDate-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+           <span id="LmyDate-required"><%= __('errors.date') %></span>
+        </div>
 
 
         <label for="subject"><%= __('exam.fields.subject') %>:<span class="symbol-required">*</span></label>
@@ -31,6 +37,12 @@
                  <%= __(validationErrors.find(e => e.path.includes('subject')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="item-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+        <span id="Litem-required"><%= __('errors.field3-60') %></span>
+        </div>
 
         <label for="startTime"><%= __('exam.fields.startTime') %>:<span class="symbol-required">*</span></label>
         <input type="time" class="<%= validationErrors.find(e => e.path.includes('startTime')) ? 'error-input' : '' %>" name="startTime" id="startTime" placeholder="5 znaków" value="<%= exam.startTime %>"
@@ -40,6 +52,12 @@
                  <%= __(validationErrors.find(e => e.path.includes('startTime')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+           <span id="start-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lstart-required"><%= __('errors.field5') %></span>
+        </div>
 
 
 
@@ -57,8 +75,18 @@
                  <%= __(validationErrors.find(e => e.path.includes('points')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="points-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lpoints-required"><%= __('errors.field2') %></span>
+        </div>
 
         <div id="allForm2" class="allErrors Errors"></div>
+
+        <div style="display: none">
+             <span id="general-required"><%= __('errors.gerror') %></span>
+        </div>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">

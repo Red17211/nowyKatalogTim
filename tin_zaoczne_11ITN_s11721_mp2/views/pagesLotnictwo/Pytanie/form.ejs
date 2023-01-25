@@ -3,7 +3,7 @@
     <script type="application/javascript" src="/js/validationDodajPytanie.js"></script>
     <h2><%= pageTitle %></h2>
 
-    <form class="form" method="post" action="<%=formAction%>" novalidate>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
         <input type="hidden" name="_id" id="_id" placeholder="" value="<%= question._id %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 
@@ -16,6 +16,13 @@
                   <%= __(validationErrors.find(e => e.path.includes('question')).message) %>
             <% } %>
         </span>
+        <div style="display: none">
+            <span id="contents-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lcontents-required"><%= __('errors.field5-60') %></span>
+        </div>
+
 
         <label for="answer1"><%= __('question.fields.answer1') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer1')) ? 'error-input' : '' %>" name="answer1" id="answer1" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer1 %>"
@@ -25,6 +32,12 @@
                   <%= __(validationErrors.find(e => e.path.includes('answer1')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="response1-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lresponse1-required"><%= __('field3-60') %></span>
+        </div>
 
         <label for="answer2"><%= __('question.fields.answer2') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer2')) ? 'error-input' : '' %>" name="answer2" id="answer2" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer2 %>"
@@ -34,6 +47,12 @@
                   <%= __(validationErrors.find(e => e.path.includes('answer2')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="response2-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lresponse2-required"><%= __('field3-60') %></span>
+        </div>
 
         <label for="answer3"><%= __('question.fields.answer3') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('answer3')) ? 'error-input' : '' %>" name="answer3" id="answer3" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.answer3 %>"
@@ -43,6 +62,12 @@
                   <%= __(validationErrors.find(e => e.path.includes('answer3')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="response3-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lresponse3-required"><%= __('field3-60') %></span>
+        </div>
 
         <label for="correctAnswer"><%= __('question.fields.correctAnswer') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('correctAnswer')) ? 'error-input' : '' %>" name="correctAnswer" id="correctAnswer" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.correctAnswer %>"
@@ -52,6 +77,12 @@
                   <%= __(validationErrors.find(e => e.path.includes('correctAnswer')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="correctAnswer-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="LcorrectAnswer-required"><%= __('field3-60') %></span>
+        </div>
 
         <label for="subject"><%= __('question.fields.subject') %>:<span class="symbol-required">*</span></label>
         <input type="text" class="<%= validationErrors.find(e => e.path.includes('subject')) ? 'error-input' : '' %>" name="subject" id="subject" placeholder="<%= __('question.fields.answerPlaceholder3') %>" value="<%= question.subject %>"
@@ -61,8 +92,18 @@
                   <%= __(validationErrors.find(e => e.path.includes('subject')).message) %>
              <% } %>
         </span>
+        <div style="display: none">
+            <span id="subject-required"><%= __('errors.noValue') %></span>
+        </div>
+        <div style="display: none">
+            <span id="Lsubject-required"><%= __('field3-60') %></span>
+        </div>
 
         <div id="allForm" class="allErrors Errors"></div>
+
+        <div style="display: none">
+            <span id="general-required"><%= __('errors.gerror') %></span>
+        </div>
 
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">

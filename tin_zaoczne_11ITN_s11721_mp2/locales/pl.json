@@ -38,19 +38,17 @@
 			"add": "Dodaj"
 		}
 	},
-
 	"errors": {
 		"noValue": "Pole jest wymagane",
 		"gerror": "Formularz zawiera błędy",
 		"perror": "Pole powinno zawierać 11 znaków",
 		"pass": "Pole powinno zawierać 6-100 znaków",
 		"date": "Wymagany format to dd/mm/rr",
-		"field3-60" : "Pole powinno zawierać od 3 do 60 znaków",
-		"field5-60" : "Pole powinno zawierać od 5 do 60 znaków",
-		"field5" : "Pole powinno zawierać 5 znaków",
-		"field2" : "Pole powinno zawierać od 1 do 2 znaków"
+		"field3-60": "Pole powinno zawierać od 3 do 60 znaków",
+		"field5-60": "Pole powinno zawierać od 5 do 60 znaków",
+		"field5": "Pole powinno zawierać 5 znaków",
+		"field2": "Pole powinno zawierać od 1 do 2 znaków"
 	},
-
 	"exam": {
 		"fields": {
 			"id": "Id",
@@ -152,7 +150,6 @@
 					"header": "Edycja udzielonych wcześniej odpowiedzi",
 					"text": "Odpowiedzi zostały edytowane"
 				}
-
 			},
 			"delete": {
 				"btnLabel": "Powrót",
@@ -223,12 +220,10 @@
 			"name": "Imię",
 			"surname": "Nazwisko",
 			"Access level": "Poziom dostępu",
-
 			"personPlaceholder11": "11 znaków",
 			"personPlaceholder2": "3-60 znaków",
 			"personPlaceholder1": "1 do 2 znaków",
 			"passPlaceholder": "minimum 6 znaków"
-
 		},
 		"list": {
 			"title": "Osoba",
@@ -267,5 +262,6 @@
 				}
 			}
 		}
-	}
+	},
+	"field3-60": "field3-60"
 }
